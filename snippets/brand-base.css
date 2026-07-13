@@ -1,0 +1,48 @@
+/* Apex Paramedics Brand — drop-in base CSS
+   Loads Montserrat + brand color variables from the public CDN.
+   Pull into any HTML output with:
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/brand-base.css">
+*/
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  /* Brand */
+  --apex-blue:        #134891;
+  --apex-blue-deep:   #0E3468;
+  --apex-blue-light:  #95ADCE;
+  --apex-gold:        #FFC92B;
+  --apex-gold-deep:   #B98900;
+  --apex-black:       #000000;
+  --apex-white:       #FFFFFF;
+
+  /* Neutrals */
+  --apex-charcoal: #1E293B;
+  --apex-muted:    #64748B;
+  --apex-hairline: #E2E8F0;
+  --apex-surface:  #f2f6fc;
+
+  /* Diagram extended */
+  --apex-decision: #4a8e3a;
+  --apex-decision-border: #3a7029;
+  --apex-warning: #f57c00;
+  --apex-warning-border: #cc6600;
+  --apex-info: #3e3e3e;
+  --apex-info-border: #2a2a2a;
+}
+
+body, html {
+  font-family: 'Montserrat', Calibri, Arial, sans-serif;
+  color: var(--apex-charcoal);
+}
