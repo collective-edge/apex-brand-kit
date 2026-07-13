@@ -1,10 +1,10 @@
 {
   "brand": {
-    "apexBlue":      { "hex": "#134891", "rgb": [19, 72, 145],   "pantone": "Blue 072 C", "role": "Primary brand color — logo wordmark, headers, links, buttons, primary accents" },
-    "apexBlueDeep":  { "hex": "#0E3468", "rgb": [14, 52, 104],   "role": "Hero backgrounds, full-width header bands, section dividers, footers" },
-    "apexBlueLight": { "hex": "#95ADCE", "rgb": [149, 173, 206], "role": "Tertiary accents, hover states, lighter highlights" },
-    "apexGold":      { "hex": "#FFC92B", "rgb": [255, 201, 43],  "pantone": "1235 C", "role": "Signature accent — the arc, accent bars, kickers, stat numerals, highlights" },
-    "apexGoldDeep":  { "hex": "#B98900", "rgb": [185, 137, 0],   "role": "Text-safe gold for small/bold labels or icons on white (bright gold fails contrast as text)" },
+    "apexBlue":      { "hex": "#2c338e", "rgb": [44, 51, 142],   "pantone": "Blue 072 C", "role": "Primary brand color — logo wordmark, headers, links, buttons, primary accents" },
+    "apexBlueDeep":  { "hex": "#1D225E", "rgb": [29, 34, 94],    "role": "Hero backgrounds, full-width header bands, section dividers, footers" },
+    "apexBlueLight": { "hex": "#9699C7", "rgb": [150, 153, 199], "role": "Tertiary accents, hover states, lighter highlights" },
+    "apexGold":      { "hex": "#f9ad16", "rgb": [249, 173, 22],  "pantone": "1235 C", "role": "Signature accent — the arc, accent bars, kickers, stat numerals, highlights" },
+    "apexGoldDeep":  { "hex": "#B77808", "rgb": [183, 120, 8],   "role": "Text-safe gold for small/bold labels or icons on white (bright gold fails contrast as text)" },
     "black":         { "hex": "#000000", "rgb": [0, 0, 0],       "role": "Body text, high-contrast headings on light backgrounds" },
     "white":         { "hex": "#FFFFFF", "rgb": [255, 255, 255], "role": "Text on dark backgrounds, page background" }
   },
@@ -12,7 +12,7 @@
     "charcoal": { "hex": "#1E293B", "role": "Body text on white" },
     "muted":    { "hex": "#64748B", "role": "Supporting text, captions, legends, footers" },
     "hairline": { "hex": "#E2E8F0", "role": "Card borders, thin rules" },
-    "surface":  { "hex": "#f2f6fc", "role": "Very-light blue background tint for alternating rows / callouts" }
+    "surface":  { "hex": "#f3f3fb", "role": "Very-light indigo background tint for alternating rows / callouts" }
   },
   "diagram": {
     "decision":    { "hex": "#4a8e3a", "borderHex": "#3a7029", "role": "Decision boxes, questions, branch points" },

@@ -18,7 +18,6 @@ apex-brand-kit/
 │       ├── horizontal-white.svg    # dark-background variant (white wordmark + gold arc)
 │       ├── mark-color.svg          # arc-only mark
 │       ├── mark-white.svg          # arc-only mark, white
-│       ├── horizontal-color.png    # raster fallback
 │       └── source/
 │           └── apex-paramedics.eps # authoritative vector source
 ├── snippets/
@@ -27,7 +26,7 @@ apex-brand-kit/
 └── Examples/                # Working examples using only CDN URLs
 ```
 
-The SVG logos are traced from the Apex artwork; `assets/logos/source/apex-paramedics.eps` remains the authoritative source for any future re-export.
+The SVG logos are converted from the source EPS; `assets/logos/source/apex-paramedics.eps` remains the authoritative master for any future re-export.
 
 ## CDN base URL
 
@@ -77,14 +76,14 @@ See `assets/colors.json` for the machine-readable source of truth, or `SKILL.md`
 
 | Name | Hex | Use |
 |---|---|---|
-| Apex Blue | `#134891` | Primary — wordmark, headers, links, buttons |
-| Apex Blue Deep | `#0E3468` | Hero headers, full-width bands, footers |
-| Apex Blue Light | `#95ADCE` | Tertiary accents only |
-| Apex Gold | `#FFC92B` | Signature accent — the arc, kickers, highlights |
-| Apex Gold Deep | `#B98900` | Text-safe gold for labels on white |
-| Surface | `#f2f6fc` | Very light blue background tint |
+| Apex Blue | `#2c338e` | Primary — wordmark, headers, links, buttons |
+| Apex Blue Deep | `#1D225E` | Hero headers, full-width bands, footers |
+| Apex Blue Light | `#9699C7` | Tertiary accents only |
+| Apex Gold | `#f9ad16` | Signature accent — the arc, kickers, highlights |
+| Apex Gold Deep | `#B77808` | Text-safe gold for labels on white |
+| Surface | `#f3f3fb` | Very light blue background tint |
 
-Colors are drawn from the logo's Pantone spot inks (Blue 072 C wordmark, 1235 C arc), matched to how the artwork renders on screen.
+Colors are taken directly from the logo artwork (Pantone Blue 072 C wordmark, 1235 C arc).
 
 ## Versioning
 

@@ -19,11 +19,11 @@
 
 :root {
   /* Brand */
-  --apex-blue:        #134891;
-  --apex-blue-deep:   #0E3468;
-  --apex-blue-light:  #95ADCE;
-  --apex-gold:        #FFC92B;
-  --apex-gold-deep:   #B98900;
+  --apex-blue:        #2c338e;
+  --apex-blue-deep:   #1D225E;
+  --apex-blue-light:  #9699C7;
+  --apex-gold:        #f9ad16;
+  --apex-gold-deep:   #B77808;
   --apex-black:       #000000;
   --apex-white:       #FFFFFF;
 
@@ -31,7 +31,7 @@
   --apex-charcoal: #1E293B;
   --apex-muted:    #64748B;
   --apex-hairline: #E2E8F0;
-  --apex-surface:  #f2f6fc;
+  --apex-surface:  #f3f3fb;
 
   /* Diagram extended */
   --apex-decision: #4a8e3a;

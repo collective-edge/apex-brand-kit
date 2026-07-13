@@ -42,7 +42,7 @@ You should see the Apex logo. The font, colors.json, and CSS are all at the same
 
 ## Step 4. (Optional) Re-export logos at full fidelity
 
-The SVG logos included here (`horizontal-color.svg`, `horizontal-white.svg`, `mark-color.svg`, `mark-white.svg`) were traced from the Apex artwork and are production-usable. If you want a pixel-perfect re-export from the original vector art, open `assets/logos/source/apex-paramedics.eps` in Illustrator, `File → Export → SVG`, and overwrite the files (keep the same names — `SKILL.md` already points at them). Make a white-wordmark variant for `horizontal-white.svg`.
+The SVG logos included here (`horizontal-color.svg`, `horizontal-white.svg`, `mark-color.svg`, `mark-white.svg`) were converted from the source EPS and are production-usable. If you want a pixel-perfect re-export from the original vector art, open `assets/logos/source/apex-paramedics.eps` in Illustrator, `File → Export → SVG`, and overwrite the files (keep the same names — `SKILL.md` already points at them). Make a white-wordmark variant for `horizontal-white.svg`.
 
 ## Step 5. Register the kit with CE-General
 

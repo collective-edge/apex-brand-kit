@@ -27,7 +27,7 @@ https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/
 | Mark / arc only (white) | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/mark-white.svg` |
 | Brand colors (JSON) | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/colors.json` |
 
-A raster `horizontal-color.png` is also available for contexts that require a bitmap. The authoritative vector source is `assets/logos/source/apex-paramedics.eps`.
+The authoritative vector source is `assets/logos/source/apex-paramedics.eps`.
 
 **Drop-in base CSS** (includes @font-face for Montserrat + brand CSS variables):
 ```html
@@ -58,22 +58,22 @@ Apex Paramedics uses a **navy-blue + gold** palette drawn straight from the logo
 
 | Name          | Hex       | RGB              | Usage                                                                 |
 |---------------|-----------|------------------|------------------------------------------------------------------------|
-| Apex Blue     | `#134891` | 19, 72, 145      | Primary brand color — logo wordmark, headers, links, buttons, accents  |
-| Apex Blue Deep| `#0E3468` | 14, 52, 104      | Hero backgrounds, full-width header bands, section dividers, footers    |
-| Apex Blue Light| `#95ADCE`| 149, 173, 206    | Tertiary accents, hover states, lighter highlights                      |
-| Apex Gold     | `#FFC92B` | 255, 201, 43     | Signature accent — the arc, accent bars, kickers, stat numerals         |
-| Apex Gold Deep| `#B98900` | 185, 137, 0      | Text-safe gold for small/bold labels or icons on white                  |
+| Apex Blue     | `#2c338e` | 44, 51, 142      | Primary brand color — logo wordmark, headers, links, buttons, accents  |
+| Apex Blue Deep| `#1D225E` | 29, 34, 94       | Hero backgrounds, full-width header bands, section dividers, footers    |
+| Apex Blue Light| `#9699C7`| 150, 153, 199    | Tertiary accents, hover states, lighter highlights                      |
+| Apex Gold     | `#f9ad16` | 249, 173, 22     | Signature accent — the arc, accent bars, kickers, stat numerals         |
+| Apex Gold Deep| `#B77808` | 183, 120, 8      | Text-safe gold for small/bold labels or icons on white                  |
 | Black         | `#000000` | 0, 0, 0          | Body text, high-contrast headings on light backgrounds                  |
 | White         | `#FFFFFF` | 255, 255, 255    | Text on dark backgrounds, page background                               |
 
 ### Color usage rules
 
-- **Apex Blue (#134891)** is the dominant brand color and the default for headers, links, buttons, column headers, and accent bars.
-- **Apex Blue Deep (#0E3468)** anchors large dark areas: hero/title bands, full-width strips, footers, section dividers.
-- **Apex Gold (#FFC92B)** is the signature accent — echo the logo's arc. Use for kicker lines, thin accent rules under headers, stat numerals, highlight underlines, and to draw the eye. Use it as a **highlight, not a background for large areas** — it vibrates at scale.
-- **Gold as text:** bright gold `#FFC92B` fails contrast on white. For gold text/small labels on white, use **Apex Gold Deep `#B98900`**, and only at bold/large sizes. Default body/heading text to blue or black.
-- **Apex Blue Light (#95ADCE)** is for tertiary accents and hover states only — never a large-area background.
-- **Backgrounds:** White is primary. For subtle alternating rows, callouts, or backgrounds, use the very light blue tint `#f2f6fc` — never anything stronger.
+- **Apex Blue (#2c338e)** is the dominant brand color and the default for headers, links, buttons, column headers, and accent bars.
+- **Apex Blue Deep (#1D225E)** anchors large dark areas: hero/title bands, full-width strips, footers, section dividers.
+- **Apex Gold (#f9ad16)** is the signature accent — echo the logo's arc. Use for kicker lines, thin accent rules under headers, stat numerals, highlight underlines, and to draw the eye. Use it as a **highlight, not a background for large areas** — it vibrates at scale.
+- **Gold as text:** bright gold `#f9ad16` fails contrast on white. For gold text/small labels on white, use **Apex Gold Deep `#B77808`**, and only at bold/large sizes. Default body/heading text to blue or black.
+- **Apex Blue Light (#9699C7)** is for tertiary accents and hover states only — never a large-area background.
+- **Backgrounds:** White is primary. For subtle alternating rows, callouts, or backgrounds, use the very light blue tint `#f3f3fb` — never anything stronger.
 - **Text contrast:** White text on Apex Blue / Blue Deep. Black or Apex Blue text on white. Never Blue Light text on white — insufficient contrast.
 - **No off-brand colors for decorative purposes.** Functional/data colors (chart series, status indicators) should stay within or harmonize with the blue/gold palette wherever possible.
 
@@ -102,10 +102,10 @@ Color variant for light backgrounds; white variant (white wordmark, gold arc ret
 
 ### Logo specifications
 
-- **Horizontal viewBox:** `63 40 1992 888` (aspect ≈ 2.24 : 1)
-- **Mark viewBox:** `99 40 1803 635`
-- **Colors:** Apex Blue `#134891` wordmark, Apex Gold `#FFC92B` arc; on dark, white wordmark + gold arc.
-- The SVGs are traced from the Apex artwork; `assets/logos/source/apex-paramedics.eps` is the authoritative source for any future re-export.
+- **Horizontal viewBox:** `0 0 894.53 430.01` (aspect ≈ 2.08 : 1)
+- **Mark viewBox:** `-8 -8 619 245`
+- **Colors:** Apex Blue `#2c338e` wordmark, Apex Gold `#f9ad16` arc; on dark, white wordmark + gold arc.
+- The SVGs are converted from the source EPS (`assets/logos/source/apex-paramedics.eps`), which remains the authoritative master for any future re-export.
 
 ### Usage rules
 
@@ -143,40 +143,40 @@ Blue is the structure; gold is the spark. Pattern-match these visually for new c
 
 ### Header band
 - Full-width strip across the very top of the page.
-- Background: Apex Blue Deep `#0E3468` (optionally a subtle gradient to Apex Blue `#134891` on the right).
-- **Gold accent rule:** a 3px Apex Gold `#FFC92B` line along the bottom edge of the band — echoes the logo arc.
+- Background: Apex Blue Deep `#1D225E` (optionally a subtle gradient to Apex Blue `#2c338e` on the right).
+- **Gold accent rule:** a 3px Apex Gold `#f9ad16` line along the bottom edge of the band — echoes the logo arc.
 - White Apex horizontal logo top-right (~1.4–1.8in wide) — on a white chip if only the color raster is available.
 - Title text top-left: white, Montserrat 800, ALL CAPS, 18–22pt for one-pagers / 32–44pt for slides.
 
 ### Sub-banner (optional)
-- Thin Apex Blue `#134891` strip just below the header band.
+- Thin Apex Blue `#2c338e` strip just below the header band.
 - White Montserrat 600, 8–9pt, ALL CAPS, +2.5 letter-spacing.
 - Used for kicker / partner / category line.
 
 ### Flowchart nodes
 - All node shapes are rounded rectangles (radius 6px).
 - **Standard step:** Dark gray `#3e3e3e`, white ALL-CAPS Montserrat 800, optional muted subtitle below.
-- **Action / highlight step:** Apex Blue `#134891`, same text treatment.
+- **Action / highlight step:** Apex Blue `#2c338e`, same text treatment.
 - **Decision:** Green `#4a8e3a` pill (border-radius 999px), white ALL-CAPS Montserrat 800.
 - **Warning / critical:** Orange `#f57c00`, white ALL-CAPS Montserrat 800.
 - **Branch labels (YES / NO):** White box with colored border matching the branch outcome.
 - Connector lines: `#3e3e3e`, 1.8pt stroke, with arrow markers.
 
 ### Stat / metric callouts
-- Big number: Montserrat 800, 36–60pt, Apex Blue `#134891` (or Apex Gold `#FFC92B` on a dark background).
+- Big number: Montserrat 800, 36–60pt, Apex Blue `#2c338e` (or Apex Gold `#f9ad16` on a dark background).
 - Unit label: Montserrat 500, 10pt, Muted.
-- Kicker above: Montserrat 800, 8pt, ALL CAPS, Apex Gold Deep `#B98900`, +2 letter-spacing.
+- Kicker above: Montserrat 800, 8pt, ALL CAPS, Apex Gold Deep `#B77808`, +2 letter-spacing.
 
 ### Tables
-- Header row: `#0E3468` (Apex Blue Deep) fill, white Montserrat 800 ALL CAPS 9pt.
-- Body rows: white, alternating with `#f2f6fc` if alternation helps readability.
+- Header row: `#1D225E` (Apex Blue Deep) fill, white Montserrat 800 ALL CAPS 9pt.
+- Body rows: white, alternating with `#f3f3fb` if alternation helps readability.
 - Hairline borders: `#E2E8F0`.
 
 ### Footer
 - Slim full-width footer.
 - Top border: `#E2E8F0` hairline (or a 2px Apex Gold rule for a branded finish).
 - Left: "Apex Paramedics | {Document Title}" in `#64748B` Muted.
-- Right: revision marker (e.g., "Rev. 07.26") in Apex Blue `#134891`, Montserrat 700.
+- Right: revision marker (e.g., "Rev. 07.26") in Apex Blue `#2c338e`, Montserrat 700.
 
 ---
 
@@ -184,7 +184,7 @@ Blue is the structure; gold is the spark. Pattern-match these visually for new c
 
 **Header band (drop-in HTML):**
 ```html
-<header style="background:#0E3468; color:#FFFFFF; padding:0.32in 0.5in; display:flex; align-items:center; justify-content:space-between; font-family:'Montserrat',sans-serif; border-bottom:3px solid #FFC92B;">
+<header style="background:#1D225E; color:#FFFFFF; padding:0.32in 0.5in; display:flex; align-items:center; justify-content:space-between; font-family:'Montserrat',sans-serif; border-bottom:3px solid #f9ad16;">
   <div style="font-weight:800; font-size:18pt; letter-spacing:1.5px; text-transform:uppercase;">YOUR TITLE</div>
   <img src="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg" style="width:1.6in;" alt="Apex Paramedics">
 </header>
@@ -192,7 +192,7 @@ Blue is the structure; gold is the spark. Pattern-match these visually for new c
 
 **Sub-banner:**
 ```html
-<div style="background:#134891; color:#FFFFFF; padding:6px 0.5in; font:600 8.5pt 'Montserrat'; letter-spacing:2.5px; text-transform:uppercase;">
+<div style="background:#2c338e; color:#FFFFFF; padding:6px 0.5in; font:600 8.5pt 'Montserrat'; letter-spacing:2.5px; text-transform:uppercase;">
   KICKER / PARTNER / CATEGORY
 </div>
 ```
@@ -201,7 +201,7 @@ Blue is the structure; gold is the spark. Pattern-match these visually for new c
 ```html
 <footer style="border-top:1px solid #E2E8F0; padding:6px 0.5in; font:400 8pt 'Montserrat'; color:#64748B; display:flex; justify-content:space-between;">
   <span>Apex Paramedics &nbsp;|&nbsp; Document Title</span>
-  <span style="font-weight:700; letter-spacing:1.5px; color:#134891;">Rev. MM.YY</span>
+  <span style="font-weight:700; letter-spacing:1.5px; color:#2c338e;">Rev. MM.YY</span>
 </footer>
 ```
 
