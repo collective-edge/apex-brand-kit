@@ -40,12 +40,7 @@ The authoritative vector source is `assets/logos/source/apex-paramedics.eps`.
 @font-face {
   font-family: 'Montserrat';
   src: url('https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
-  font-weight: normal;
-}
-@font-face {
-  font-family: 'Montserrat';
-  src: url('https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
-  font-weight: bold;
+  font-weight: 100 900;
 }
 body { font-family: 'Montserrat', Calibri, Arial, sans-serif; }
 ```
