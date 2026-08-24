@@ -50,6 +50,9 @@
   .stat { border-top: 2px solid var(--apex-gold); padding-top: 8px; }
   .stat .bk-eyebrow { display: block; }
   .stat .bk-stat { color: var(--fg-accent); }
+  /* The unit sits beside a 42pt numeral, so the inter-span whitespace renders
+     at the parent's 12pt and disappears. Give it a real gap. */
+  .stat .bk-caption { margin-left: var(--space-2); }
 
   .bk-table { width: 100%; margin-top: 16px; }
   .bk-table thead tr { background: var(--bg-band); }
