@@ -1,10 +1,12 @@
 {
+  "_deprecated": "DEPRECATED. Replaced by tokens.json at the repo root, and by snippets/palette.css for CSS. Still served for anything already pointing at it. Do not add a color here. The role strings below predate house type system v1.0 and overstate what #B77808 can do: measured on #FFFFFF it is 3.68:1, which permits 18pt print or 24px web and up, the .bk-h3 step and above, and nothing smaller. See reference/brand.md for the measured contrast table.",
+  "_replacedBy": ["tokens.json", "snippets/palette.css"],
   "brand": {
-    "apexBlue":      { "hex": "#2c338e", "rgb": [44, 51, 142],   "pantone": "Blue 072 C", "role": "Primary brand color — logo wordmark, headers, links, buttons, primary accents" },
+    "apexBlue":      { "hex": "#2c338e", "rgb": [44, 51, 142],   "pantone": "Blue 072 C", "role": "Primary brand color, logo wordmark, headers, links, buttons, primary accents" },
     "apexBlueDeep":  { "hex": "#1D225E", "rgb": [29, 34, 94],    "role": "Hero backgrounds, full-width header bands, section dividers, footers" },
     "apexBlueLight": { "hex": "#9699C7", "rgb": [150, 153, 199], "role": "Tertiary accents, hover states, lighter highlights" },
-    "apexGold":      { "hex": "#f9ad16", "rgb": [249, 173, 22],  "pantone": "1235 C", "role": "Signature accent — the arc, accent bars, kickers, stat numerals, highlights" },
-    "apexGoldDeep":  { "hex": "#B77808", "rgb": [183, 120, 8],   "role": "Text-safe gold for small/bold labels or icons on white (bright gold fails contrast as text)" },
+    "apexGold":      { "hex": "#f9ad16", "rgb": [249, 173, 22],  "pantone": "1235 C", "role": "Signature accent, the arc, accent bars, kickers, stat numerals, highlights" },
+    "apexGoldDeep":  { "hex": "#B77808", "rgb": [183, 120, 8],   "role": "Gold text on white at 3.68:1. 18pt print or 24px web and up, the .bk-h3 step and above, and icons. Never small text. Bright gold #f9ad16 is 1.91:1 and is never text on white" },
     "black":         { "hex": "#000000", "rgb": [0, 0, 0],       "role": "Body text, high-contrast headings on light backgrounds" },
     "white":         { "hex": "#FFFFFF", "rgb": [255, 255, 255], "role": "Text on dark backgrounds, page background" }
   },

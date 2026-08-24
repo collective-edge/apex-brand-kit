@@ -1,85 +1,78 @@
-# How to push this to GitHub (one-time, ~3 minutes)
+# Pushing this kit
 
-Everything is already prepared in this folder. You just need to create the repo and push.
+The repo exists at `collective-edge/apex-brand-kit` and is public, which jsDelivr requires. The kit is checked out at `~/collective-edge/apex-brand-kit` with `origin` already set. Nothing here creates a repo.
 
-## Step 1. Create the empty repo on GitHub
+Every `@main` CDN URL in the house points at the file you are about to publish. Run step 1 first, every time.
 
-Go to **https://github.com/organizations/collective-edge/repositories/new** and create:
-
-- **Repository name:** `apex-brand-kit`
-- **Visibility:** **Public** (required for the jsDelivr CDN to work)
-- **Do NOT** initialize with a README, .gitignore, or license — this folder already has them.
-
-Click **Create repository**.
-
-## Step 2. Push from terminal
+## Step 1. Verify before you push
 
 ```bash
-cd "/Users/jacob/Desktop/Apex Brand Kit/apex-brand-kit"
-git init
+cd ~/collective-edge/apex-brand-kit
+python3 scripts/check-sync.py
+python3 scripts/validate.py snippets/header-band.html templates/document.html templates/deck.html Examples/apex-one-pager.html
+```
+
+`check-sync.py` asserts three things and exits non-zero on any of them:
+
+| Check | What it catches |
+|---|---|
+| Seven shared files byte-identical to `collective-edge-brand-kit` | A forked type layer. `reference/type-system.md`, `NEW-BRAND.md`, `brands.json`, `snippets/type-system.css`, `snippets/type-tokens.json`, `scripts/validate.py`, `scripts/check-sync.py` |
+| `snippets/palette.css` defines all 17 semantic variables | A component that renders in one brand and breaks in another |
+| Every scale row in `snippets/type-tokens.json` matches the CSS | The JSON and the stylesheet drifting apart |
+
+`validate.py` checks rules 1, 2, 5, 9, 10, 13 and 14 from `reference/type-system.md` against the HTML. Skip `Examples/*.before.html`: those files are deliberate violations kept for comparison.
+
+Both must exit 0. If `check-sync.py` reports a shared file differs, fix it in `collective-edge-brand-kit` and copy it down. Never edit a shared file inside this kit.
+
+## Step 2. Push
+
+```bash
+cd ~/collective-edge/apex-brand-kit
 git add .
-git commit -m "Initial Apex Paramedics brand kit"
-git branch -M main
-git remote add origin https://github.com/collective-edge/apex-brand-kit.git
-git push -u origin main
+git commit -m "Describe what changed"
+git push
 ```
 
-Or, with the GitHub CLI already authenticated, one line does it all:
+Work lands on `main` before the CDN serves it. The current branch is `type-system-v1`; open a pull request or merge it forward.
 
-```bash
-cd "/Users/jacob/Desktop/Apex Brand Kit/apex-brand-kit" && git init && git add . && git commit -m "Initial Apex Paramedics brand kit" && git branch -M main && gh repo create collective-edge/apex-brand-kit --public --source=. --remote=origin --push
-```
+## Step 3. Confirm the CDN
 
-## Step 3. Verify the CDN is live
-
-After pushing, hit this URL in a browser (give jsDelivr 30–60 seconds to cache the first time):
+Give jsDelivr 30–60 seconds to cache a first request, then hit the two files that every deliverable loads:
 
 ```
+https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/palette.css
 https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-color.svg
 ```
 
-You should see the Apex logo. The font, colors.json, and CSS are all at the same base URL.
+`snippets/type-system.css` is served from `collective-edge-brand-kit`, not from here. The type layer belongs to the parent brand.
 
-## Step 4. (Optional) Re-export logos at full fidelity
+## Step 4. Tag a release
 
-The SVG logos included here (`horizontal-color.svg`, `horizontal-white.svg`, `mark-color.svg`, `mark-white.svg`) were converted from the source EPS and are production-usable. If you want a pixel-perfect re-export from the original vector art, open `assets/logos/source/apex-paramedics.eps` in Illustrator, `File → Export → SVG`, and overwrite the files (keep the same names — `SKILL.md` already points at them). Make a white-wordmark variant for `horizontal-white.svg`.
-
-## Step 5. Register the kit with CE-General
-
-Add a short pointer under the **Brand kits** section of `collective-edge/general-agent`'s `agent_roles/general-agent.md`, pointing at this kit's raw `SKILL.md`:
-
-```
-https://raw.githubusercontent.com/collective-edge/apex-brand-kit/main/SKILL.md
-```
-
-(Same pattern as the Royal entry. Role-md changes need a new worker image: merge to `master` auto-deploys to acceptance; prod is the manual `deploy.yml`.)
-
-## Step 6. Tell teammates
-
-Share this single line. They run it once and Claude on their machine applies the brand automatically forever:
-
-```bash
-git clone https://github.com/collective-edge/apex-brand-kit ~/.claude/skills/apex-brand-guidelines
-```
-
-## Updating later
-
-Edit any file, then:
-
-```bash
-cd "/Users/jacob/Desktop/Apex Brand Kit/apex-brand-kit"
-git add . && git commit -m "Describe what changed" && git push
-```
-
-Changes go live on the CDN within a minute or two.
-
-## Versioning (optional, for production safety)
-
-Once stable, tag a release so production materials can pin to a fixed version:
+Tag once the kit is stable so production materials can pin a fixed version.
 
 ```bash
 git tag v1.0
 git push --tags
 ```
 
-Then in CDN URLs, replace `@main` with `@v1.0`.
+Replace `@main` with `@v1.0` in CDN URLs to pin. Bump the minor version for additive changes, the major version when a value in section 3, 4 or 5 of `reference/type-system.md` changes.
+
+## Installing the kit on a machine
+
+```bash
+git clone https://github.com/collective-edge/apex-brand-kit ~/.claude/skills/apex-brand-guidelines
+```
+
+## Registering the kit with CE-General
+
+Point `agent_roles/general-agent.md` in `collective-edge/general-agent` at this kit’s raw `SKILL.md`, under **Brand kits**:
+
+```
+https://raw.githubusercontent.com/collective-edge/apex-brand-kit/main/SKILL.md
+```
+
+Role-md changes need a new worker image. Merging to `master` auto-deploys to acceptance. Production is the manual `deploy.yml`.
+
+## Re-exporting the logos
+
+`horizontal-color.svg`, `horizontal-white.svg`, `mark-color.svg` and `mark-white.svg` were converted from `assets/logos/source/apex-paramedics.eps` and are production-usable. For a pixel-perfect re-export, open the EPS in Illustrator, `File → Export → SVG`, and overwrite the files under the same names. `SKILL.md` already points at them.

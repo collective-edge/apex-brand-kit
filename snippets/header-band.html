@@ -1,14 +1,38 @@
-<!-- Apex Paramedics header band — drop-in markup.
-     Drop this into the top of any one-pager / report / letterhead.
-     Edit the .h1 text. Logo loads from the CDN.
-     Make sure brand-base.css (or equivalent @font-face) is loaded for Montserrat. -->
-<header style="background:#1D225E; color:#FFFFFF; padding:0.32in 0.5in; display:flex; align-items:center; justify-content:space-between; font-family:'Montserrat',sans-serif; border-bottom:3px solid #f9ad16;">
-  <div class="h1" style="font-weight:800; font-size:18pt; letter-spacing:1.5px; text-transform:uppercase; line-height:1.05;">
-    YOUR TITLE HERE
-  </div>
-  <img
-    src="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg"
-    alt="Apex Paramedics"
-    style="width:1.6in; height:auto; display:block;"
-  />
+<!-- Apex Paramedics · header band · house type system v1.0
+     Drop into the top of any one-pager, report, deck title slide or letterhead.
+     Edit the title text. Everything else resolves from the loaded stylesheets.
+
+     Load first, in this order:
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/type-system.css">
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/palette.css">
+
+     .bk-on-dark drops the display weight from 800 to 700 and adds 0.005em
+     tracking. Do not set the weight by hand. Resolved values:
+       weight 700 · tracking 0.030em · 42pt print, 56px web · leading 1.10
+     Ground is --bg-band #1D225E. Rule is --border-band-rule #f9ad16, 3px.
+     Logo role: horizontal-on-dark, 1.4in to 1.8in wide. 1.6in is the
+     default. Never below 110px or 1in.
+
+     .bk-caps works at every step. Each step declares its own --tr-caps
+     and one rule applies it. Rule 7 puts uppercase on a title, band or
+     divider surface and on labels, and sentence case on headings inside
+     a document. This band is a title surface, so the title is uppercase.
+     For a one-pager, swap .bk-display-md for .bk-h1 and keep bk-caps:
+     30pt print, 40px web, weight 600 on dark, 0.035em.
+
+     max-width:none on the title is deliberate. The band is a flex row
+     bounded by the logo, so --measure-display 16ch would cut the line
+     short of the width the band actually gives it. -->
+
+<header class="bk-on-dark"
+        style="background:var(--bg-band); border-bottom:3px solid var(--border-band-rule);
+               padding:0.32in 0.5in; display:flex; align-items:center;
+               justify-content:space-between; gap:24px;">
+
+  <div class="bk-display-md bk-caps" style="max-width:none; margin:0;">Your title here</div>
+
+  <img src="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg"
+       alt="Apex Paramedics"
+       style="width:1.6in; height:auto; display:block; flex:0 0 auto;" />
+
 </header>

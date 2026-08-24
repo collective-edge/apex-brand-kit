@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apex Paramedics · Deck template</title>
+
+<!-- HOUSE TYPE SYSTEM v1.0 · five slides at 16:9, one landscape page each.
+     Load order is fixed: the shared type layer first, the brand palette second.
+     type-system.css is identical in every kit. palette.css is the only file
+     that differs between Apex, Royal and Collective Edge. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/type-system.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/palette.css">
+
+<style>
+/* ---------- FONT ------------------------------------------------
+   Repeated here so this file embeds Montserrat when it is printed
+   or converted to PDF without the CDN stylesheet resolving. */
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.woff2") format("woff2-variations"),
+       url("https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.ttf")   format("truetype-variations");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* ---------- BRAND ------------------------------------------------
+   The only per-brand lines in this file. Everything below resolves
+   through the semantic layer and is identical in every kit. */
+
+:root {
+  --tpl-subbanner: var(--apex-blue);
+  --slide-pad: var(--space-8);
+}
+
+
+/* ---------- DECK -------------------------------------------------
+   13.333in by 7.5in is 16:9 and is one landscape page at print. On
+   screen it renders at 1280 by 720.
+
+   Rule 3, the ladder this deck uses: .bk-display-md 42pt headline,
+   .bk-h2 24pt slide head, .bk-body-lg 15pt running text. Two sizes
+   above the running text. .bk-stat carries no word and stands outside
+   that count wherever a numeral display is added, the same reading
+   templates/document.html states. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; background: var(--bg-surface); }
+
+.deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-6) 0;
+}
+
+.slide {
+  position: relative;
+  width: 13.333in;
+  height: 7.5in;
+  padding: var(--slide-pad);
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dark slides carry the header band treatment: Blue Deep ground,
+   3px gold rule along the bottom edge. .bk-on-dark drops display
+   from 800 to 700 and opens the tracking. Never set that by hand. */
+.slide.bk-on-dark {
+  background: var(--bg-band);
+  border-bottom: 3px solid var(--border-band-rule);
+}
+
+.slide .slide-logo { width: 2.2in; height: auto; display: block; align-self: flex-start; }
+.slide .slide-mark { width: 0.9in; height: auto; display: block; align-self: flex-start; }
+
+
+/* ---------- 1. TITLE SLIDE --------------------------------------- */
+
+.slide-title { justify-content: center; gap: var(--space-7); }
+
+.slide-title .slide-headline {
+  margin: 0;
+  max-width: var(--measure-display);
+}
+
+.slide-title .slide-meta { margin: 0; color: var(--fg-on-dark-2); }
+
+
+/* ---------- 2. SECTION DIVIDER ----------------------------------- */
+
+.slide-divider { justify-content: flex-end; gap: var(--space-4); padding-bottom: var(--space-9); }
+
+.slide-divider .slide-mark { position: absolute; top: var(--slide-pad); left: var(--slide-pad); }
+.slide-divider .slide-number   { margin: 0; }
+.slide-divider .slide-headline { margin: 0; max-width: var(--measure-display); }
+.slide-divider .slide-meta     { margin: var(--space-4) 0 0; color: var(--fg-on-dark-2); }
+
+
+/* ---------- 3 and 4. LIGHT SLIDES --------------------------------
+   The head block opens the slide against the 64px slide padding, so
+   rule 11 has no space above the heading to triple. The hairline sits
+   24px under the heading and the body starts 48px under the hairline. */
+
+.slide-head { padding-bottom: var(--space-5); border-bottom: 1px solid var(--border-1); }
+.slide-head .slide-eyebrow { margin: 0 0 var(--space-2); }
+.slide-head .slide-h2      { margin: 0; max-width: var(--measure-heading); }
+
+.slide-body { margin-top: var(--space-7); }
+
+.slide-body p {
+  margin: 0 0 var(--space-4);
+  max-width: var(--measure-body);
+  text-wrap: pretty;
+  orphans: 3;
+  widows: 3;
+}
+
+
+/* ---------- 4. DATA SLIDE ----------------------------------------
+   The 12pt step is set on the rule, not by putting .bk-body on every
+   cell. That class also carries max-width: var(--measure-body) 54ch,
+   and a body measure on a td fights the table layout algorithm for
+   column widths it has no business influencing. */
+
+.slide-table { width: 100%; border-collapse: collapse; margin: 0; }
+
+.slide-table thead tr { background: var(--bg-inverse); }
+
+.slide-table th {
+  padding: var(--space-3) var(--space-4);
+  color: var(--fg-on-dark-1);
+}
+
+.slide-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-1);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  letter-spacing: calc(var(--tr-body) + var(--tr-dark, 0em));
+  font-weight: var(--weight-regular);
+  color: var(--fg-1);
+}
+
+.slide-table tbody tr:nth-child(even) { background: var(--bg-surface); }
+
+.slide-table .num { text-align: right; white-space: nowrap; }
+
+
+/* ---------- 5. CLOSING SLIDE ------------------------------------- */
+
+.slide-closing { justify-content: center; gap: var(--space-7); }
+
+.slide-closing .slide-headline { margin: 0; max-width: var(--measure-display); }
+.slide-closing .slide-meta     { margin: 0; color: var(--fg-on-dark-2); }
+
+
+/* ---------- SLIDE FOOTER ------------------------------------------
+   .bk-measure-none on both spans. .bk-caption carries --measure-caption
+   40ch, and the footer rail is bounded by the slide, not by a measure.
+   Tracking is not set here: .bk-caption supplies --tr-caption and the
+   shared rule adds the on-dark bonus on the divider and closing
+   footers, the two that sit on dark slides. */
+
+.slide-footer {
+  position: absolute;
+  left: var(--slide-pad);
+  right: var(--slide-pad);
+  bottom: var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-5);
+}
+
+.slide-footer .slide-page {
+  font-weight: 700;
+  color: var(--fg-accent);
+  font-variant-numeric: tabular-nums lining;
+}
+
+.bk-on-dark .slide-footer .slide-page {
+  color: var(--fg-on-dark-1);
+  /* Rule 4. The shared CSS steps down .bk-display-* and .bk-h1/.bk-h2 only,
+     so the hand-set 700 above needs its own drop to the 600 floor. */
+  font-weight: var(--weight-semibold);
+}
+
+
+/* ---------- PRINT ------------------------------------------------
+   One slide per landscape page. The print block from the shared type
+   layer is repeated so this file sets point sizes on paper on its own. */
+
+@page { size: 13.333in 7.5in; margin: 0; }
+
+@media print {
+  /* Without this every dark slide prints as white paper and its reversed
+     type disappears. Print engines discard background paint by default. */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html, body { background: var(--bg-canvas); font-size: 12pt; line-height: var(--lh-body); }
+
+  .deck { gap: 0; padding: 0; }
+  .slide { border: 0; break-after: page; page-break-after: always; }
+  .slide:last-child { break-after: auto; page-break-after: auto; }
+
+  .bk-display-xl { font-size: 72pt; }
+  .bk-display-lg { font-size: 54pt; }
+  .bk-display-md { font-size: 42pt; }
+  .bk-h1         { font-size: 30pt; }
+  .bk-h2         { font-size: 24pt; }
+  .bk-h3         { font-size: 18pt; }
+  .bk-h4         { font-size: 15pt; }
+  .bk-body-lg    { font-size: 15pt; }
+  .bk-body       { font-size: 12pt; }
+  .bk-body-sm    { font-size: 10.5pt; }
+  .bk-caption,
+  .bk-eyebrow    { font-size: 9pt; }
+  .bk-stat       { font-size: 42pt; }
+  .slide-table td { font-size: 12pt; }
+
+  p, li, dd, blockquote { orphans: 3; widows: 3; max-width: var(--measure-body); text-wrap: pretty; }
+  h1, h2, h3, h4 { break-after: avoid; page-break-after: avoid; text-wrap: balance; }
+  table, figure, .bk-keep { break-inside: avoid; page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- 1. TITLE -->
+  <section class="slide slide-title bk-on-dark">
+    <img class="slide-logo"
+         src="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg"
+         alt="Apex Paramedics">
+    <div class="bk-display-md bk-caps slide-headline">Interfacility transport</div>
+    <p class="bk-body-lg slide-meta">Quarterly operations review · August 2026</p>
+  </section>
+
+  <!-- 2. SECTION DIVIDER -->
+  <section class="slide slide-divider bk-on-dark">
+    <img class="slide-mark"
+         src="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/mark-white.svg"
+         alt="Apex Paramedics">
+    <p class="bk-eyebrow slide-number">Section 02</p>
+    <h1 class="bk-display-md slide-headline">Where the time goes.</h1>
+    <p class="bk-body-lg slide-meta">Activation, origin mix, and the slowest quartile</p>
+    <div class="slide-footer">
+      <span class="bk-caption bk-measure-none slide-brand">Apex Paramedics · Interfacility transport</span>
+      <span class="bk-caption bk-measure-none slide-page">02</span>
+    </div>
+  </section>
+
+  <!-- 3. CONTENT -->
+  <section class="slide slide-content">
+    <div class="slide-head">
+      <p class="bk-eyebrow slide-eyebrow">Activation</p>
+      <h2 class="bk-h2 slide-h2">Activation time is the number partners feel.</h2>
+    </div>
+    <div class="slide-body">
+      <p class="bk-body-lg">Activation runs from bed offer accepted to wheels rolling at the
+        origin door. It is the only interval a case manager watches, and it is the one Apex
+        controls end to end. Median activation held at 38&nbsp;minutes countywide in August.</p>
+      <p class="bk-body-lg">The slowest quartile sat at 71&nbsp;minutes. Every case in it traced
+        to one of three causes: paperwork not ready on the floor, no gurney unit inside the
+        county, or a receiving bed that was never confirmed. Two of the three are fixed at
+        the origin, not in the truck.</p>
+    </div>
+    <div class="slide-footer">
+      <span class="bk-caption bk-measure-none slide-brand">Apex Paramedics · Interfacility transport</span>
+      <span class="bk-caption bk-measure-none slide-page">03</span>
+    </div>
+  </section>
+
+  <!-- 4. DATA -->
+  <section class="slide slide-data">
+    <div class="slide-head">
+      <p class="bk-eyebrow slide-eyebrow">Origin mix</p>
+      <h2 class="bk-h2 slide-h2">Four contracts carry the volume.</h2>
+    </div>
+    <div class="slide-body">
+      <table class="bk-table slide-table">
+        <thead>
+          <tr class="bk-on-dark">
+            <th>Contract</th>
+            <th>Origin</th>
+            <th>Service level</th>
+            <th class="num">Activation</th>
+            <th class="num">Runs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="bk-code">IFT-114</span></td>
+            <td>Regional medical center</td>
+            <td>BLS gurney</td>
+            <td class="num">34&nbsp;min</td>
+            <td class="num">412</td>
+          </tr>
+          <tr>
+            <td><span class="bk-code">IFT-207</span></td>
+            <td>County hospital campus</td>
+            <td>ALS</td>
+            <td class="num">41&nbsp;min</td>
+            <td class="num">268</td>
+          </tr>
+          <tr>
+            <td><span class="bk-code">IFT-355</span></td>
+            <td>Skilled nursing campus</td>
+            <td>BLS gurney</td>
+            <td class="num">36&nbsp;min</td>
+            <td class="num">511</td>
+          </tr>
+          <tr>
+            <td><span class="bk-code">IFT-402</span></td>
+            <td>Dialysis network</td>
+            <td>Wheelchair van</td>
+            <td class="num">29&nbsp;min</td>
+            <td class="num">295</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="slide-footer">
+      <span class="bk-caption bk-measure-none slide-brand">Apex Paramedics · Interfacility transport</span>
+      <span class="bk-caption bk-measure-none slide-page">04</span>
+    </div>
+  </section>
+
+  <!-- 5. CLOSING -->
+  <section class="slide slide-closing bk-on-dark">
+    <img class="slide-logo"
+         src="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg"
+         alt="Apex Paramedics">
+    <h1 class="bk-display-md slide-headline">Fix the origin, not the truck.</h1>
+    <p class="bk-body-lg slide-meta">Next review · September, with the paperwork pilot in place</p>
+    <div class="slide-footer">
+      <span class="bk-caption bk-measure-none slide-brand">Apex Paramedics · Interfacility transport</span>
+      <span class="bk-caption bk-measure-none slide-page">05</span>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

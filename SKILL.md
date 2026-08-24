@@ -1,221 +1,144 @@
 ---
 name: apex-brand-guidelines
-description: Applies Apex Paramedics' brand standards — navy-blue + gold color palette, Montserrat typography, and logo usage — to ANY output representing Apex Paramedics. Use whenever generating Apex Paramedics materials of any kind: emails, social posts, slides, documents, web content, marketing collateral, internal comms, training materials, flyers, letters, one-pagers, tables, or any visual artifact. Also use when reviewing existing materials for brand compliance.
+description: Applies Apex Paramedics brand standards, the navy-and-gold palette, the shared house type system, the five logo roles, and the Apex house layout patterns, to any output that represents Apex Paramedics. Use when generating or reviewing an Apex Paramedics email, slide, deck, one-pager, report, letterhead, flyer, proposal, document, web page, table, chart, diagram, or PDF. Also covers Apex social posts, internal comms, and training materials, and any artifact carrying the Apex logo or colors. Provides CDN asset loading, the color rules agents get wrong most often, a pointer to the house type standard, copy-pasteable layout blocks, and the pre-ship validator command.
 ---
 
-# Apex Paramedics — Brand Guidelines
+# Apex Paramedics
 
-**When to apply:** Whenever creating or reviewing any material that represents Apex Paramedics, in any medium (digital or print, formal or casual). This skill defines the look-and-feel; specific layouts and templates are intentionally not prescribed here so the brand can apply across many formats.
+Apex Paramedics is an operating company under Collective Edge. It runs a navy-blue and gold palette drawn from its own mark.
 
-## CRITICAL: Asset loading
+Across the house, exactly two things vary between brands: palette and logo. Type is shared and identical. Never fork the type layer.
 
-**This brand kit is cloud-hosted.** All fonts and logos live on a public CDN (jsDelivr, backed by GitHub) so any Claude session anywhere can pull them down. **Do not look for local files.** Use the URLs below directly in generated HTML, CSS, or markdown.
+---
 
-**Base CDN URL:**
-```
-https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/
-```
+## 1. Asset loading
 
-**Specific asset URLs (copy these into outputs):**
+Everything is cloud-hosted on jsDelivr. Never look for local files.
 
-| Asset | URL |
-|---|---|
-| Montserrat (variable TTF) | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.ttf` |
-| Horizontal logo (color) | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-color.svg` |
-| Horizontal logo (white) | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg` |
-| Mark / arc only (color) | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/mark-color.svg` |
-| Mark / arc only (white) | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/mark-white.svg` |
-| Brand colors (JSON) | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/colors.json` |
-
-The authoritative vector source is `assets/logos/source/apex-paramedics.eps`.
-
-**Drop-in base CSS** (includes @font-face for Montserrat + brand CSS variables):
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/brand-base.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/type-system.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/palette.css">
 ```
 
-**For PDF rendering (weasyprint, wkhtmltopdf, Chrome print):** always include the @font-face declaration so the font is embedded in the output PDF. Use this minimal block at the top of any HTML you intend to print:
+Load them in that order. `type-system.css` is identical in every kit and is served from the parent brand. `palette.css` is the only stylesheet that differs.
+
+For PDF pipelines (weasyprint, wkhtmltopdf, Chrome print), embed the font:
 
 ```css
 @font-face {
   font-family: 'Montserrat';
-  src: url('https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900;
+  src: url('https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 800;
+  font-style: normal;
 }
 body { font-family: 'Montserrat', Calibri, Arial, sans-serif; }
 ```
 
----
+### Logo roles
 
-## 1. Brand Colors
+Ask for a role, never a filename. `-on-light` is the file you place **on** a light background.
 
-Apex Paramedics uses a **navy-blue + gold** palette drawn straight from the logo (Pantone Blue 072 C wordmark, Pantone 1235 C arc). Blue is the foundation; gold is the signature accent. Every piece of collateral should draw from these colors exclusively — never introduce off-brand hues.
+| Role | File | URL |
+|---|---|---|
+| `horizontal-on-light` | `horizontal-color.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-color.svg` |
+| `horizontal-on-dark` | `horizontal-white.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg` |
+| `mark-on-light` | `mark-color.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/mark-color.svg` |
+| `mark-on-dark` | `mark-white.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/mark-white.svg` |
+| `stacked-on-dark` | none | Apex has no stacked lockup. Use `horizontal-on-dark`. |
 
-| Name          | Hex       | RGB              | Usage                                                                 |
-|---------------|-----------|------------------|------------------------------------------------------------------------|
-| Apex Blue     | `#2c338e` | 44, 51, 142      | Primary brand color — logo wordmark, headers, links, buttons, accents  |
-| Apex Blue Deep| `#1D225E` | 29, 34, 94       | Hero backgrounds, full-width header bands, section dividers, footers    |
-| Apex Blue Light| `#9699C7`| 150, 153, 199    | Tertiary accents, hover states, lighter highlights                      |
-| Apex Gold     | `#f9ad16` | 249, 173, 22     | Signature accent — the arc, accent bars, kickers, stat numerals         |
-| Apex Gold Deep| `#B77808` | 183, 120, 8      | Text-safe gold for small/bold labels or icons on white                  |
-| Black         | `#000000` | 0, 0, 0          | Body text, high-contrast headings on light backgrounds                  |
-| White         | `#FFFFFF` | 255, 255, 255    | Text on dark backgrounds, page background                               |
+Reference a logo with `<img src="...">`. The CDN is public, no auth.
 
-### Color usage rules
+Machine-readable colors for python-pptx, python-docx, matplotlib and reportlab: [`tokens.json`](tokens.json). Type values for those generators: [`snippets/type-tokens.json`](snippets/type-tokens.json).
 
-- **Apex Blue (#2c338e)** is the dominant brand color and the default for headers, links, buttons, column headers, and accent bars.
-- **Apex Blue Deep (#1D225E)** anchors large dark areas: hero/title bands, full-width strips, footers, section dividers.
-- **Apex Gold (#f9ad16)** is the signature accent — echo the logo's arc. Use for kicker lines, thin accent rules under headers, stat numerals, highlight underlines, and to draw the eye. Use it as a **highlight, not a background for large areas** — it vibrates at scale.
-- **Gold as text:** bright gold `#f9ad16` fails contrast on white. For gold text/small labels on white, use **Apex Gold Deep `#B77808`**, and only at bold/large sizes. Default body/heading text to blue or black.
-- **Apex Blue Light (#9699C7)** is for tertiary accents and hover states only — never a large-area background.
-- **Backgrounds:** White is primary. For subtle alternating rows, callouts, or backgrounds, use the very light blue tint `#f3f3fb` — never anything stronger.
-- **Text contrast:** White text on Apex Blue / Blue Deep. Black or Apex Blue text on white. Never Blue Light text on white — insufficient contrast.
-- **No off-brand colors for decorative purposes.** Functional/data colors (chart series, status indicators) should stay within or harmonize with the blue/gold palette wherever possible.
-
-### Extended palette (functional roles in diagrams, status, dashboards)
-
-These are NOT primary brand colors but are official conventions for diagrams (flowcharts, dashboards, process docs) where additional roles are needed beyond the blue/gold palette. Apply consistently — do not invent new hues for these roles. Note: **gold is a brand accent, not a status color** — use the orange below for warnings so gold stays reserved for brand highlights.
-
-| Role             | Hex       | Border    | Use                                                 |
-|------------------|-----------|-----------|-----------------------------------------------------|
-| Decision / query | `#4a8e3a` | `#3a7029` | Decision boxes, questions, branch points            |
-| Warning / callout| `#f57c00` | `#cc6600` | Warning boxes, advisories, "watch out" pills        |
-| Info / process   | `#3e3e3e` | `#2a2a2a` | Neutral process steps, context boxes                |
-
-Color does the differentiation work — all diagram shapes should be **rectangles with small rounded corners (radius ~6px)**. Role is communicated by fill color, not by shape.
+Every brand in the house, with its CDN root, palette, logo roles and Collective Edge co-brand marks, resolves from [`brands.json`](brands.json). Look a sibling brand up there, never by guessing a filename. Adding a brand: [`NEW-BRAND.md`](NEW-BRAND.md).
 
 ---
 
-## 2. Logo
+## 2. Color
 
-### Logo files (CDN URLs above)
+| Name | Variable | Hex | Usage |
+|---|---|---|---|
+| Apex Blue | `--apex-blue` | `#2c338e` | Headers, links, buttons, accent bars, chart primary |
+| Apex Blue Deep | `--apex-blue-deep` | `#1D225E` | Header bands, hero grounds, footers, table header rows |
+| Apex Blue Light | `--apex-blue-light` | `#9699C7` | Tertiary accents, hover states |
+| Apex Gold | `--apex-gold` | `#f9ad16` | Band rules, kicker marks, stat numerals on dark |
+| Apex Gold Deep | `--apex-gold-deep` | `#B77808` | Gold text on white. 3.68:1, so 18pt print or 24px web and up. `.bk-h3` and above |
+| Surface Tint | `--apex-surface` | `#f3f3fb` | Alternating rows, callout fills |
 
-- **Horizontal logo** — primary lockup (navy "APEX PARAMEDICS" wordmark under the gold arc). Default for most contexts.
-- **Mark (arc)** — the gold arc icon alone, for compact contexts (favicons, badges, social avatars, table corners) where it reads on its own.
+Style through the semantic layer (`--fg-*`, `--bg-*`, `--border-*`). Reach for a raw `--apex-*` value only where the brand color is the point: a logo band, an accent rule, a chart series.
 
-Color variant for light backgrounds; white variant (white wordmark, gold arc retained) for dark backgrounds.
+Three traps agents fall into:
 
-### Logo specifications
+1. **Bright gold `#f9ad16` is never text on white.** It measures 1.91:1. `#B77808` measures 3.68:1, which clears the 3:1 large-text threshold and nothing else, so it runs at 18pt print or 24px web and up, the `.bk-h3` step and above. Never an eyebrow, a caption, a table cell or body copy. Body text is `--fg-1`.
+2. **Gold is never a large-area background** and never a status color. It vibrates at scale. `--status-warn` `#B5821A` measures 3.40:1 on white, so it carries a rule, a chip border or a label at 18pt or 24px and up. The warning sentence itself is `--fg-1`.
+3. **Apex Blue Light `#9699C7` is never text on white.** It measures 2.74:1. Tertiary accents, thin rules and hover states only, never a background.
 
-- **Horizontal viewBox:** `0 0 894.53 430.01` (aspect ≈ 2.08 : 1)
-- **Mark viewBox:** `-8 -8 619 245`
-- **Colors:** Apex Blue `#2c338e` wordmark, Apex Gold `#f9ad16` arc; on dark, white wordmark + gold arc.
-- The SVGs are converted from the source EPS (`assets/logos/source/apex-paramedics.eps`), which remains the authoritative master for any future re-export.
-
-### Usage rules
-
-1. **Default to the horizontal logo** for any context with horizontal room. Use the arc-only mark only where space requires it (small icons, badges).
-2. **Minimum clear space:** Maintain padding around the logo equal to at least the height of the gold arc on all sides.
-3. **On dark backgrounds:** Use the `*-white.svg` variant (white wordmark, gold arc). Do not apply CSS filters to recolor — use the correct file.
-4. **On white/light backgrounds:** Use the color variant.
-5. **Minimum size:** Never render the horizontal logo smaller than ~110px wide on screen or 1 inch in print. The arc-only mark can go down to ~32px.
-6. **Do NOT:**
-   - Stretch, skew, or rotate the logo
-   - Place the logo on busy photographic backgrounds without a solid backing
-   - Change the logo colors to anything other than Apex Blue + Apex Gold (or white + gold on dark)
-   - Add drop shadows, glows, outlines, or gradients to the logo
-   - Separate the wordmark from the arc in the horizontal lockup
-7. **Embedding:** Reference the logo URL directly with `<img src="...">` — it's a public CDN, no auth needed.
+Full palette with RGB, every contrast rule, and what each color must never do: [`reference/brand.md`](reference/brand.md).
 
 ---
 
-## 3. Typography
+## 3. Type
 
-**Montserrat is the brand font for every output.** No exceptions. (This is the same font used across all Collective Edge operating companies — Apex, Royal, and CE itself — so only color and logo distinguish the brands.)
+Type is shared house property. Do not restate it, do not adapt it, do not fork it.
 
-- Title bands / hero headlines: **800 weight, ALL CAPS, +1.5 letter-spacing**
-- Section headers: **700 weight**, normal case or all caps
-- Body: **500 weight** (Medium) on light backgrounds, **400** (Regular) for long-form
-- Tiny labels / kickers: **800 weight, ALL CAPS, +2 letter-spacing**, often in Apex Gold Deep or Apex Blue
+**Read [`reference/type-system.md`](reference/type-system.md) before setting any type.** It carries the measured metrics, the weight ladder, the scale table in px and pt, measure, composition, micro-typography, and the fifteen rules.
 
-**Always include the @font-face declaration** at the top of any generated HTML, even if Montserrat is installed on the rendering machine. This guarantees consistent rendering and embeds the font in any downstream PDF. See the asset-loading section above for the snippet.
+Three things that are never negotiable:
 
----
+1. **No italic.** Any weight, any size, any medium. Never synthesize an oblique.
+2. **No weight outside 400, 600, 700, 800.** 400 body, 600 subheads and caps labels, 700 headings and stat numerals, 800 hero display only.
+3. **No px tracking.** Letter-spacing is always em. A px value is a different optical amount at every size.
 
-## 4. Layout conventions (Apex house style)
-
-Blue is the structure; gold is the spark. Pattern-match these visually for new collateral.
-
-### Header band
-- Full-width strip across the very top of the page.
-- Background: Apex Blue Deep `#1D225E` (optionally a subtle gradient to Apex Blue `#2c338e` on the right).
-- **Gold accent rule:** a 3px Apex Gold `#f9ad16` line along the bottom edge of the band — echoes the logo arc.
-- White Apex horizontal logo top-right (~1.4–1.8in wide) — on a white chip if only the color raster is available.
-- Title text top-left: white, Montserrat 800, ALL CAPS, 18–22pt for one-pagers / 32–44pt for slides.
-
-### Sub-banner (optional)
-- Thin Apex Blue `#2c338e` strip just below the header band.
-- White Montserrat 600, 8–9pt, ALL CAPS, +2.5 letter-spacing.
-- Used for kicker / partner / category line.
-
-### Flowchart nodes
-- All node shapes are rounded rectangles (radius 6px).
-- **Standard step:** Dark gray `#3e3e3e`, white ALL-CAPS Montserrat 800, optional muted subtitle below.
-- **Action / highlight step:** Apex Blue `#2c338e`, same text treatment.
-- **Decision:** Green `#4a8e3a` pill (border-radius 999px), white ALL-CAPS Montserrat 800.
-- **Warning / critical:** Orange `#f57c00`, white ALL-CAPS Montserrat 800.
-- **Branch labels (YES / NO):** White box with colored border matching the branch outcome.
-- Connector lines: `#3e3e3e`, 1.8pt stroke, with arrow markers.
-
-### Stat / metric callouts
-- Big number: Montserrat 800, 36–60pt, Apex Blue `#2c338e` (or Apex Gold `#f9ad16` on a dark background).
-- Unit label: Montserrat 500, 10pt, Muted.
-- Kicker above: Montserrat 800, 8pt, ALL CAPS, Apex Gold Deep `#B77808`, +2 letter-spacing.
-
-### Tables
-- Header row: `#1D225E` (Apex Blue Deep) fill, white Montserrat 800 ALL CAPS 9pt.
-- Body rows: white, alternating with `#f3f3fb` if alternation helps readability.
-- Hairline borders: `#E2E8F0`.
-
-### Footer
-- Slim full-width footer.
-- Top border: `#E2E8F0` hairline (or a 2px Apex Gold rule for a branded finish).
-- Left: "Apex Paramedics | {Document Title}" in `#64748B` Muted.
-- Right: revision marker (e.g., "Rev. 07.26") in Apex Blue `#2c338e`, Montserrat 700.
+On any dark ground, put `.bk-on-dark` on the container. The CSS adds 0.005em tracking at every step, and drops one weight where the step is 700 or heavier. 600 is the floor.
 
 ---
 
-## 5. Quick-reference snippets
+## 4. Layout
 
-**Header band (drop-in HTML):**
+Blue is the structure. Gold is the spark.
+
+Header band, sub-banner, flowchart nodes, stat callouts, tables and footer, each as a copy-pasteable block: [`reference/layout.md`](reference/layout.md).
+
+The header band, which opens nearly every Apex deliverable:
+
 ```html
-<header style="background:#1D225E; color:#FFFFFF; padding:0.32in 0.5in; display:flex; align-items:center; justify-content:space-between; font-family:'Montserrat',sans-serif; border-bottom:3px solid #f9ad16;">
-  <div style="font-weight:800; font-size:18pt; letter-spacing:1.5px; text-transform:uppercase;">YOUR TITLE</div>
-  <img src="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg" style="width:1.6in;" alt="Apex Paramedics">
+<header class="bk-on-dark" style="background:var(--bg-band); border-bottom:3px solid var(--border-band-rule);
+        padding:0.32in 0.5in; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+  <div class="bk-display-md bk-caps" style="max-width:none; margin:0;">Field operations brief</div>
+  <img src="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg"
+       alt="Apex Paramedics" style="width:1.6in; height:auto; display:block; flex:0 0 auto;">
 </header>
 ```
 
-**Sub-banner:**
-```html
-<div style="background:#2c338e; color:#FFFFFF; padding:6px 0.5in; font:600 8.5pt 'Montserrat'; letter-spacing:2.5px; text-transform:uppercase;">
-  KICKER / PARTNER / CATEGORY
-</div>
+`.bk-on-dark` resolves `.bk-display-md` to weight 700 and tracking 0.030em. `--border-band-rule` is the 3px gold rule. Same file lives at [`snippets/header-band.html`](snippets/header-band.html).
+
+`.bk-caps` works at every step. Each step declares its own `--tr-caps` and one rule applies it, so `.bk-h1.bk-caps` opens to +0.030em and `.bk-body.bk-caps` to +0.070em. Rule 7 puts uppercase on a title, band or divider surface and on labels, and sentence case on headings inside a document. A band title is a title surface, so it takes `bk-caps`. For a one-pager, swap `.bk-display-md` for `.bk-h1` and keep `bk-caps`, which resolves on dark to 30pt, weight 600, tracking 0.035em.
+
+---
+
+## 5. Verify before shipping
+
+```bash
+python3 scripts/validate.py path/to/output.html
 ```
 
-**Footer:**
-```html
-<footer style="border-top:1px solid #E2E8F0; padding:6px 0.5in; font:400 8pt 'Montserrat'; color:#64748B; display:flex; justify-content:space-between;">
-  <span>Apex Paramedics &nbsp;|&nbsp; Document Title</span>
-  <span style="font-weight:700; letter-spacing:1.5px; color:#2c338e;">Rev. MM.YY</span>
-</footer>
-```
+It checks rules 1, 2, 5, 9, 10, 13 and 14 mechanically and exits non-zero on a violation. It cannot see pixels. Confirm the rest by eye:
+
+- [ ] Rendered and looked at, not just written. Overlap, clipping and overflow are invisible in source. If your environment cannot render, say so plainly instead of claiming it looks clean.
+- [ ] Montserrat actually rendered, not a fallback. For PDF, actually embedded in the file.
+- [ ] No italic anywhere.
+- [ ] Correct logo role for the ground. White variant on `#1D225E`, never a CSS filter.
+- [ ] Clear space held. Horizontal logo at least 110px wide, mark at least 32px.
+- [ ] Bright gold `#f9ad16` nowhere near body text on white.
+- [ ] Dark bands one weight lighter than their light-surface equivalent, down to the 600 floor.
+- [ ] Body text not running the full container width.
+- [ ] Every color drawn from the palette. No off-brand hues.
+- [ ] Page breaks clean, tables not split across pages.
+
+Name the brand choices you applied when you hand the work back: which logo role, which accent, how the font embedded.
 
 ---
 
 ## 6. Versioning
 
-Pinning to `@main` always serves the latest version. To pin to a stable release, replace `@main` with a tag, e.g. `@v1.0`. Bump tags when you make breaking changes (logo redesign, color shifts).
-
----
-
-## 7. Verify before you ship
-
-A brand deliverable fails on details a spell-check can't catch — overlapping text, a clipped logo, an accent you can't read, a font that quietly fell back to Arial. Before you call any Apex deliverable done, verify the **rendered** result, not the source:
-
-1. **Render it and look.** Render the output to an image or PDF (or open the HTML in a browser) and visually inspect what actually renders — text overlap, clipping, and overflow are invisible in the source and only show up in pixels. If your environment can't render, say so plainly instead of claiming it looks clean.
-2. **No collisions.** Nothing overlapping, colliding, clipped, or overflowing — no text running past its container, off the page, or into the logo.
-3. **Legibility.** Contrast holds — bright gold `#f9ad16` is never body text on white (use gold-deep `#B77808`, and only at bold or large sizes). Light text only on dark backgrounds.
-4. **Logo integrity.** Correct variant for the background (the white variant on dark), never stretched, skewed, or recolored; clear space respected; never on a busy area without a solid backing.
-5. **Type.** Montserrat actually rendered, not a system fallback — and for PDFs, actually *embedded* in the file. Confirm it before you call the job done.
-6. **On-brand.** Every color is drawn from the palette above, no off-brand hues; margins and alignment consistent; page breaks clean for print.
-7. **State what you applied.** When you hand it back, name the brand choices you made (which logo variant, which accent, how the font embedded) so the user can verify at a glance.
+`@main` serves the latest. Pin to a tag for stability: replace `@main` with `@v1.0`. Bump the tag on a breaking brand change: a logo redesign or a color shift.
