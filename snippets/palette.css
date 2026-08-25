@@ -22,15 +22,15 @@
 :root {
 
   /* ---- BRAND ----
-     Blue is the structure, gold is the spark. Bright gold #f9ad16
-     measures 1.91:1 on #FFFFFF and is never text there. Gold-deep
+     Blue is the structure, gold is the spark. Bright gold #FDB61C
+     measures 1.77:1 on #FFFFFF and is never text there. Gold-deep
      #B77808 measures 3.68:1, so it runs at 18pt print or
      24px web and up, and never in an eyebrow, a caption, a table
      cell or body copy. Gold is a brand accent, never a status color. */
-  --apex-blue:        #2c338e;
+  --apex-blue:        #2B338D;
   --apex-blue-deep:   #1D225E;
   --apex-blue-light:  #9699C7;
-  --apex-gold:        #f9ad16;
+  --apex-gold:        #FDB61C;
   --apex-gold-deep:   #B77808;
   --apex-black:       #000000;
   --apex-white:       #FFFFFF;
@@ -84,7 +84,7 @@
   --diagram-warning-text:    #111111;   /* 6.98:1. White measures 2.70:1 and fails */
   --diagram-warning-border:  #cc6600;
   --diagram-process:         #3e3e3e;
-  --diagram-process-text:    #FFFFFF;   /* 10.37:1 */
+  --diagram-process-text:    #FFFFFF;   /* 10.70:1 */
   --diagram-process-border:  #2a2a2a;
   --diagram-connector:       #3e3e3e;
 

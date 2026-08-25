@@ -47,7 +47,7 @@ Full-width strip across the top of the page. Blue Deep ground, 3px gold rule alo
 | Property | Value |
 |---|---|
 | Ground | `--bg-band` `#1D225E` |
-| Bottom rule | 3px `--border-band-rule` `#f9ad16` |
+| Bottom rule | 3px `--border-band-rule` `#FDB61C` |
 | Title | `.bk-display-md.bk-caps`, 42pt print, 56px web, weight 700, tracking 0.030em, leading 1.10 |
 | Logo | `horizontal-on-dark`, 1.4in to 1.8in wide. 1.6in is the default. Never below 110px or 1in |
 | Padding | 0.32in vertical, 0.5in horizontal |
@@ -58,7 +58,7 @@ For a one-pager, swap `.bk-display-md` for `.bk-h1` and keep `bk-caps`: 30pt pri
 
 `max-width: none` on the title is deliberate. The band is a flex row bounded by the logo, so `--measure-display` 16ch would cut the line short of the width the band actually gives it. Everywhere outside the band the measure holds.
 
-An optional gradient runs `#1D225E` to `#2c338e` left to right. Keep the left end solid so the title holds contrast:
+An optional gradient runs `#1D225E` to `#2B338D` left to right. Keep the left end solid so the title holds contrast:
 
 ```css
 style="background:linear-gradient(90deg, var(--apex-blue-deep) 0%, var(--apex-blue-deep) 55%, var(--apex-blue) 100%);"
@@ -78,7 +78,7 @@ Thin Apex Blue strip directly under the header band. Carries a kicker, a partner
 
 | Property | Value |
 |---|---|
-| Ground | `--apex-blue` `#2c338e` |
+| Ground | `--apex-blue` `#2B338D` |
 | Text | `.bk-eyebrow`, 9pt print, 12px web, weight 600, uppercase, tracking 0.085em, the 0.080em step plus the rule 4 bonus this dark strip carries |
 | Color | `--fg-on-dark-1` `#FFFFFF`. Override the default `--fg-on-dark-3`, which is too dim on this ground |
 | Padding | 8px vertical, 0.5in horizontal |
@@ -137,7 +137,7 @@ Every node is a rectangle at `--radius-md` 6px. Role is communicated by fill, ne
 | Role | Fill | Border |
 |---|---|---|
 | Standard step | `--diagram-process` `#3e3e3e` | `#2a2a2a` |
-| Action / highlight | `--apex-blue` `#2c338e` | `#1D225E` |
+| Action / highlight | `--apex-blue` `#2B338D` | `#1D225E` |
 | Decision | `--diagram-decision` `#4a8e3a` | `#3a7029` |
 | Warning / critical | `--diagram-warning` `#f57c00` | `#cc6600` |
 | Branch label | `--bg-canvas` `#FFFFFF`, text `--fg-1` `#1E293B` | matches the branch outcome |
@@ -148,7 +148,7 @@ Gold never appears as a node fill. Gold is a brand accent, not a status color.
 
 A node caption is `--fg-on-dark-2` `#D6DAEC`, which measures 7.69:1 on `#3e3e3e`. The inherited `--fg-on-dark-3` `#9EA5C4` measures 4.40:1 there and fails 4.5:1.
 
-White node text measures 10.70:1 on `#3e3e3e` and 10.65:1 on `#2c338e`, and both clear. It measures 4.02:1 on `#4a8e3a` and 2.70:1 on `#f57c00`, and both fail 4.5:1. Those two fills and their white text are inherited from the pre-v1.0 kits and are frozen pending a decision from the brand owner. Do not recolor them here. Until that decision lands, a Decision or Warning node carries a short label only, and every fact it signals also appears in the running text or the table beside the diagram.
+White node text measures 10.70:1 on `#3e3e3e` and 10.71:1 on `#2B338D`, and both clear. It measures 4.02:1 on `#4a8e3a` and 2.70:1 on `#f57c00`, and both fail 4.5:1. Those two fills and their white text are inherited from the pre-v1.0 kits and are frozen pending a decision from the brand owner. Do not recolor them here. Until that decision lands, a Decision or Warning node carries a short label only, and every fact it signals also appears in the running text or the table beside the diagram.
 
 ---
 
@@ -179,13 +179,13 @@ The kicker is `.bk-body-sm.bk-caps` at weight 600, not `.bk-eyebrow`. Section 4 
 | Part | Value |
 |---|---|
 | Kicker | `.bk-body-sm.bk-caps`, 10.5pt print, weight 600, uppercase, tracking 0.080em, `--fg-2` `#64748B` |
-| Gold mark | 2px `--apex-gold` `#f9ad16` rule above the group. `#B77808` measures 3.68:1 and clears nothing below the `.bk-h3` step, so gold marks the callout and never sets the label |
-| Numeral | `.bk-stat`, 42pt print, 56px web, weight 700, tracking -0.015em, `--fg-accent` `#2c338e` |
+| Gold mark | 2px `--apex-gold` `#FDB61C` rule above the group. `#B77808` measures 3.68:1 and clears nothing below the `.bk-h3` step, so gold marks the callout and never sets the label |
+| Numeral | `.bk-stat`, 42pt print, 56px web, weight 700, tracking -0.015em, `--fg-accent` `#2B338D` |
 | Unit label | `.bk-body-sm`, 10.5pt print, weight 400, `--fg-2` `#64748B` |
 
-On a dark ground, wrap the group in `.bk-on-dark` and set the numeral to `--apex-gold` `#f9ad16`. The kicker becomes `--fg-on-dark-3`.
+On a dark ground, wrap the group in `.bk-on-dark` and set the numeral to `--apex-gold` `#FDB61C`. The kicker becomes `--fg-on-dark-3`.
 
-Bright gold `#f9ad16` is never the numeral color on white. Use `--fg-accent` there.
+Bright gold `#FDB61C` is never the numeral color on white. Use `--fg-accent` there.
 
 ---
 
@@ -263,9 +263,9 @@ Slim full-width strip. Hairline top border, or a 2px gold rule for a branded fin
 
 | Part | Value |
 |---|---|
-| Top border | 1px `--border-1` `#E2E8F0`, or 2px `--apex-gold` `#f9ad16` |
+| Top border | 1px `--border-1` `#E2E8F0`, or 2px `--apex-gold` `#FDB61C` |
 | Left text | `.bk-caption`, 9pt, weight 400, `--fg-3` `#64748B` |
-| Right marker | `.bk-caption` at weight 700, `--fg-accent` `#2c338e`, value in `.bk-code` |
+| Right marker | `.bk-caption` at weight 700, `--fg-accent` `#2B338D`, value in `.bk-code` |
 | Separator | `·` between brand and document title |
 | Padding | 8px vertical, 0.5in horizontal |
 

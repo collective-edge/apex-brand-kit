@@ -1,6 +1,6 @@
 ---
 name: apex-brand-guidelines
-description: Applies Apex Paramedics brand standards, the navy-and-gold palette, the shared house type system, the five logo roles, and the Apex house layout patterns, to any output that represents Apex Paramedics. Use when generating or reviewing an Apex Paramedics email, slide, deck, one-pager, report, letterhead, flyer, proposal, document, web page, table, chart, diagram, or PDF. Also covers Apex social posts, internal comms, and training materials, and any artifact carrying the Apex logo or colors. Provides CDN asset loading, the color rules agents get wrong most often, a pointer to the house type standard, copy-pasteable layout blocks, and the pre-ship validator command.
+description: Applies Apex Paramedics brand standards, the navy-and-gold palette, the shared house type system, the seven logo roles, and the Apex house layout patterns, to any output that represents Apex Paramedics. Use when generating or reviewing an Apex Paramedics email, slide, deck, one-pager, report, letterhead, flyer, proposal, document, web page, table, chart, diagram, or PDF. Also covers Apex social posts, internal comms, and training materials, and any artifact carrying the Apex logo or colors. Provides CDN asset loading, the color rules agents get wrong most often, a pointer to the house type standard, copy-pasteable layout blocks, and the pre-ship validator command.
 ---
 
 # Apex Paramedics
@@ -42,9 +42,13 @@ Ask for a role, never a filename. `-on-light` is the file you place **on** a lig
 |---|---|---|
 | `horizontal-on-light` | `horizontal-color.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-color.svg` |
 | `horizontal-on-dark` | `horizontal-white.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg` |
+| `compact-on-light` | `compact-on-light.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/compact-on-light.svg` |
+| `compact-on-dark` | `compact-on-dark.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/compact-on-dark.svg` |
 | `mark-on-light` | `mark-color.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/mark-color.svg` |
 | `mark-on-dark` | `mark-white.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/mark-white.svg` |
 | `stacked-on-dark` | none | Apex has no stacked lockup. Use `horizontal-on-dark`. |
+
+The horizontal lockup is the main logo, `APEX PARAMEDICS`. The compact lockup is `APEX` alone, for smaller places, decks, or a corner.
 
 Reference a logo with `<img src="...">`. The CDN is public, no auth.
 
@@ -58,10 +62,10 @@ Every brand in the house, with its CDN root, palette, logo roles and Collective 
 
 | Name | Variable | Hex | Usage |
 |---|---|---|---|
-| Apex Blue | `--apex-blue` | `#2c338e` | Headers, links, buttons, accent bars, chart primary |
+| Apex Blue | `--apex-blue` | `#2B338D` | Headers, links, buttons, accent bars, chart primary |
 | Apex Blue Deep | `--apex-blue-deep` | `#1D225E` | Header bands, hero grounds, footers, table header rows |
 | Apex Blue Light | `--apex-blue-light` | `#9699C7` | Tertiary accents, hover states |
-| Apex Gold | `--apex-gold` | `#f9ad16` | Band rules, kicker marks, stat numerals on dark |
+| Apex Gold | `--apex-gold` | `#FDB61C` | Band rules, kicker marks, stat numerals on dark |
 | Apex Gold Deep | `--apex-gold-deep` | `#B77808` | Gold text on white. 3.68:1, so 18pt print or 24px web and up. `.bk-h3` and above |
 | Surface Tint | `--apex-surface` | `#f3f3fb` | Alternating rows, callout fills |
 
@@ -69,7 +73,7 @@ Style through the semantic layer (`--fg-*`, `--bg-*`, `--border-*`). Reach for a
 
 Three traps agents fall into:
 
-1. **Bright gold `#f9ad16` is never text on white.** It measures 1.91:1. `#B77808` measures 3.68:1, which clears the 3:1 large-text threshold and nothing else, so it runs at 18pt print or 24px web and up, the `.bk-h3` step and above. Never an eyebrow, a caption, a table cell or body copy. Body text is `--fg-1`.
+1. **Bright gold `#FDB61C` is never text on white.** It measures 1.77:1. `#B77808` measures 3.68:1, which clears the 3:1 large-text threshold and nothing else, so it runs at 18pt print or 24px web and up, the `.bk-h3` step and above. Never an eyebrow, a caption, a table cell or body copy. Body text is `--fg-1`.
 2. **Gold is never a large-area background** and never a status color. It vibrates at scale. `--status-warn` `#B5821A` measures 3.40:1 on white, so it carries a rule, a chip border or a label at 18pt or 24px and up. The warning sentence itself is `--fg-1`.
 3. **Apex Blue Light `#9699C7` is never text on white.** It measures 2.74:1. Tertiary accents, thin rules and hover states only, never a background.
 
@@ -128,8 +132,8 @@ It checks rules 1, 2, 5, 9, 10, 13 and 14 mechanically and exits non-zero on a v
 - [ ] Montserrat actually rendered, not a fallback. For PDF, actually embedded in the file.
 - [ ] No italic anywhere.
 - [ ] Correct logo role for the ground. White variant on `#1D225E`, never a CSS filter.
-- [ ] Clear space held. Horizontal logo at least 110px wide, mark at least 32px.
-- [ ] Bright gold `#f9ad16` nowhere near body text on white.
+- [ ] Clear space held. Horizontal logo at least 110px wide, compact at least 80px, mark at least 32px.
+- [ ] Bright gold `#FDB61C` nowhere near body text on white.
 - [ ] Dark bands one weight lighter than their light-surface equivalent, down to the 600 floor.
 - [ ] Body text not running the full container width.
 - [ ] Every color drawn from the palette. No off-brand hues.

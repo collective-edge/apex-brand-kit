@@ -36,7 +36,7 @@ apex-brand-kit/
 └── assets/
     ├── colors.json                 DEPRECATED. Replaced by tokens.json.
     ├── fonts/Montserrat-VariableFont_wght.ttf
-    └── logos/                      horizontal and mark, color and white, plus the source EPS.
+    └── logos/                      horizontal, compact and mark, color and white, plus the source EPS.
 ```
 
 Seven files are byte-identical in every kit: `reference/type-system.md`, `NEW-BRAND.md`, `brands.json`, `snippets/type-system.css`, `snippets/type-tokens.json`, `scripts/validate.py`, `scripts/check-sync.py`. `check-sync.py` fails if any of them drifts.
@@ -73,20 +73,24 @@ Ask for a role, never a filename. `-on-light` is the file you place on a light b
 |---|---|
 | `horizontal-on-light` | `assets/logos/horizontal-color.svg` |
 | `horizontal-on-dark` | `assets/logos/horizontal-white.svg` |
+| `compact-on-light` | `assets/logos/compact-on-light.svg` |
+| `compact-on-dark` | `assets/logos/compact-on-dark.svg` |
 | `mark-on-light` | `assets/logos/mark-color.svg` |
 | `mark-on-dark` | `assets/logos/mark-white.svg` |
 | `stacked-on-dark` | Apex has none. Use `horizontal-on-dark`. |
 
-Reference the CDN URL directly with `<img src="...">`. The repository is public and jsDelivr needs no auth. `assets/logos/source/apex-paramedics.eps` is the authoritative master for any re-export.
+The horizontal lockup is the main logo, `APEX PARAMEDICS`, at 110px and up. The compact lockup is `APEX` alone, for smaller places, decks, or a corner, at 80px and up.
+
+Reference the CDN URL directly with `<img src="...">`. The repository is public and jsDelivr needs no auth. `assets/logos/source/apex-paramedics-PMS123-PMS072.eps` is the authoritative master for any re-export.
 
 ## Color
 
 | Name | Variable | Hex | Usage |
 |---|---|---|---|
-| Apex Blue | `--apex-blue` | `#2c338e` | Headers, links, buttons, accent bars, chart primary |
+| Apex Blue | `--apex-blue` | `#2B338D` | Headers, links, buttons, accent bars, chart primary |
 | Apex Blue Deep | `--apex-blue-deep` | `#1D225E` | Header bands, hero grounds, footers, table header rows |
 | Apex Blue Light | `--apex-blue-light` | `#9699C7` | Tertiary accents and hover. 2.74:1 on white, never text |
-| Apex Gold | `--apex-gold` | `#f9ad16` | Band rules, accent marks, stat numerals on dark. 1.91:1 on white, never text |
+| Apex Gold | `--apex-gold` | `#FDB61C` | Band rules, accent marks, stat numerals on dark. 1.77:1 on white, never text |
 | Apex Gold Deep | `--apex-gold-deep` | `#B77808` | Gold text on white at 3.68:1. 18pt print or 24px web and up, the `.bk-h3` step and above |
 | Surface Tint | `--apex-surface` | `#f3f3fb` | Alternating rows, callout fills |
 

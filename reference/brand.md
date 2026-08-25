@@ -14,10 +14,10 @@ The palette is drawn straight from the mark. The wordmark is Pantone Blue 072 C.
 
 | Name | Variable | Hex | RGB | Usage |
 |---|---|---|---|---|
-| Apex Blue | `--apex-blue` | `#2c338e` | 44, 51, 142 | Primary brand color. Logo wordmark, headers, links, buttons, column headers, accent bars, chart primary series |
+| Apex Blue | `--apex-blue` | `#2B338D` | 43, 51, 141 | Primary brand color. Logo wordmark, headers, links, buttons, column headers, accent bars, chart primary series |
 | Apex Blue Deep | `--apex-blue-deep` | `#1D225E` | 29, 34, 94 | Large dark areas. Header bands, hero grounds, full-width strips, section dividers, footers, table header rows |
 | Apex Blue Light | `--apex-blue-light` | `#9699C7` | 150, 153, 199 | Tertiary accents, hover states, lighter highlights |
-| Apex Gold | `--apex-gold` | `#f9ad16` | 249, 173, 22 | Signature accent, echoing the arc. Band rules, kicker marks, highlight underlines, stat numerals on dark |
+| Apex Gold | `--apex-gold` | `#FDB61C` | 253, 182, 28 | Signature accent, echoing the arc. Band rules, kicker marks, highlight underlines, stat numerals on dark |
 | Apex Gold Deep | `--apex-gold-deep` | `#B77808` | 183, 120, 8 | Gold text on white at 3.68:1. 18pt print or 24px web and up, the `.bk-h3` step and above, and icons. Never small text |
 | Black | `--apex-black` | `#000000` | 0, 0, 0 | High-contrast headings on light grounds |
 | White | `--apex-white` | `#FFFFFF` | 255, 255, 255 | Text on dark grounds, page background |
@@ -43,7 +43,7 @@ Style through these. The names are identical in every brand kit, so a component 
 | `--fg-2` | `#64748B` | Secondary text |
 | `--fg-3` | `#64748B` | Tertiary, metadata, eyebrows |
 | `--fg-4` | `#94A3B8` | Dimmed labels |
-| `--fg-accent` | `#2c338e` | Brand-colored text |
+| `--fg-accent` | `#2B338D` | Brand-colored text |
 | `--fg-on-dark-1` | `#FFFFFF` | Primary text on dark |
 | `--fg-on-dark-2` | `#D6DAEC` | Body text on dark |
 | `--fg-on-dark-3` | `#9EA5C4` | Captions and eyebrows on dark |
@@ -55,7 +55,7 @@ Style through these. The names are identical in every brand kit, so a component 
 | `--border-1` | `#E2E8F0` | Hairline |
 | `--border-2` | `#CBD5E1` | Heavier divider |
 | `--border-on-dark` | `rgba(255,255,255,0.12)` | Dividers on dark |
-| `--border-band-rule` | `#f9ad16` | The 3px gold rule under the header band |
+| `--border-band-rule` | `#FDB61C` | The 3px gold rule under the header band |
 
 ### Status
 
@@ -91,21 +91,21 @@ White node text on `#f57c00` measures 2.70:1 and on `#4a8e3a` measures 4.02:1. B
 
 | Color | Never |
 |---|---|
-| Apex Gold `#f9ad16` | Never text on white. Never a background for a large area. Never a status color. Never the fill of a body-text panel |
+| Apex Gold `#FDB61C` | Never text on white. Never a background for a large area. Never a status color. Never the fill of a body-text panel |
 | Apex Gold Deep `#B77808` | Never below 18pt print or 24px web, the `.bk-h3` step. Never an eyebrow, a caption or a table cell. Never long-form running text |
 | Apex Blue Light `#9699C7` | Never text on white. Never a large-area background. Never a table header fill |
-| Apex Blue `#2c338e` | Never a body-text color for long-form. Never carries `--fg-on-dark-3` `#9EA5C4`, which measures 4.38:1 on it |
+| Apex Blue `#2B338D` | Never a body-text color for long-form. Never carries `--fg-on-dark-3` `#9EA5C4`, which measures 4.40:1 on it |
 | Surface Tint `#f3f3fb` | Never carries white text. Never a header band |
 | Dimmed `#94A3B8` | Never body text on white |
 | Muted `#64748B` | Never text on `#1D225E` |
 
 ### Contrast traps
 
-1. **Bright gold on white.** `#f9ad16` on `#FFFFFF` measures 1.91:1. `#B77808` measures 3.68:1, which clears the 3:1 large-text threshold and nothing below it. Gold text on white runs at 18pt print or 24px web and up, which is the `.bk-h3` step and above. Body copy, `.bk-body-sm`, `.bk-caption` and `.bk-eyebrow` are `--fg-1`, `--fg-2` or `--fg-accent`, never gold.
+1. **Bright gold on white.** `#FDB61C` on `#FFFFFF` measures 1.77:1. `#B77808` measures 3.68:1, which clears the 3:1 large-text threshold and nothing below it. Gold text on white runs at 18pt print or 24px web and up, which is the `.bk-h3` step and above. Body copy, `.bk-body-sm`, `.bk-caption` and `.bk-eyebrow` are `--fg-1`, `--fg-2` or `--fg-accent`, never gold.
 2. **Gold as a status signal.** Gold reads as the Apex accent, so a gold warning pill is indistinguishable from a brand highlight. `--status-warn` `#B5821A` measures 3.40:1 on white, so it marks a warning as a rule, a chip border or a label at 18pt or 24px and up. The warning sentence itself is `--fg-1`. Inside a flowchart node the warning fill is `#f57c00`, which is frozen and fails as a ground for text.
 3. **Blue Light as text.** `#9699C7` on white measures 2.74:1. It is an accent hue, not an ink. Confine it to hover states, thin rules and tertiary marks.
 4. **Muted on the band.** `#64748B` on `#1D225E` is nearly invisible. Text on the band uses `--fg-on-dark-1`, `--fg-on-dark-2` or `--fg-on-dark-3`.
-5. **Gold over blue.** `#f9ad16` on `#1D225E` measures 7.64:1 and on `#2c338e` measures 5.59:1. Both clear 4.5:1 at any size, so gold on either blue is correct for a stat numeral, an accent rule or a caps label on a dark band.
+5. **Gold over blue.** `#FDB61C` on `#1D225E` measures 8.24:1 and on `#2B338D` measures 6.06:1. Both clear 4.5:1 at any size, so gold on either blue is correct for a stat numeral, an accent rule or a caps label on a dark band.
 6. **Secondary grey as the data.** `#64748B` measures 4.76:1 on `#FFFFFF` but 4.31:1 on the `#f3f3fb` alternating row, which fails. `.bk-body-sm` and `.bk-caption` default to that grey, so any table cell carrying primary data sets `color: var(--fg-1)` `#1E293B`, which measures 13.25:1 on `#f3f3fb`.
 
 ### Measured contrast
@@ -115,19 +115,19 @@ Computed against WCAG 2.x relative luminance. Use these figures. Do not restate 
 | Pair | Ratio | Verdict |
 |---|---|---|
 | `#1E293B` on `#FFFFFF` | 14.63:1 | Any size |
-| `#2c338e` on `#FFFFFF` | 10.65:1 | Any size |
+| `#2B338D` on `#FFFFFF` | 10.71:1 | Any size |
 | `#1E293B` on `#f3f3fb` | 13.25:1 | Any size |
 | `#64748B` on `#FFFFFF` | 4.76:1 | Any size |
 | `#64748B` on `#f3f3fb` | 4.31:1 | Fails. Never on the alternating row |
 | `#B77808` on `#FFFFFF` | 3.68:1 | Large or bold only. Never small text |
 | `#B5821A` on `#FFFFFF` | 3.40:1 | Large or bold only. Never running copy |
 | `#9699C7` on `#FFFFFF` | 2.74:1 | Fails. Never text |
-| `#f9ad16` on `#FFFFFF` | 1.91:1 | Fails. Never text |
-| `#f9ad16` on `#1D225E` | 7.64:1 | Any size |
-| `#f9ad16` on `#2c338e` | 5.59:1 | Any size |
+| `#FDB61C` on `#FFFFFF` | 1.77:1 | Fails. Never text |
+| `#FDB61C` on `#1D225E` | 8.24:1 | Any size |
+| `#FDB61C` on `#2B338D` | 6.06:1 | Any size |
 | `#FFFFFF` on `#1D225E` | 14.56:1 | Any size |
-| `#FFFFFF` on `#2c338e` | 10.65:1 | Any size |
-| `#9EA5C4` on `#2c338e` | 4.38:1 | Fails 4.5:1. Never a caption or an eyebrow on this ground |
+| `#FFFFFF` on `#2B338D` | 10.71:1 | Any size |
+| `#9EA5C4` on `#2B338D` | 4.40:1 | Fails 4.5:1. Never a caption or an eyebrow on this ground |
 | `#FFFFFF` on `#3e3e3e` | 10.70:1 | Any size |
 | `#FFFFFF` on `#4a8e3a` | 4.02:1 | Fails 4.5:1. Frozen diagram fill |
 | `#FFFFFF` on `#f57c00` | 2.70:1 | Fails. Frozen diagram fill |
@@ -150,8 +150,9 @@ Chart series and status indicators stay within the blue and gold palette or harm
 
 | Lockup | What it is | When |
 |---|---|---|
-| Horizontal | The navy `APEX PARAMEDICS` wordmark under the gold arc | Default for any context with horizontal room |
-| Mark | The gold arc alone | Compact contexts only. Favicons, badges, social avatars, table corners |
+| Horizontal | The blue `APEX PARAMEDICS` wordmark under the gold arc | The main logo. Default for any context with horizontal room |
+| Compact | `APEX` alone under the gold arc | Smaller places, decks, or a corner |
+| Mark | The gold arc alone | Favicons, badges, social avatars, table corners |
 
 Apex has no stacked lockup. Where a vertical lockup is needed, use the horizontal one at reduced width.
 
@@ -159,17 +160,26 @@ Apex has no stacked lockup. Where a vertical lockup is needed, use the horizonta
 
 | Property | Value |
 |---|---|
-| Horizontal viewBox | `0 0 894.53333 430.01334` |
-| Horizontal aspect | approximately 2.08 : 1 |
+| Horizontal viewBox | `0 0 687.72 289.25` |
+| Horizontal aspect | 2.378 : 1 |
+| Compact viewBox | `0 0 682.3 240.66` |
+| Compact aspect | 2.835 : 1 |
 | Mark viewBox | `-8 -8 619 245` |
-| Wordmark color | Apex Blue `#2c338e`, or `#FFFFFF` on dark |
-| Arc color | Apex Gold `#f9ad16`, on both light and dark |
+| Wordmark color | Apex Blue `#2B338D`, or `#FFFFFF` on dark |
+| Arc color | Apex Gold `#FDB61C`, on both light and dark |
 | Minimum clear space | Padding on all four sides equal to at least the height of the gold arc |
 | Minimum size, horizontal | 110px on screen, 1 inch in print |
+| Minimum size, compact | 80px on screen, 0.75 inch in print |
 | Minimum size, mark | 32px |
-| Vector master | `assets/logos/source/apex-paramedics.eps` |
+| Vector master | `assets/logos/source/apex-paramedics-PMS123-PMS072.eps` |
 
 The shipping SVGs are converted from the EPS, which remains the authoritative master for any future re-export.
+
+The horizontal files are tight to their ink. The superseded `0 0 894.53333 430.01334` box carried 12.5 percent empty height below the mark, so at the same pinned width the logo renders at the same size and the box around it is shorter. Rendered at 800px wide the box is 384.57px tall in the old file and 336.47px in the new one, and the ink is 336.47px tall in both. No pinned width in this kit changes.
+
+The compact minimum holds the `APEX` cap at or above the size the horizontal lockup shows at its own 110px floor. Rendered at 1000px wide the cap measures 165.50px in the horizontal file and 230.14px in the compact file, so 110px horizontal matches 79.10px compact.
+
+The delivered compact files carried `#000F9F` and `#FFB71B`. Both fills are normalised to the primary lockup, `#2B338D` and `#FDB61C`, so the house ships one blue and one gold. The delivered originals are in `assets/logos/_superseded/`.
 
 ### Raster fallback
 
@@ -183,6 +193,7 @@ The `-on-dark` SVG is the correct file for the `#1D225E` band. Where only the co
 - Do not apply a CSS filter to invert or recolor a variant. Load the correct file for the ground.
 - Do not add a drop shadow, glow, outline or gradient.
 - Do not separate the wordmark from the arc in the horizontal lockup.
+- Do not use the compact lockup where the horizontal one fits. `APEX PARAMEDICS` is the main logo.
 - Do not render the arc in blue or the wordmark in gold.
 - Do not reproduce the logo below its minimum size.
 - Do not crop the clear space to fit a tight layout. Shrink the logo instead, down to the minimum.
