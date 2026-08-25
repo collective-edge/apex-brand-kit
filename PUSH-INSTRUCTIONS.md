@@ -75,4 +75,4 @@ Role-md changes need a new worker image. Merging to `master` auto-deploys to acc
 
 ## Re-exporting the logos
 
-`horizontal-color.svg`, `horizontal-white.svg`, `mark-color.svg` and `mark-white.svg` were converted from `assets/logos/source/apex-paramedics.eps` and are production-usable. For a pixel-perfect re-export, open the EPS in Illustrator, `File → Export → SVG`, and overwrite the files under the same names. `SKILL.md` already points at them.
+The shipping SVGs under `assets/logos/` are production art, supplied as SVG. The vector master is `assets/logos/source/apex-paramedics-PMS123-PMS072.eps`. For a re-export, open the EPS in Illustrator, `File → Export → SVG`, and overwrite under the same names. `brands.json` maps every logo role to its file, so add a role there rather than inventing a filename.

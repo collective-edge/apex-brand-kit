@@ -179,7 +179,7 @@ The horizontal files are tight to their ink. The superseded `0 0 894.53333 430.0
 
 The compact minimum holds the `APEX` cap at or above the size the horizontal lockup shows at its own 110px floor. Rendered at 1000px wide the cap measures 165.50px in the horizontal file and 230.14px in the compact file, so 110px horizontal matches 79.10px compact.
 
-The delivered compact files carried `#000F9F` and `#FFB71B`. Both fills are normalised to the primary lockup, `#2B338D` and `#FDB61C`, so the house ships one blue and one gold. The delivered originals are in `assets/logos/_superseded/`.
+The delivered compact files carried `#000F9F` and `#FFB71B`. Both fills are normalised to the primary lockup, `#2B338D` and `#FDB61C`, so the house ships one blue and one gold. The delivered originals are in the git history, at the commit that adopted the set.
 
 ### Raster fallback
 
