@@ -121,12 +121,15 @@ The header band, which opens nearly every Apex deliverable:
 
 `.bk-caps` works at every step. Each step declares its own `--tr-caps` and one rule applies it, so `.bk-h1.bk-caps` opens to +0.030em and `.bk-body.bk-caps` to +0.070em. Rule 7 puts uppercase on a title, band or divider surface and on labels, and sentence case on headings inside a document. A band title is a title surface, so it takes `bk-caps`. For a one-pager, swap `.bk-display-md` for `.bk-h1` and keep `bk-caps`, which resolves on dark to 30pt, weight 600, tracking 0.035em.
 
+**UI controls.** Buttons, links, form controls, status badges and the focus ring are shared and identical in all three brands: [`snippets/ui.css`](snippets/ui.css), loaded third after `palette.css`, with the standard in [reference/ui.md](reference/ui.md). Cards, tables, dashboard shells, navigation and heroes are not shared; each site builds its own on those tokens. `Examples/ui-controls.html` renders every control in every state.
+
 ---
 
 ## 5. Verify before shipping
 
 ```bash
 python3 scripts/validate.py path/to/output.html
+python3 scripts/ui-audit.py path/to/page.html --width 375 --width 768 --width 1440
 ```
 
 It checks rules 1, 2, 5, 9, 10, 13 and 14 mechanically and exits non-zero on a violation. It cannot see pixels. Confirm the rest by eye:
