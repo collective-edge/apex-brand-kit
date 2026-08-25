@@ -25,7 +25,7 @@ Every type value here comes from the scale in `reference/type-system.md`. Do not
 
 Weight 500 is not in the ladder. Anything that was 500 becomes 400.
 
-The decision pill is gone because role is now communicated by fill, never by shape. A pre-v1.0 Apex flowchart still carrying 999px decision nodes is out of date, not wrong to have existed. Re-cut it to 6px. `999px` survives for pills only, in section 7.
+The decision pill is gone because role is now communicated by fill, never by shape. A pre-v1.0 Apex flowchart still carrying 999px decision nodes is out of date, not wrong to have existed. Re-cut it to 6px. `999px` survives for pills only, in section 8.
 
 ---
 
@@ -275,7 +275,69 @@ The revision marker takes a non-breaking space, and the value itself goes in `.b
 
 ---
 
-## 7. Page rules
+## 7. Powered by Collective Edge
+
+Apex Paramedics is an operating company under Collective Edge. Where an Apex surface is doing something a reader might wonder about, the lockup says who built it. It is a signal, not a legal footnote.
+
+The rule, and it is the whole rule: **the CE lockup rides beside the Apex brand, never inside it, so a hairline keeps the two marks distinct.** The two read as two brands rather than one combined mark. Nothing is merged, nested or recolored to match the other side.
+
+The CSS is shared and identical in every kit: [`snippets/cobrand.css`](../snippets/cobrand.css). Load it after the palette.
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/cobrand.css">
+```
+
+**Dark ground.** The Apex band `--bg-band` `#1D225E`. This is the shipped case, the one running in the Apex website footer and the internal dashboard sidebar.
+
+```html
+<div class="bk-on-dark" style="background:var(--bg-band); padding:32px 0.5in;">
+  <img src="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg"
+       alt="Apex Paramedics" style="width:158px; height:auto; display:block;">
+  <div class="ce-powered">
+    <span>Powered by</span>
+    <img src="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/assets/logos/horizontal-white.svg"
+         alt="CE · Collective Edge" width="204" height="34">
+  </div>
+</div>
+```
+
+**Light ground.** The white canvas `--bg-canvas` `#FFFFFF`, for a one-pager or report footer. Same geometry, black lockup, hairline in `--border-1`.
+
+```html
+<div class="ce-powered ce-powered-light">
+  <span>Powered by</span>
+  <img src="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/assets/logos/horizontal-black.svg"
+       alt="CE · Collective Edge" width="204" height="34">
+</div>
+```
+
+**Text only.** Where no lockup fits, `.ce-powered-text` sets the phrase at `.bk-eyebrow` values, 12px web and 9pt print at weight 600 with 0.080em tracking. The customer dashboard ships it at 9px and 700, which is under the 9pt floor and heavier than the caps-label step. Use the class.
+
+```html
+<p class="ce-powered-text">Powered by Collective Edge</p>
+```
+
+| Part | Value |
+|---|---|
+| Lockup width | 204px, rendering 34px tall on the 450 x 75 artwork |
+| Label | `--fs-caption` 12px web and 9pt print, weight 600, `--tr-caps-small` 0.080em, uppercase |
+| Label on dark | `--fg-on-dark-3` `#9EA5C4` on `#1D225E`, 5.98:1 |
+| Label on light | `--fg-3` `#64748B` on `#FFFFFF`, 4.76:1 |
+| Hairline on dark | 1px `--border-on-dark` `rgba(255,255,255,0.12)` |
+| Hairline on light | 1px `--border-1` `#E2E8F0` |
+| Spacing | 24px above the hairline and 24px below it, 12px between label and lockup |
+
+204px is deliberate. It runs wider than the 158px Apex mark above it because it is sized to read at a glance rather than sit quietly in a corner. The 110px logo minimum in this kit is a floor, not a target.
+
+The light lockup goes on `--bg-canvas`, not on `--apex-surface` `#f3f3fb`. The same grey measures 4.31:1 on the tint, under the 4.5:1 small-text threshold.
+
+**Where it belongs.** The footer of any Apex site or printed document. The sidebar header of any Apex dashboard. The closing slide of a deck. The foot of a report. A data page or a methodology page. Anywhere a number was computed rather than typed.
+
+**Where it does not.** On the Apex mark itself or inside the Apex lockup. On a clinical instruction. On a patient-facing consent or safety document. Twice on one surface. Set as type where the mark fits.
+
+---
+
+## 8. Page rules
 
 | Rule | Value |
 |---|---|

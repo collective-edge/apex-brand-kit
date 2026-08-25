@@ -18,9 +18,10 @@ Everything is cloud-hosted on jsDelivr. Never look for local files.
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/type-system.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/palette.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/cobrand.css">
 ```
 
-Load them in that order. `type-system.css` is identical in every kit and is served from the parent brand. `palette.css` is the only stylesheet that differs.
+Load them in that order. `cobrand.css` is the co-brand lockup, shared and identical in every kit, and it reads the palette, so it loads last. `type-system.css` is identical in every kit and is served from the parent brand. `palette.css` is the only stylesheet that differs.
 
 For PDF pipelines (weasyprint, wkhtmltopdf, Chrome print), embed the font:
 
@@ -116,6 +117,8 @@ The header band, which opens nearly every Apex deliverable:
 
 `.bk-on-dark` resolves `.bk-display-md` to weight 700 and tracking 0.030em. `--border-band-rule` is the 3px gold rule. Same file lives at [`snippets/header-band.html`](snippets/header-band.html).
 
+**Powered by Collective Edge.** Apex is an operating company under Collective Edge, and the reader should be able to see it. The lockup rides beside the Apex mark, never inside it, with a hairline between them, at 204px, which is wider than the Apex mark above it on purpose. `.ce-powered` on a dark band, `.ce-powered ce-powered-light` on white, `.ce-powered-text` where no mark fits. It belongs on footers, dashboard sidebars, closing slides, data pages, anywhere a number was computed rather than typed. Never on the Apex mark itself, never on a clinical instruction or a patient-facing consent, never twice on one surface. Both grounds, the measured contrast and copy-pasteable blocks: [`reference/layout.md`](reference/layout.md) section 7.
+
 `.bk-caps` works at every step. Each step declares its own `--tr-caps` and one rule applies it, so `.bk-h1.bk-caps` opens to +0.030em and `.bk-body.bk-caps` to +0.070em. Rule 7 puts uppercase on a title, band or divider surface and on labels, and sentence case on headings inside a document. A band title is a title surface, so it takes `bk-caps`. For a one-pager, swap `.bk-display-md` for `.bk-h1` and keep `bk-caps`, which resolves on dark to 30pt, weight 600, tracking 0.035em.
 
 ---
@@ -133,6 +136,7 @@ It checks rules 1, 2, 5, 9, 10, 13 and 14 mechanically and exits non-zero on a v
 - [ ] No italic anywhere.
 - [ ] Correct logo role for the ground. White variant on `#1D225E`, never a CSS filter.
 - [ ] Clear space held. Horizontal logo at least 110px wide, compact at least 80px, mark at least 32px.
+- [ ] “Powered by Collective Edge” on the footer, the sidebar or the closing slide. Once, beside the Apex mark and never inside it.
 - [ ] Bright gold `#FDB61C` nowhere near body text on white.
 - [ ] Dark bands one weight lighter than their light-surface equivalent, down to the 600 floor.
 - [ ] Body text not running the full container width.

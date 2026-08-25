@@ -11,6 +11,7 @@
      that differs between Apex, Royal and Collective Edge. -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/type-system.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/palette.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/cobrand.css">
 
 <style>
 /* ---------- FONT ------------------------------------------------
@@ -161,6 +162,16 @@ html, body { margin: 0; background: var(--bg-surface); }
 
 .slide-closing .slide-headline { margin: 0; max-width: var(--measure-display); }
 .slide-closing .slide-meta     { margin: 0; color: var(--fg-on-dark-2); }
+
+/* Powered by Collective Edge, on the closing slide. The CE lockup rides
+   beside the Apex mark, never inside it, so the hairline keeps the two
+   marks distinct and they read as two brands rather than one combined
+   mark. cobrand.css owns the geometry, the 204px width and the label,
+   which sits at --fg-on-dark-3 #9EA5C4 on --bg-band #1D225E, 5.98:1.
+   align-self holds the hairline to the width of the lockup instead of
+   letting it stretch across the slide. The flex gap above it is already
+   --space-7, so the block's own margin-top comes off. */
+.slide-closing .ce-powered { align-self: flex-start; margin-top: 0; }
 
 
 /* ---------- SLIDE FOOTER ------------------------------------------
@@ -346,6 +357,11 @@ html, body { margin: 0; background: var(--bg-surface); }
          alt="Apex Paramedics">
     <h1 class="bk-display-md slide-headline">Fix the origin, not the truck.</h1>
     <p class="bk-body-lg slide-meta">Next review · September, with the paperwork pilot in place</p>
+    <div class="ce-powered">
+      <span>Powered by</span>
+      <img src="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/assets/logos/horizontal-white.svg"
+           alt="CE · Collective Edge" width="204" height="34">
+    </div>
     <div class="slide-footer">
       <span class="bk-caption bk-measure-none slide-brand">Apex Paramedics · Interfacility transport</span>
       <span class="bk-caption bk-measure-none slide-page">05</span>
