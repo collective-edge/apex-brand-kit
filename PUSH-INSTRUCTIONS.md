@@ -55,7 +55,7 @@ git tag v1.0
 git push --tags
 ```
 
-Replace `@main` with `@v1.0` in CDN URLs to pin. Bump the minor version for additive changes, the major version when a value in section 3, 4 or 5 of `reference/type-system.md` changes.
+Replace `@main` with `@v1.1` in CDN URLs to pin. Bump the minor version for additive changes, the major version when a value in section 3, 4 or 5 of `reference/type-system.md` changes.
 
 ## Installing the kit on a machine
 

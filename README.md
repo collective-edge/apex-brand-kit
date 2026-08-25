@@ -121,7 +121,7 @@ python3 scripts/check-sync.py
 
 ## Versioning
 
-`@main` serves the latest. Pin to a tag for stability: replace `@main` with `@v1.0`. Bump the tag on a breaking brand change: a logo redesign or a color shift. The type system versions separately, per `reference/type-system.md` section 13.
+`@main` serves the latest. Pin to a tag for stability: replace `@main` with `@v1.1`. Bump the tag on a breaking brand change: a logo redesign or a color shift. The type system versions separately, per `reference/type-system.md` section 13.
 
 ## License
 

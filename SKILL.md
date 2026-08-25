@@ -145,4 +145,4 @@ Name the brand choices you applied when you hand the work back: which logo role,
 
 ## 6. Versioning
 
-`@main` serves the latest. Pin to a tag for stability: replace `@main` with `@v1.0`. Bump the tag on a breaking brand change: a logo redesign or a color shift.
+`@main` serves the latest. Pin to a tag for stability: replace `@main` with `@v1.1`. Bump the tag on a breaking brand change: a logo redesign or a color shift.
