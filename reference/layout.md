@@ -242,7 +242,7 @@ Set the 10.5pt step once on the cell rule. `.bk-body-sm` on a `td` also drags in
 | Borders | `--border-1` `#E2E8F0` hairline |
 | Cell padding | 8px vertical, 12px horizontal |
 
-Unit IDs, run numbers and authorization numbers go in `.bk-code`. Montserrat’s capital I, lowercase l and figure 1 are three identical stems.
+Unit IDs, run numbers and authorization numbers go in `.bk-code`. Montserrat’s capital I, lowercase l and figure 1 are three identical stems. Nothing else in a cell takes the face. A run count, a duration and a median are measurements, so they stay Montserrat and take `.bk-tnum` to align down the column.
 
 Alternate rows only when alternation helps a reader track a long row. Never for decoration.
 

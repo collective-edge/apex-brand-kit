@@ -213,7 +213,7 @@ Apex speaks the way a field crew speaks: short, specific, and about the work.
 - A label, a value, and nothing between them. No helper text under a field, no caption restating the number above it, no parenthetical after a heading.
 - Exact values only. Write `#1D225E`, never “the dark navy”. Write the real number, never a rounded one.
 - Clinical and operational terms stay precise. Never soften a protocol term for readability.
-- Any string a person retypes, dictates or reads aloud goes in the mono face: unit IDs, run numbers, authorization numbers, MRNs. Use `.bk-code`.
+- The mono face is a whitelist of four: colour values, paths and filenames, code shown as code, and record identifiers a person dictates. Use `.bk-code`. Measurements, ratios, counts, ordinals, weight numbers, verdict words and labels are Montserrat.
 - Write a caption only when it carries information the thing above it does not.
 - No off-brand decoration. If information can be carried by structure, position or a rendered example, carry it that way.
 
