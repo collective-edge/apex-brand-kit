@@ -329,7 +329,7 @@ The CSS is shared and identical in every kit: [`snippets/cobrand.css`](../snippe
 
 204px is deliberate. It runs wider than the 158px Apex mark above it because it is sized to read at a glance rather than sit quietly in a corner. The 110px logo minimum in this kit is a floor, not a target.
 
-The light lockup goes on `--bg-canvas`, not on `--apex-surface` `#f3f3fb`. The same grey measures 4.31:1 on the tint, under the 4.5:1 small-text threshold.
+The light lockup goes on `--bg-canvas`, not on `--apex-surface` `#f3f3fb`. The same gray measures 4.31:1 on the tint, under the 4.5:1 small-text threshold.
 
 **Where it belongs.** The footer of any Apex site or printed document. The sidebar header of any Apex dashboard. The closing slide of a deck. The foot of a report. A data page or a methodology page. Anywhere a number was computed rather than typed.
 

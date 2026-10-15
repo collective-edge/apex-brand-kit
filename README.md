@@ -1,6 +1,6 @@
 # Apex Paramedics brand kit
 
-House type system v1.0. Cloud-hosted brand assets, a Claude skill, and print-ready templates for Apex Paramedics.
+House type system v1.0. Cloud-hosted brand assets, the `apex-brand-guidelines` skill, and print-ready templates for Apex Paramedics. Written for agents and humans: an agent loads `SKILL.md` and applies the brand on its own, and a person reads the same file start to finish and gets the same standard.
 
 Apex Paramedics is an operating company under Collective Edge. Across the house exactly two things vary between brands: palette and logo. Type is shared and identical, and it is what makes Apex, Royal and Collective Edge read as one house. Never fork the type layer.
 
@@ -17,10 +17,10 @@ apex-brand-kit/
 ├── reference/
 │   ├── brand.md                    Palette, measured contrast, logo rules, voice.
 │   ├── layout.md                   Header band, sub-banner, flowchart, stats, tables, footer.
-│   ├── data-color.md         # Chart and reporting colour. Shared
+│   ├── data-color.md         # Chart and reporting color. Shared
 │   └── type-system.md              The type standard. Shared, identical everywhere.
 ├── snippets/
-│   ├── data-color.css        # The data colour layer. Shared
+│   ├── data-color.css        # The data color layer. Shared
 │   ├── type-system.css             The type layer. Shared, identical everywhere.
 │   ├── palette.css                 The only stylesheet that differs between brands.
 │   ├── type-tokens.json            Type values for non-CSS generators. Shared.
@@ -34,14 +34,14 @@ apex-brand-kit/
 │   └── apex-one-pager.before.html  The same page before v1.0, for comparison.
 ├── scripts/
 │   ├── validate.py                 Mechanical check of rules 1, 2, 5, 9, 10, 13 and 14. Shared.
-│   └── check-sync.py               Asserts the seven shared files have not drifted. Shared.
+│   └── check-sync.py               Asserts the shared files have not drifted. Shared.
 └── assets/
     ├── colors.json                 DEPRECATED. Replaced by tokens.json.
     ├── fonts/Montserrat-VariableFont_wght.ttf
     └── logos/                      horizontal, compact and mark, color and white, plus the source EPS.
 ```
 
-Seven files are byte-identical in every kit: `reference/type-system.md`, `NEW-BRAND.md`, `brands.json`, `snippets/type-system.css`, `snippets/type-tokens.json`, `scripts/validate.py`, `scripts/check-sync.py`. `check-sync.py` fails if any of them drifts.
+Sixteen files are byte-identical in every kit, covering the type layer, the UI layer, the data color layer and the tooling. `scripts/check-sync.py` carries the list and fails if any of them drifts. Never edit a shared file in this repo alone.
 
 ## Loading the brand in HTML
 
@@ -52,7 +52,15 @@ Two stylesheets, in this order. The type layer is served from the parent brand b
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/palette.css">
 ```
 
-Style through the `.bk-*` classes and the semantic `--fg-*` / `--bg-*` / `--border-*` variables. Reach for a raw `--apex-*` value only where the brand color is the point: a logo band, an accent rule, a chart series.
+Anything with a chart, a dashboard tile or a reported number loads the data color layer as well:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/data-color.css">
+```
+
+Chart color never comes from the brand palette. The standard is in [`reference/data-color.md`](reference/data-color.md).
+
+Style through the `.bk-*` classes and the semantic `--fg-*` / `--bg-*` / `--border-*` variables. Reach for a raw `--apex-*` value only where the brand color is the point: a logo band or an accent rule. Never a chart series. Chart color comes from [`reference/data-color.md`](reference/data-color.md).
 
 For a PDF pipeline (weasyprint, wkhtmltopdf, Chrome print) embed the font. `templates/document.html` carries the block:
 
@@ -100,16 +108,18 @@ Blue is the structure. Gold is the spark. Pantone Blue 072 C is the wordmark, Pa
 
 The full measured contrast table, including the frozen diagram fills, is in `reference/brand.md`.
 
-## Installing the skill
+## Install the skill
+
+Clone the kit into the skills directory your agent reads. The directory name differs by tool, so substitute your own.
 
 ```bash
-git clone https://github.com/collective-edge/apex-brand-kit ~/.claude/skills/apex-brand-guidelines
+git clone https://github.com/collective-edge/apex-brand-kit ~/skills/apex-brand-guidelines
 ```
 
-Claude reads `SKILL.md` and applies the brand. To update:
+The agent picks up `SKILL.md` and applies the brand from then on. Working without one, open `SKILL.md` and follow it in order. To update:
 
 ```bash
-cd ~/.claude/skills/apex-brand-guidelines && git pull
+cd ~/skills/apex-brand-guidelines && git pull
 ```
 
 ## Before shipping anything

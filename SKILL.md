@@ -71,7 +71,7 @@ Every brand in the house, with its CDN root, palette, logo roles and Collective 
 | Apex Gold Deep | `--apex-gold-deep` | `#B77808` | Gold text on white. 3.68:1, so 18pt print or 24px web and up. `.bk-h3` and above |
 | Surface Tint | `--apex-surface` | `#f3f3fb` | Alternating rows, callout fills |
 
-Style through the semantic layer (`--fg-*`, `--bg-*`, `--border-*`). Reach for a raw `--apex-*` value only where the brand color is the point: a logo band, an accent rule, a chart series.
+Style through the semantic layer (`--fg-*`, `--bg-*`, `--border-*`). Reach for a raw `--apex-*` value only where the brand color is the point: a logo band or an accent rule. Never a chart series: see section 3.
 
 Three traps agents fall into:
 
@@ -84,29 +84,29 @@ Full palette with RGB, every contrast rule, and what each color must never do: [
 
 ---
 
-## 3. Data colour
+## 3. Data color
 
 The brand palette is blue and gold. For a band and a letterhead that is correct. For a chart it is a defect: the old rule said to extend along the blue ramp rather than introduce a new hue. Measured, `#1D225E` against `#2B338D` is ΔE 9.6 under normal vision, against a floor of 15, and `#9699C7` falls below the chroma floor entirely. The rule produced charts nobody could read.
 
-**When there is data on the page, the job of colour is to separate and to signal.** The brand is carried by the band, the mark and the type, not by the bars. A brand accent is never a series colour. Load `data-color.css` and style through it. Full standard in [reference/data-color.md](reference/data-color.md).
+**When there is data on the page, the job of color is to separate and to signal.** The brand is carried by the band, the mark and the type, not by the bars. A brand accent is never a series color. Load `data-color.css` and style through it. Full standard in [reference/data-color.md](reference/data-color.md).
 
-Every colour in a chart does exactly one of four jobs. If you cannot say which, the chart is not finished.
+Every color in a chart does exactly one of four jobs. If you cannot say which, the chart is not finished.
 
 | Job | Question | Tokens |
 |---|---|---|
 | Identity | which series is this | `--series-1` to `--series-8`, in order, never cycled |
 | Magnitude | how much | `--seq-100` to `--seq-700` |
 | Polarity | which side of a baseline | `--div-neg-3` to `--div-pos-3` |
-| Direction | is this good news | `--dir-favourable`, `--dir-unfavourable`, `--dir-caution`, `--dir-neutral` |
+| Direction | is this good news | `--dir-favorable`, `--dir-unfavorable`, `--dir-caution`, `--dir-neutral` |
 
 Four things that get broken most:
 
-1. **Direction is not the sign of the number.** A metric rising and a cost falling can both be good news. Colour follows favourable against unfavourable, never the arithmetic sign and never the direction of the arrow. A red "−38.8%" on a cost saving tells the reader the programme made things worse.
-2. **Never two tints of one brand hue for two different things.** The before-and-after chart takes an inert grey baseline `--data-baseline` against `--series-1`.
-3. **Diverging poles are red and teal, never red and green.** Red against green measures ΔE 5.5 under simulated deuteranopia and collapses into one colour.
-4. **Every direction colour carries an arrow or icon and a word.** Colour is never the only thing holding the meaning.
+1. **Direction is not the sign of the number.** A metric rising and a cost falling can both be good news. Color follows favorable against unfavorable, never the arithmetic sign and never the direction of the arrow. A red "−38.8%" on a cost saving tells the reader the programme made things worse.
+2. **Never two tints of one brand hue for two different things.** The before-and-after chart takes an inert gray baseline `--data-baseline` against `--series-1`.
+3. **Diverging poles are red and teal, never red and green.** Red against green measures ΔE 5.5 under simulated deuteranopia and collapses into one color.
+4. **Every direction color carries an arrow or icon and a word.** Color is never the only thing holding the meaning.
 
-Series cap is three on scatter, bubble and map charts, eight everywhere else. There is no ninth colour: fold the tail into "Other" or split the chart. Amber `#dca821` and orange `#e6811c` sit below 3:1 on white, so those series carry a direct label or a table beside them.
+Series cap is three on scatter, bubble and map charts, eight everywhere else. There is no ninth color: fold the tail into "Other" or split the chart. Amber `#dca821` and orange `#e6811c` sit below 3:1 on white, so those series carry a direct label or a table beside them.
 
 On a dark band put `.bk-on-dark` on the container and every token takes its dark step, exactly as the type layer already works.
 

@@ -106,7 +106,7 @@ White node text on `#f57c00` measures 2.70:1 and on `#4a8e3a` measures 4.02:1. B
 3. **Blue Light as text.** `#9699C7` on white measures 2.74:1. It is an accent hue, not an ink. Confine it to hover states, thin rules and tertiary marks.
 4. **Muted on the band.** `#64748B` on `#1D225E` is nearly invisible. Text on the band uses `--fg-on-dark-1`, `--fg-on-dark-2` or `--fg-on-dark-3`.
 5. **Gold over blue.** `#FDB61C` on `#1D225E` measures 8.24:1 and on `#2B338D` measures 6.06:1. Both clear 4.5:1 at any size, so gold on either blue is correct for a stat numeral, an accent rule or a caps label on a dark band.
-6. **Secondary grey as the data.** `#64748B` measures 4.76:1 on `#FFFFFF` but 4.31:1 on the `#f3f3fb` alternating row, which fails. `.bk-body-sm` and `.bk-caption` default to that grey, so any table cell carrying primary data sets `color: var(--fg-1)` `#1E293B`, which measures 13.25:1 on `#f3f3fb`.
+6. **Secondary gray as the data.** `#64748B` measures 4.76:1 on `#FFFFFF` but 4.31:1 on the `#f3f3fb` alternating row, which fails. `.bk-body-sm` and `.bk-caption` default to that gray, so any table cell carrying primary data sets `color: var(--fg-1)` `#1E293B`, which measures 13.25:1 on `#f3f3fb`.
 
 ### Measured contrast
 
@@ -140,9 +140,9 @@ White is the primary ground. The only other permitted subtle ground is `#f3f3fb`
 
 ### Data and functional color
 
-**Chart series do not come from this palette.** They come from the house data layer in [data-color.md](data-color.md). The former rule here said to extend along the blue ramp rather than introduce a new hue. Measured, `#1D225E` against `#2B338D` is ΔE 9.6 under normal vision against a floor of 15, and `#9699C7` falls below the chroma floor entirely, so it reads as grey and cannot carry identity. The rule produced charts nobody could read and it is withdrawn.
+**Chart series do not come from this palette.** They come from the house data layer in [data-color.md](data-color.md). The former rule here said to extend along the blue ramp rather than introduce a new hue. Measured, `#1D225E` against `#2B338D` is ΔE 9.6 under normal vision against a floor of 15, and `#9699C7` falls below the chroma floor entirely, so it reads as gray and cannot carry identity. The rule produced charts nobody could read and it is withdrawn.
 
-Status indicators stay in the status set. Decorative off-brand color is still never permitted: the data layer is not decoration, it is the functional colour for data, and nothing outside it is sanctioned.
+Status indicators stay in the status set. Decorative off-brand color is still never permitted: the data layer is not decoration, it is the functional color for data, and nothing outside it is sanctioned.
 
 ---
 
@@ -215,7 +215,7 @@ Apex speaks the way a field crew speaks: short, specific, and about the work.
 - A label, a value, and nothing between them. No helper text under a field, no caption restating the number above it, no parenthetical after a heading.
 - Exact values only. Write `#1D225E`, never “the dark navy”. Write the real number, never a rounded one.
 - Clinical and operational terms stay precise. Never soften a protocol term for readability.
-- The mono face is a whitelist of four: colour values, paths and filenames, code shown as code, and record identifiers a person dictates. Use `.bk-code`. Measurements, ratios, counts, ordinals, weight numbers, verdict words and labels are Montserrat.
+- The mono face is a whitelist of four: color values, paths and filenames, code shown as code, and record identifiers a person dictates. Use `.bk-code`. Measurements, ratios, counts, ordinals, weight numbers, verdict words and labels are Montserrat.
 - Write a caption only when it carries information the thing above it does not.
 - No off-brand decoration. If information can be carried by structure, position or a rendered example, carry it that way.
 

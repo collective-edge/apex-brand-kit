@@ -60,12 +60,12 @@ Replace `@main` with `@v1.1` in CDN URLs to pin. Bump the minor version for addi
 ## Installing the kit on a machine
 
 ```bash
-git clone https://github.com/collective-edge/apex-brand-kit ~/.claude/skills/apex-brand-guidelines
+git clone https://github.com/collective-edge/apex-brand-kit ~/skills/apex-brand-guidelines
 ```
 
 ## Registering the kit with CE-General
 
-Point `agent_roles/general-agent.md` in `collective-edge/general-agent` at this kit’s raw `SKILL.md`, under **Brand kits**:
+Point `agent_roles/general-agent/general-agent.md` in `collective-edge/general-agent` at this kit’s raw `SKILL.md`, under **Brand kits**:
 
 ```
 https://raw.githubusercontent.com/collective-edge/apex-brand-kit/main/SKILL.md
