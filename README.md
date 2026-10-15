@@ -17,8 +17,10 @@ apex-brand-kit/
 ├── reference/
 │   ├── brand.md                    Palette, measured contrast, logo rules, voice.
 │   ├── layout.md                   Header band, sub-banner, flowchart, stats, tables, footer.
+│   ├── data-color.md         # Chart and reporting colour. Shared
 │   └── type-system.md              The type standard. Shared, identical everywhere.
 ├── snippets/
+│   ├── data-color.css        # The data colour layer. Shared
 │   ├── type-system.css             The type layer. Shared, identical everywhere.
 │   ├── palette.css                 The only stylesheet that differs between brands.
 │   ├── type-tokens.json            Type values for non-CSS generators. Shared.
@@ -115,6 +117,7 @@ cd ~/.claude/skills/apex-brand-guidelines && git pull
 ```bash
 python3 scripts/validate.py path/to/output.html
 python3 scripts/check-sync.py
+python3 scripts/validate-palette.py --series
 ```
 
 `validate.py` exits non-zero on a violation of rules 1, 2, 5, 9, 10, 13 or 14. It cannot see pixels, so render the file and look at it as well. The rest of the checklist is in `SKILL.md`.

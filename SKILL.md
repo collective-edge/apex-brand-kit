@@ -19,6 +19,7 @@ Everything is cloud-hosted on jsDelivr. Never look for local files.
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/type-system.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/palette.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/cobrand.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/data-color.css">
 ```
 
 Load them in that order. `cobrand.css` is the co-brand lockup, shared and identical in every kit, and it reads the palette, so it loads last. `type-system.css` is identical in every kit and is served from the parent brand. `palette.css` is the only stylesheet that differs.
@@ -80,9 +81,38 @@ Three traps agents fall into:
 
 Full palette with RGB, every contrast rule, and what each color must never do: [`reference/brand.md`](reference/brand.md).
 
+
 ---
 
-## 3. Type
+## 3. Data colour
+
+The brand palette is blue and gold. For a band and a letterhead that is correct. For a chart it is a defect: the old rule said to extend along the blue ramp rather than introduce a new hue. Measured, `#1D225E` against `#2B338D` is ΔE 9.6 under normal vision, against a floor of 15, and `#9699C7` falls below the chroma floor entirely. The rule produced charts nobody could read.
+
+**When there is data on the page, the job of colour is to separate and to signal.** The brand is carried by the band, the mark and the type, not by the bars. A brand accent is never a series colour. Load `data-color.css` and style through it. Full standard in [reference/data-color.md](reference/data-color.md).
+
+Every colour in a chart does exactly one of four jobs. If you cannot say which, the chart is not finished.
+
+| Job | Question | Tokens |
+|---|---|---|
+| Identity | which series is this | `--series-1` to `--series-8`, in order, never cycled |
+| Magnitude | how much | `--seq-100` to `--seq-700` |
+| Polarity | which side of a baseline | `--div-neg-3` to `--div-pos-3` |
+| Direction | is this good news | `--dir-favourable`, `--dir-unfavourable`, `--dir-caution`, `--dir-neutral` |
+
+Four things that get broken most:
+
+1. **Direction is not the sign of the number.** A metric rising and a cost falling can both be good news. Colour follows favourable against unfavourable, never the arithmetic sign and never the direction of the arrow. A red "−38.8%" on a cost saving tells the reader the programme made things worse.
+2. **Never two tints of one brand hue for two different things.** The before-and-after chart takes an inert grey baseline `--data-baseline` against `--series-1`.
+3. **Diverging poles are red and teal, never red and green.** Red against green measures ΔE 5.5 under simulated deuteranopia and collapses into one colour.
+4. **Every direction colour carries an arrow or icon and a word.** Colour is never the only thing holding the meaning.
+
+Series cap is three on scatter, bubble and map charts, eight everywhere else. There is no ninth colour: fold the tail into "Other" or split the chart. Amber `#dca821` and orange `#e6811c` sit below 3:1 on white, so those series carry a direct label or a table beside them.
+
+On a dark band put `.bk-on-dark` on the container and every token takes its dark step, exactly as the type layer already works.
+
+---
+
+## 4. Type
 
 Type is shared house property. Do not restate it, do not adapt it, do not fork it.
 
@@ -98,7 +128,7 @@ On any dark ground, put `.bk-on-dark` on the container. The CSS adds 0.005em tra
 
 ---
 
-## 4. Layout
+## 5. Layout
 
 Blue is the structure. Gold is the spark.
 
@@ -125,7 +155,7 @@ The header band, which opens nearly every Apex deliverable:
 
 ---
 
-## 5. Verify before shipping
+## 6. Verify before shipping
 
 ```bash
 python3 scripts/validate.py path/to/output.html
@@ -150,6 +180,6 @@ Name the brand choices you applied when you hand the work back: which logo role,
 
 ---
 
-## 6. Versioning
+## 7. Versioning
 
 `@main` serves the latest. Pin to a tag for stability: replace `@main` with `@v1.1`. Bump the tag on a breaking brand change: a logo redesign or a color shift.

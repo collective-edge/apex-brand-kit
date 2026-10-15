@@ -140,7 +140,9 @@ White is the primary ground. The only other permitted subtle ground is `#f3f3fb`
 
 ### Data and functional color
 
-Chart series and status indicators stay within the blue and gold palette or harmonize with it. Where a chart needs more series than the palette provides, extend along the blue ramp rather than introducing a new hue. Decorative off-brand color is never permitted.
+**Chart series do not come from this palette.** They come from the house data layer in [data-color.md](data-color.md). The former rule here said to extend along the blue ramp rather than introduce a new hue. Measured, `#1D225E` against `#2B338D` is ΔE 9.6 under normal vision against a floor of 15, and `#9699C7` falls below the chroma floor entirely, so it reads as grey and cannot carry identity. The rule produced charts nobody could read and it is withdrawn.
+
+Status indicators stay in the status set. Decorative off-brand color is still never permitted: the data layer is not decoration, it is the functional colour for data, and nothing outside it is sanctioned.
 
 ---
 
