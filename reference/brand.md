@@ -154,7 +154,12 @@ Status indicators stay in the status set. Decorative off-brand color is still ne
 |---|---|---|
 | Horizontal | The blue `APEX PARAMEDICS` wordmark under the gold arc | The main logo. Default for any context with horizontal room |
 | Compact | `APEX` alone under the gold arc | Smaller places, decks, or a corner |
-| Mark | The gold arc alone | Favicons, badges, social avatars, table corners |
+| Mark | The A with the gold arc running through it | Avatars, badges, table corners, and any space too small for the compact lockup |
+| App icon | The white mark on an Apex Blue Deep `#1D225E` square | Favicons and app tiles. `assets/logos/app-icon.svg` |
+
+The gold arc never appears on its own, at any size. The arc-only files `mark-color.svg` and `mark-white.svg` are deleted, and `scripts/validate.py` fails on any reference to them.
+
+In the mark the arc is cut square at the left and right edges of the box. That is the drawing, not a cropping error. The delivered files carried `#000F9F` and `#FFB71B`, normalised here to `#2B338D` and `#FDB61C` like the compact lockup.
 
 Apex has no stacked lockup. Where a vertical lockup is needed, use the horizontal one at reduced width.
 
@@ -166,13 +171,14 @@ Apex has no stacked lockup. Where a vertical lockup is needed, use the horizonta
 | Horizontal aspect | 2.378 : 1 |
 | Compact viewBox | `0 0 682.3 240.66` |
 | Compact aspect | 2.835 : 1 |
-| Mark viewBox | `-8 -8 619 245` |
+| Mark viewBox | `0 0 300 299.36` |
+| App icon viewBox | `0 0 300 300` |
 | Wordmark color | Apex Blue `#2B338D`, or `#FFFFFF` on dark |
 | Arc color | Apex Gold `#FDB61C`, on both light and dark |
 | Minimum clear space | Padding on all four sides equal to at least the height of the gold arc |
 | Minimum size, horizontal | 110px on screen, 1 inch in print |
 | Minimum size, compact | 80px on screen, 0.75 inch in print |
-| Minimum size, mark | 32px |
+| Minimum size, mark and app icon | 16px |
 | Vector master | `assets/logos/source/apex-paramedics-PMS123-PMS072.eps` |
 
 The shipping SVGs are converted from the EPS, which remains the authoritative master for any future re-export.
@@ -194,7 +200,7 @@ The `-on-dark` SVG is the correct file for the `#1D225E` band. Where only the co
 - Do not recolor the logo to anything other than Apex Blue plus Apex Gold, or white plus gold on dark.
 - Do not apply a CSS filter to invert or recolor a variant. Load the correct file for the ground.
 - Do not add a drop shadow, glow, outline or gradient.
-- Do not separate the wordmark from the arc in the horizontal lockup.
+- Do not separate the wordmark from the arc, in either lockup, or the A from the arc in the mark. The arc alone is not an Apex logo.
 - Do not use the compact lockup where the horizontal one fits. `APEX PARAMEDICS` is the main logo.
 - Do not render the arc in blue or the wordmark in gold.
 - Do not reproduce the logo below its minimum size.
