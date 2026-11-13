@@ -1,0 +1,334 @@
+{
+  "_comment": "Brand-specific copy for the guidelines page. guidelines/build.py reads this file with brands.json, tokens.json, snippets/type-tokens.json, snippets/palette.css and snippets/data-color.css, and writes index.html. No color value, token name, role or URL belongs here unless it sits inside a sentence: the build checks every hex and every token name in this file against the kit. Edit, then run python3 guidelines/build.py.",
+  "say": "Apex Paramedics is an operating company under Collective Edge, in navy blue and gold drawn from its own mark.",
+  "cover": {
+    "width": 330,
+    "nudge": 0,
+    "footWidth": 150
+  },
+  "bigPlate": {
+    "role": "horizontal-on-light",
+    "ground": "--bg-canvas",
+    "width": 460,
+    "caption": "The primary lockup on white. The gold arc always travels with the wordmark."
+  },
+  "logoLead": "Every lockup, on its correct ground. The file named for a ground goes on that ground.",
+  "logoRowWidth": {
+    "horizontal": 132,
+    "compact": 132,
+    "mark": 52,
+    "app": 52
+  },
+  "logoCopy": {
+    "horizontal-on-light": {
+      "name": "Horizontal",
+      "use": "The main logo. The default wherever it fits."
+    },
+    "horizontal-on-dark": {
+      "name": "Horizontal",
+      "use": "The main logo on the #1D225E band or any dark ground."
+    },
+    "compact-on-light": {
+      "name": "Compact",
+      "use": "APEX alone. Smaller places, decks, or a corner."
+    },
+    "compact-on-dark": {
+      "name": "Compact",
+      "use": "APEX alone on a dark ground."
+    },
+    "mark-on-light": {
+      "name": "A mark",
+      "use": "The A with the gold arc through it. Avatars, badges, spaces too small for the compact lockup."
+    },
+    "mark-on-dark": {
+      "name": "A mark",
+      "use": "The A mark on a dark ground."
+    },
+    "app-icon": {
+      "name": "App icon",
+      "use": "The white A mark on a #1D225E square. Favicons and app tiles."
+    }
+  },
+  "clearSpace": {
+    "role": "horizontal-on-light",
+    "viewBox": [
+      687.72,
+      289.25
+    ],
+    "art": [
+      0,
+      0,
+      687.72,
+      289.25
+    ],
+    "x": 253.0,
+    "scale": 0.3,
+    "unit": "the height of the gold arc"
+  },
+  "minimums": [
+    {
+      "role": "horizontal-on-light",
+      "label": "Horizontal"
+    },
+    {
+      "role": "compact-on-light",
+      "label": "Compact"
+    },
+    {
+      "role": "mark-on-light",
+      "label": "A mark"
+    },
+    {
+      "role": "app-icon",
+      "label": "App icon"
+    }
+  ],
+  "logoNotes": [
+    "The gold arc never appears on its own, at any size.",
+    "No stacked lockup ships. Use the horizontal lockup.",
+    "The wordmark is #2B338D or white. The arc is #FDB61C on both grounds.",
+    "On a header band the logo is 1.6in wide."
+  ],
+  "paletteHead": "Color",
+  "palette": [
+    {
+      "token": "--apex-blue-deep",
+      "name": "Apex Blue Deep",
+      "role": "Band",
+      "use": "Header bands, title slides, table header rows."
+    },
+    {
+      "token": "--apex-blue",
+      "name": "Apex Blue",
+      "role": "Primary",
+      "use": "Headings, links, buttons, accent bars. Pantone Blue 072 C.",
+      "never": "Never long-form body text."
+    },
+    {
+      "token": "--apex-blue-light",
+      "name": "Apex Blue Light",
+      "role": "Tertiary",
+      "use": "Thin rules and hover states. 2.74:1 on white.",
+      "never": "Never text. Never a large background."
+    },
+    {
+      "token": "--apex-gold",
+      "name": "Apex Gold",
+      "role": "Accent",
+      "use": "The rule under a band. Kicker marks. Pantone 1235 C.",
+      "never": "Never text on white. Never a status."
+    },
+    {
+      "token": "--apex-gold-deep",
+      "name": "Apex Gold Deep",
+      "role": "Accent text",
+      "use": "Gold text on white, at 24px and up. 3.68:1.",
+      "never": "Never a caption or a table cell."
+    },
+    {
+      "token": "--bg-surface-2",
+      "name": "Surface 2",
+      "role": "Stronger tint",
+      "use": "The second tint, a step under Surface. Step 100 of the blue ramp.",
+      "never": "Never carries white text."
+    },
+    {
+      "token": "--apex-surface",
+      "name": "Surface",
+      "role": "Tint",
+      "use": "Callout fill.",
+      "never": "Never carries white text."
+    },
+    {
+      "token": "--apex-white",
+      "name": "White",
+      "role": "Canvas",
+      "use": "The page background. Text on dark."
+    }
+  ],
+  "colorLead": "Blue is the structure. Gold is the spark. Text and rules come from the shared neutrals.",
+  "colorNote": "Blue carries bands and headings. Gold is one rule or one mark per surface, never a field.",
+  "partner": {
+    "title": "With Collective Edge",
+    "lead": "Apex is an operating company under Collective Edge and the reader should be able to see it.",
+    "note": "The Powered by Collective Edge lockup rides beside the Apex mark, never inside it, under a hairline. It appears once per surface.",
+    "plates": [
+      {
+        "ground": "light",
+        "brand": "apex",
+        "role": "horizontal-on-light",
+        "width": 132,
+        "label": "On white",
+        "text": "The black Collective Edge file, under a hairline."
+      },
+      {
+        "ground": "dark",
+        "brand": "apex",
+        "role": "horizontal-on-dark",
+        "width": 132,
+        "label": "On the band",
+        "text": "The white Collective Edge file, never a filter."
+      }
+    ],
+    "wedge": [
+      {
+        "label": "On an Apex surface",
+        "partner": "apex"
+      }
+    ],
+    "wedgeNote": "When the Collective Edge block mark stands on an Apex surface, its wedge is Apex gold. Use the shipped file from the Collective Edge kit."
+  },
+  "rules": {
+    "use": [
+      "Use the horizontal lockup wherever it fits.",
+      "Open on the #1D225E band with the 2.25pt gold rule.",
+      "Set gold on blue. #FDB61C on #1D225E measures 8.24:1.",
+      "Set gold text on white in #B77808 at 24px and up.",
+      "Set body text in #23232A.",
+      "Add Powered by Collective Edge once, beside the Apex mark."
+    ],
+    "avoid": [
+      "Do not show the gold arc on its own.",
+      "Do not set #FDB61C as text on white.",
+      "Do not use gold as a large background or a status color.",
+      "Do not set #9699C7 as text.",
+      "Do not use the compact lockup where the horizontal one fits.",
+      "Do not recolor a logo or invert it with a CSS filter.",
+      "Do not render the arc in blue or the wordmark in gold.",
+      "Do not crop the clear space. Shrink the logo instead."
+    ]
+  },
+  "character": [
+    "Short",
+    "Specific",
+    "About the work",
+    "Speaks the way a field crew speaks"
+  ],
+  "voice": [
+    "Period sentences, active verbs. No filler.",
+    "Exact values only. The real number, never a rounded one.",
+    "Clinical and operational terms stay precise.",
+    "Never an em dash. A period, a comma, or a middot."
+  ],
+  "memo": {
+    "to": "Field supervisors",
+    "frm": "Apex Fleet",
+    "re": "Medic 42 inspection",
+    "ps": [
+      "Medic 42 is pending its inspection. It does not post at Station 4 until the inspection clears.",
+      "The inspection is booked for 26 November. If it clears, Medic 42 enters service on the night of 1 December beside Medic 41.",
+      "Until then the second night unit at Station 4 is covered by Medic 17, which moves back to Station 2 once Medic 42 is cleared.",
+      "Day crews do not move. The day roster at Station 2 and Station 4 stays as posted."
+    ],
+    "acts": [
+      "Keep Medic 42 off the night roster until Fleet confirms.",
+      "Assign its crew to Medic 17 as third riders through 30 November.",
+      "Call Fleet the same day if the inspection date moves."
+    ],
+    "sign": [
+      "Apex Fleet",
+      "fleet@apex.example"
+    ],
+    "foot": "Apex Paramedics · Internal"
+  },
+  "onePager": {
+    "band": "Coverage plan",
+    "h1": "Night coverage holds with two added units.",
+    "lead": "From 1 December, Apex staffs two more ALS units between 19:00 and 07:00. Both post at Station 4.",
+    "meta": [
+      [
+        "For",
+        "Field supervisors"
+      ],
+      [
+        "From",
+        "Apex Operations"
+      ],
+      [
+        "Date",
+        "13 November 2026"
+      ]
+    ],
+    "h2a": "Why now.",
+    "pa": "Night call volume has run above plan for six weeks. Median response held, but two crews logged overtime on 11 of the last 14 nights. The added units remove that overtime without moving a day crew.",
+    "h2b": "Night posting.",
+    "th": [
+      "Unit",
+      "Level",
+      "Post",
+      "Status"
+    ],
+    "rows": [
+      [
+        "Medic 41",
+        "ALS",
+        "Station 4",
+        [
+          "go",
+          "In service"
+        ]
+      ],
+      [
+        "Medic 42",
+        "ALS",
+        "Station 4",
+        [
+          "warn",
+          "Pending inspection"
+        ]
+      ],
+      [
+        "Medic 17",
+        "ALS",
+        "Station 2",
+        [
+          "go",
+          "In service"
+        ]
+      ],
+      [
+        "Medic 23",
+        "ALS",
+        "Station 2",
+        [
+          "stop",
+          "Out of service"
+        ]
+      ]
+    ],
+    "close": "Supervisors confirm crew assignments by 24 November. Medic 42 enters service when its inspection clears.",
+    "foot": "Apex Paramedics · Internal"
+  },
+  "deck": {
+    "title": "Night coverage",
+    "sub": "December 2026 plan",
+    "date": "13 November 2026",
+    "h": "Two added units remove night overtime.",
+    "pts": [
+      "Medic 41 and Medic 42 post at Station 4.",
+      "Hours are 19:00 to 07:00.",
+      "Day crews do not move."
+    ],
+    "cap": "ALS units on nights",
+    "th": [
+      "Post",
+      "Today",
+      "From 1 December"
+    ],
+    "rows": [
+      [
+        "Station 2",
+        "1",
+        "1"
+      ],
+      [
+        "Station 4",
+        "0",
+        "2"
+      ]
+    ]
+  },
+  "sampleDate": "13 November 2026",
+  "agentLine": "Apex Paramedics is an operating company under Collective Edge. Blue and gold palette, the arc wordmark, the house type system.",
+  "deckMarkWidth": 96
+}
