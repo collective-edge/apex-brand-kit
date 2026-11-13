@@ -50,6 +50,7 @@ apex-brand-kit/
 ├── brands.json                     Registry of every brand in the house. Shared, identical everywhere.
 ├── tokens.json                     Apex colors, machine-readable, for generators that cannot parse CSS.
 ├── NEW-BRAND.md                    How to add a brand. Shared, identical everywhere.
+├── CONTRIBUTING.md                 How to change this kit without breaking live work.
 ├── reference/
 │   ├── brand.md                    Palette, measured contrast, logo rules, voice.
 │   ├── layout.md                   Header band, sub-banner, flowchart, stats, tables, footer.
