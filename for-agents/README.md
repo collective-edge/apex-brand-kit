@@ -49,11 +49,13 @@ Ask for a role, never a filename. Filenames differ between brands. `-on-light` i
 | `horizontal-on-dark` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg` | A dark background |
 | `compact-on-light` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/compact-on-light.svg` | A light background |
 | `compact-on-dark` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/compact-on-dark.svg` | A dark background |
-| `app-icon` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/app-icon.svg` | Favicons, app tiles, spaces under 80px |
+| `mark-on-light` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/mark-on-light.svg` | A light background |
+| `mark-on-dark` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/mark-on-dark.svg` | A dark background |
+| `app-icon` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/app-icon.svg` | Favicons and app tiles. Carries its own navy square |
 
 `stacked-on-dark` does not exist for this brand. Use `horizontal-on-dark`.
 
-`mark-on-light` and `mark-on-dark` do not exist for this brand. The arc-only files are deleted and `validate.py` fails on any reference to them. Use the compact lockup, or `app-icon` under 80px.
+The mark is the A with the arc through it. The old arc-only files `mark-color.svg` and `mark-white.svg` are deleted, and `validate.py` fails on any reference to them.
 
 Embed with `<img src="...">`. Do not inline a copied SVG path, because it drifts from the master.
 
@@ -93,7 +95,7 @@ https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/tokens.json
 3. Apex Blue Light `#9699C7` is never text. It measures 2.74:1 on white.
 4. Gold is a brand accent, never a status color. Warnings use `--status-warn`.
 5. Use the horizontal lockup wherever it fits. Compact is for where it does not.
-6. The gold arc never appears without the letters. On a slide corner or a badge, use the compact lockup. For a favicon, or anywhere under 80px wide, use `app-icon`, the A under the arc on a navy square.
+6. The gold arc never appears without the letters. Under 80px wide, use the mark, the A with the arc through it. For a favicon, use `app-icon`.
 7. Chart and dashboard color comes from `data-color.css`, in series order. A brand color is never a chart series.
 8. Match the logo file to the background. Never recolor or invert a logo with CSS.
 9. Montserrat only, weights 400 to 800. No italic, at any weight.

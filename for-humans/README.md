@@ -28,11 +28,13 @@ Pick by the background you are placing it on. The file named **blue** goes on li
 | <img src="previews/horizontal-white.png" width="250"> | **Horizontal · white**<br>The same lockup for dark blue grounds. | [SVG](logos/svg/Apex-Paramedics-horizontal-white.svg)<br>PNG [1200w](logos/png/Apex-Paramedics-horizontal-white-1200w.png) · [2400w](logos/png/Apex-Paramedics-horizontal-white-2400w.png) |
 | <img src="previews/compact-blue.png" width="250"> | **Compact · blue**<br>`APEX` alone under the arc. Small places, a deck corner, a narrow column. Place on white and light grounds. | [SVG](logos/svg/Apex-Paramedics-compact-blue.svg)<br>PNG [1200w](logos/png/Apex-Paramedics-compact-blue-1200w.png) · [2400w](logos/png/Apex-Paramedics-compact-blue-2400w.png) |
 | <img src="previews/compact-white.png" width="250"> | **Compact · white**<br>The same lockup for dark blue grounds. | [SVG](logos/svg/Apex-Paramedics-compact-white.svg)<br>PNG [1200w](logos/png/Apex-Paramedics-compact-white-1200w.png) · [2400w](logos/png/Apex-Paramedics-compact-white-2400w.png) |
-| <img src="previews/app-icon.png" width="110"> | **App icon**<br>The A under the arc, on a dark blue square. Favicons, app tiles, social avatars, and anywhere too small for the compact lockup. It always keeps its square. | [SVG](logos/svg/Apex-Paramedics-app-icon.svg)<br>PNG [512](logos/png/Apex-Paramedics-app-icon-512w.png) · [1024](logos/png/Apex-Paramedics-app-icon-1024w.png) |
+| <img src="previews/mark-blue.png" width="110"> | **A mark · blue**<br>The A with the arc through it. Avatars, badges and anywhere too small for the compact lockup. Place on white and light grounds. | [SVG](logos/svg/Apex-Paramedics-mark-blue.svg)<br>PNG [512](logos/png/Apex-Paramedics-mark-blue-512w.png) · [1024](logos/png/Apex-Paramedics-mark-blue-1024w.png) |
+| <img src="previews/mark-white.png" width="110"> | **A mark · white**<br>The same mark for dark blue grounds. | [SVG](logos/svg/Apex-Paramedics-mark-white.svg)<br>PNG [512](logos/png/Apex-Paramedics-mark-white-512w.png) · [1024](logos/png/Apex-Paramedics-mark-white-1024w.png) |
+| <img src="previews/app-icon.png" width="110"> | **App icon**<br>The white A mark on a dark blue square. Favicons and app tiles. | [SVG](logos/svg/Apex-Paramedics-app-icon.svg)<br>PNG [512](logos/png/Apex-Paramedics-app-icon-512w.png) · [1024](logos/png/Apex-Paramedics-app-icon-1024w.png) |
 
 **Use the SVG wherever the software will take it.** It is vector, so it stays sharp at any size. The PNGs are for software that will not accept SVG. They have transparent backgrounds, so the white versions look nearly blank until you place them on something dark.
 
-Use the horizontal lockup wherever it fits. The compact one is for places it does not. Under 80 px, use the app icon.
+Use the horizontal lockup wherever it fits. The compact one is for places it does not. Under 80 px, use the A mark.
 
 
 Pasting a URL straight into a design tool works too. The pattern is:
@@ -52,7 +54,7 @@ https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/for-humans/logos
 | Clear space on all four sides | Equal to the height of the gold arc |
 | Smallest the horizontal lockup may go | 110 px on screen, 1 inch in print |
 | Smallest the compact lockup may go | 80 px on screen, 0.75 inch in print |
-| Smallest the app icon may go | 16 px on screen |
+| Smallest the A mark and the app icon may go | 16 px on screen |
 | Logo width in a letterhead header band | 1.4in to 1.8in |
 
 ## Do not
@@ -63,6 +65,7 @@ https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/for-humans/logos
 - Render the arc in blue or the letters in gold.
 - Add a drop shadow, glow, outline or gradient.
 - Pull the letters apart from the arc, or use the arc on its own. The arc alone is not an Apex logo.
+- Redraw the A mark. Use the file.
 - Use the compact lockup where the horizontal one fits.
 - Put it on a busy photo without a solid backing panel behind it.
 - Crop the clear space to make it fit. Shrink the logo instead, down to the minimum.

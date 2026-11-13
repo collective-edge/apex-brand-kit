@@ -73,6 +73,38 @@
       }
     },
     {
+      "name": "mark-blue",
+      "source": "assets/logos/mark-on-light.svg",
+      "ground": "light",
+      "png": [
+        512,
+        1024
+      ],
+      "preview": {
+        "plate": [
+          480,
+          480
+        ],
+        "logoWidth": 280
+      }
+    },
+    {
+      "name": "mark-white",
+      "source": "assets/logos/mark-on-dark.svg",
+      "ground": "dark",
+      "png": [
+        512,
+        1024
+      ],
+      "preview": {
+        "plate": [
+          480,
+          480
+        ],
+        "logoWidth": 280
+      }
+    },
+    {
       "name": "app-icon",
       "source": "assets/logos/app-icon.svg",
       "ground": "light",

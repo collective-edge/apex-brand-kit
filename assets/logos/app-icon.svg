@@ -1,7 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Apex Paramedics">
-  <rect width="64" height="64" rx="12" fill="#1D225E"/>
-  <g transform="scale(0.19739) translate(39.30 66.80)">
-    <path fill="#FDB61C" transform="scale(0.36)" d="M378.83,20.86c118.71,0,226.1,48.46,303.47,126.67C608.82,57.49,496.98,0,371.71,0,203.41,0,59.35,93.63,0,240.66,71.18,104.02,214.1,20.86,378.83,20.86Z"/>
-    <path fill="#FFFFFF" transform="translate(-81.60 -50.03)" d="M199.61,80.03l74.68,160.63h-27.1l-24.25-52.42h-67.97l-25.05,52.42h-13.32l76.39-160.63h6.6ZM159.65,178.1h58.4l-28.8-62.11-29.6,62.11Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Apex Paramedics">
+  <defs><clipPath id="tile"><rect width="300" height="300" rx="56"/></clipPath></defs>
+  <g clip-path="url(#tile)">
+    <rect width="300" height="300" fill="#1D225E"/>
+    <g transform="translate(33 33.3) scale(0.78)">
+      <path fill="#FDB61C" d="M-32.69,196.39c135.81-73,291.53-77.91,433.08-26.82-145.11-68.39-312.05-72.14-455.37,4.89-192.54,103.49-293.86,310.19-262.06,532.17-11.22-216.13,95.9-408.94,284.35-510.24Z"/>
+      <path fill="#FFFFFF" d="M159.9,28.65l114.25,245.73h-41.45l-37.1-80.18h-103.97l-38.32,80.18h-20.38L149.8,28.65h10.1ZM98.77,178.68h89.35l-44.06-95.01-45.28,95.01Z"/>
+    </g>
   </g>
 </svg>

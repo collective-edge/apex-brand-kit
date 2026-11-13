@@ -17,7 +17,8 @@ The file named for its ink goes on the opposite background. Full set, sizes and 
 | | For light backgrounds | For dark backgrounds |
 |---|---|---|
 | Horizontal · the main logo | [SVG](for-humans/logos/svg/Apex-Paramedics-horizontal-blue.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-horizontal-blue-1200w.png) | [SVG](for-humans/logos/svg/Apex-Paramedics-horizontal-white.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-horizontal-white-1200w.png) |
-| App icon · favicons and small spaces | [SVG](for-humans/logos/svg/Apex-Paramedics-app-icon.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-app-icon-512w.png) | same file |
+| A mark · small spaces | [SVG](for-humans/logos/svg/Apex-Paramedics-mark-blue.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-mark-blue-512w.png) | [SVG](for-humans/logos/svg/Apex-Paramedics-mark-white.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-mark-white-512w.png) |
+| App icon · favicons | [SVG](for-humans/logos/svg/Apex-Paramedics-app-icon.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-app-icon-512w.png) | same file |
 | Compact | [SVG](for-humans/logos/svg/Apex-Paramedics-compact-blue.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-compact-blue-1200w.png) | [SVG](for-humans/logos/svg/Apex-Paramedics-compact-white.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-compact-white-1200w.png) |
 
 ## The house
@@ -74,7 +75,7 @@ apex-brand-kit/
 └── assets/
     ├── colors.json                 DEPRECATED. Replaced by tokens.json.
     ├── fonts/Montserrat-VariableFont_wght.ttf
-    └── logos/                      horizontal and compact, color and white, the app icon, plus the source EPS.
+    └── logos/                      horizontal, compact and the A mark, color and white, the app icon, plus the source EPS.
 ```
 
 Sixteen files are byte-identical in every kit, covering the type layer, the UI layer, the data color layer and the tooling. `scripts/check-sync.py` carries the list and fails if any of them drifts. Never edit a shared file in this repo alone.
@@ -121,13 +122,16 @@ Ask for a role, never a filename. `-on-light` is the file you place on a light b
 | `horizontal-on-dark` | `assets/logos/horizontal-white.svg` |
 | `compact-on-light` | `assets/logos/compact-on-light.svg` |
 | `compact-on-dark` | `assets/logos/compact-on-dark.svg` |
-| `mark-on-light`, `mark-on-dark` | Apex has none. Use the compact lockup. |
-| `app-icon` | `assets/logos/app-icon.svg` · favicons, app tiles, and spaces under 80px |
+| `mark-on-light` | `assets/logos/mark-on-light.svg` |
+| `mark-on-dark` | `assets/logos/mark-on-dark.svg` |
+| `app-icon` | `assets/logos/app-icon.svg` · the mark on a navy square, for favicons and app tiles |
 | `stacked-on-dark` | Apex has none. Use `horizontal-on-dark`. |
 
 The horizontal lockup is the main logo, `APEX PARAMEDICS`, at 110px and up. The compact lockup is `APEX` alone, for smaller places, decks, or a corner, at 80px and up.
 
-**The gold arc never appears on its own.** A favicon, an app tile, or a space too small for the compact lockup uses `app-icon.svg`: the A under the arc, on a navy square. `mark-color.svg` and `mark-white.svg` held the arc alone. They are deleted, and `scripts/validate.py` fails on any reference to them.
+The mark is the A with the gold arc running through it. Use it for a favicon, an avatar, or any space too small for the compact lockup. `app-icon.svg` is the same mark on a navy square.
+
+**The gold arc never appears on its own.** `mark-color.svg` and `mark-white.svg` held the arc alone. They are deleted, and `scripts/validate.py` fails on any reference to them.
 
 Reference the CDN URL directly with `<img src="...">`. The repository is public and jsDelivr needs no auth. `assets/logos/source/apex-paramedics-PMS123-PMS072.eps` is the authoritative master for any re-export.
 
