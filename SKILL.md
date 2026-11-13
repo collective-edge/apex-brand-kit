@@ -118,12 +118,12 @@ Chart colors come from the house data set, never from the brand palette. Full st
 
 | Job | Colors |
 |---|---|
-| Series on light, in order | `#2063e6` `#eb6f32` `#0f9b89` `#7f3810` `#8a72f7` `#819808` `#259cde` `#b93388` |
-| Series on dark, in order | `#0986e4` `#fc803e` `#06bfa8` `#ac772e` `#ac94fd` `#b1d454` `#74c8fc` `#c4588d` |
+| Series on light, in order | `#2063e6` `#eb6f32` `#b93388` `#7f3810` `#8a72f7` `#819808` `#259cde` |
+| Series on dark, in order | `#0986e4` `#fc803e` `#c4588d` `#ac772e` `#ac94fd` `#b1d454` `#74c8fc` |
 | Magnitude, light to dark | `#E5EAFF` `#C2CFFE` `#A0B1F1` `#8193DE` `#6374C9` `#4452B1` `#2B338D` |
 | Good, bad, caution, neutral | `#1E7A4D` `#B0322B` `#926603` `#6D6D77`, each with an arrow or icon and a word |
 
-- Assign series in order. Never cycle. There is no ninth: fold the tail into “Other” or split the chart. On a scatter, a bubble chart, a map or small multiples, four series at most on light and three on dark.
+- Assign series in order. Never cycle. There is no eighth: fold the tail into “Other” or split the chart. On a scatter, a bubble chart, a map or small multiples, four series at most on light and three on dark.
 - Good or bad follows the meaning, never the sign of the number. A cost that falls is good. Never two tints of one hue for two different things: a before and after chart sets a `#D0D0D6` baseline against series 1.
 
 ### 4.5 Color rules
