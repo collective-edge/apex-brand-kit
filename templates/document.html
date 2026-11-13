@@ -3,22 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Apex Paramedics · Document template</title>
+<title>Apex Paramedics · Report template</title>
 
-<!-- HOUSE TYPE SYSTEM v1.0 · print-ready one-pager and report letterhead.
-     Load order is fixed: the shared type layer first, the brand palette second.
-     type-system.css is identical in every kit. palette.css is the only file
-     that differs between Apex, Royal and Collective Edge. -->
+<!-- REPORT. The spec is reference/layout.md section 6 and documents.json types.report.
+     A designed document for an outside reader, delivered as a PDF. The plain
+     document people keep editing is templates/working-doc.html.
+     US Letter, 0.75in margins, text block 7.0in, body measure 70 characters. Flows over pages.
+     Parts in order: band on page 1, title block, meta row, sections, lockup, footer on every page.
+
+     Load order. type-system.css and cobrand.css are identical in every kit and
+     are served from the Collective Edge kit. palette.css is the only stylesheet
+     that differs by brand. -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/type-system.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/palette.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/cobrand.css">
 
 <style>
 /* ---------- FONT ------------------------------------------------
-   Repeated here so this file embeds Montserrat when it is printed
-   or converted to PDF without the CDN stylesheet resolving.
-   woff2 for screen, TTF so print engines can embed. No italic face
-   exists in this system at any weight. */
+   type-system.css binds Montserrat through --font-sans. A print
+   engine that resolves no network stylesheet leaves that token
+   undefined, so this block names the face. */
 
 @font-face {
   font-family: "Montserrat";
@@ -29,369 +33,338 @@
   font-display: swap;
 }
 
+html, body { font-family: var(--font-sans, "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif); }
 
-/* ---------- BRAND ------------------------------------------------
-   The only per-brand lines in this file. Everything below resolves
-   through the semantic layer and is identical in every kit. */
+/* ---------- BRAND VALUES ----------------------------------------
+   With the palette link and the logo URLs, these are the only lines
+   that differ between the three kits. reference/layout.md section 2
+   lists them. */
 
 :root {
-  --tpl-subbanner: var(--apex-blue);
-  --tpl-stat-rule: var(--apex-gold);
+  --doc-logo-band: 1.6in;
+  --doc-th-fill: var(--bg-band);
+  --doc-th-text: var(--fg-on-dark-1);
+  --doc-th-rule: var(--bg-band);
+  --doc-th-tracking: 0.005em;
 }
 
+/* ---------- PAGE ------------------------------------------------
+   US Letter, portrait. 1px is 1/96in on screen and in print, so
+   every value below prints at its stated size. 4px = 3pt. */
 
-/* ---------- PAGE ------------------------------------------------- */
+@page { size: letter; margin: 0; }
+
+:root {
+  --page-margin: 0.75in;
+  --fs-h1: 40px;
+  --fs-h2: 32px;
+}
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html, body { margin: 0; background: var(--bg-surface); }
+html, body { background: var(--bg-surface); margin: 0; padding: 0; }
 
-.doc-page {
+.sheet {
   width: 8.5in;
-  margin: var(--space-6) auto;
-  padding: 0.5in;
+  min-height: 11in;
+  margin: 32px auto;
   background: var(--bg-canvas);
-  border: 1px solid var(--border-1);
+  box-shadow: 0 0 0 1px var(--border-1);
+  display: flex;
+  flex-direction: column;
 }
 
-
-/* ---------- HEADER BAND ------------------------------------------
-   Blue Deep ground, 3px gold rule along the bottom edge, white
-   horizontal logo at the right. .bk-on-dark drops the heading weight
-   and opens the tracking. Never set that weight by hand.
-
-   The band title is .bk-h1.bk-caps, uppercase, 30pt on paper, weight
-   600 and tracking 0.035em once .bk-on-dark resolves. Rule 7 puts
-   uppercase on a title, band or divider surface. The page title steps
-   down to .bk-h2 at 24pt, sentence case inside the document, so the
-   hierarchy separates document from subject.
-
-   max-width:none is deliberate. The band is a flex row bounded by the
-   logo, so --measure-heading would cut the line short of the width the
-   band actually gives it. */
+/* ---------- BAND ------------------------------------------------
+   Edge to edge, 1.11in tall. The bottom 0.03in is the band rule. */
 
 .doc-band {
+  height: 107px;
+  flex: none;
   background: var(--bg-band);
   border-bottom: 3px solid var(--border-band-rule);
-  padding: 0.32in 0.5in;
+  padding: 0 var(--page-margin);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-5);
+  gap: 48px;
 }
+.doc-band-title { margin: 0; max-width: none; white-space: nowrap; }
+.doc-band-logo { width: var(--doc-logo-band); height: auto; display: block; flex: none; }
 
-.doc-band .band-title {
-  margin: 0;
-  max-width: none;
-}
+/* ---------- BODY ------------------------------------------------ */
 
-.doc-band .band-logo {
-  width: 1.6in;
-  height: auto;
-  display: block;
-  flex: 0 0 auto;
-}
+.doc-body { flex: 1; padding: 24px var(--page-margin) 0; }
 
+.doc-headline { margin: 0; max-width: none; }
+.doc-lead { margin: 16px 0 0; max-width: 640px; }
 
-/* ---------- SUB-BANNER -------------------------------------------
-   Optional. Delete the element to drop it. Never past four words. */
-
-.doc-subbanner { background: var(--tpl-subbanner); padding: var(--space-2) 0.5in; }
-.doc-subbanner .bk-eyebrow { margin: 0; color: var(--fg-on-dark-1); }
-
-
-/* ---------- BODY -------------------------------------------------- */
-
-.doc-body { padding: 0.4in 0.5in 0; }
-
-.doc-body .doc-eyebrow { margin: 0 0 var(--space-2); }
-
-.doc-body .doc-h1 { margin: 0 0 var(--space-4); }
-
-.doc-body .doc-h2 { margin: var(--space-7) 0 var(--space-4); }
-
-.doc-body p {
-  margin: 0 0 var(--space-4);
-  max-width: var(--measure-body);
-  text-wrap: pretty;
-  orphans: 3;
-  widows: 3;
-}
-
-
-/* ---------- TABLE ------------------------------------------------
-   Header row is 600 uppercase at 9pt, set by .bk-table. Every cell
-   carries tabular figures so digits align down the column.
-
-   The 10.5pt step is set on the rule, not by putting .bk-body-sm on
-   every cell. That class also carries max-width: var(--measure-body)
-   54ch, and a body measure on a td fights the table layout algorithm
-   for column widths it has no business influencing. */
-
-.doc-table { width: 100%; border-collapse: collapse; margin: 0; }
-
-.doc-table thead tr { background: var(--bg-inverse); }
-
-.doc-table th {
-  padding: var(--space-2) var(--space-3);
-  color: var(--fg-on-dark-1);
-}
-
-/* --fg-2 #64748B measures 4.31:1 on the #f3f3fb alternating row and
-   fails 4.5:1. Primary data is --fg-1 #1E293B, 13.25:1 on that row
-   and 14.63:1 on white. */
-.doc-table td {
-  padding: var(--space-2) var(--space-3);
+.doc-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 24px;
+  margin: 16px 0 0;
+  padding: 8px 0;
+  border-top: 1px solid var(--border-1);
   border-bottom: 1px solid var(--border-1);
+}
+.doc-meta p { margin: 0; }
+.doc-meta-value { font-weight: var(--weight-semibold, 600); color: var(--fg-1); max-width: 54ch; text-wrap: pretty; }
+
+.doc-to { margin: 0 0 24px; border-top: 1px solid var(--border-1); }
+.doc-to-row {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-1);
+}
+.doc-to-cell { margin: 0; }
+.doc-to-label { color: var(--fg-3); }
+
+.doc-h2 { margin: 48px 0 16px; }
+.doc-h3 { margin: 24px 0 8px; color: var(--fg-accent); text-wrap: balance; }
+.doc-p { margin: 0; }
+.doc-p + .doc-p { margin-top: 16px; }
+
+/* ---------- TABLE -----------------------------------------------
+   Header fill by brand. Hairline under every row. No frame, no
+   vertical rule, no zebra. Text left, numbers right. */
+
+.doc-table-wrap { margin: 8px 0 0; }
+.doc-table-gap { margin: 16px 0 0; }
+.doc-caption { margin: 0 0 8px; max-width: none; }
+.doc-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums lining-nums; }
+.doc-table th,
+.doc-table td {
   font-size: var(--fs-body-sm);
   line-height: var(--lh-body-sm);
-  letter-spacing: calc(var(--tr-body-sm) + var(--tr-dark, 0em));
-  font-weight: var(--weight-regular);
-  color: var(--fg-1);
+  letter-spacing: var(--tr-body-sm);
+  text-align: left;
+  vertical-align: top;
 }
-
-.doc-table tbody tr:nth-child(even) { background: var(--bg-surface); }
-
-.doc-table .num { text-align: right; white-space: nowrap; }
-
-
-/* ---------- STAT CALLOUT -----------------------------------------
-   .bk-stat is a numeral display, not a step in the heading ladder.
-   It sets no case, no measure and no balance, and it never carries a
-   word. Rule 3 counts the ladder this page uses: .bk-h1 30pt band
-   title, .bk-h2 24pt page title, .bk-h3 18pt section head. Three
-   sizes above the 12pt body. The 42pt numerals sit outside that count
-   and templates/deck.html holds to the same reading.
-
-   Numerals are 700, not 800. At 42pt ExtraBold reads as a slab
-   rather than a number. .bk-stat sets tabular figures.
-
-   The kicker is .bk-body-sm.bk-caps, not .bk-eyebrow: section 4 sets a
-   caps label at the size of the body it labels, and the unit below it
-   is .bk-body-sm. Weight 600, tracking +0.080em from --tr-caps-small.
-
-   Gold carries the 2px rule above each group, never the kicker text.
-   #B77808 measures 3.68:1 on white, which fails at 10.5pt. The kicker
-   keeps the #64748B default at 4.76:1. */
-
-.doc-stats {
-  display: flex;
-  gap: var(--space-6);
-  margin: var(--space-7) 0 0;
+.doc-table th {
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: calc(var(--tr-body-sm) + var(--doc-th-tracking));
+  padding: 8px 12px;
+  background: var(--doc-th-fill);
+  color: var(--doc-th-text);
+  border-bottom: 2px solid var(--doc-th-rule);
 }
+.doc-table td { font-weight: var(--weight-regular, 400); padding: 8px 12px; color: var(--fg-1); border-bottom: 1px solid var(--border-1); }
+.doc-table .num { text-align: right; }
+.doc-table .total td { font-weight: var(--weight-bold, 700); border-top: 1px solid var(--border-2); }
 
-.doc-stats > div {
-  flex: 1 1 0;
-  min-width: 0;
-  border-top: 2px solid var(--tpl-stat-rule);
-  padding-top: var(--space-2);
+/* Status. An 8px square and the word, in the alert text color.
+   The word carries the meaning. */
+.doc-status { display: inline-flex; align-items: center; gap: 8px; font-weight: var(--weight-semibold, 600); white-space: nowrap; }
+.doc-status::before { content: ""; width: 8px; height: 8px; background: currentColor; flex: none; }
+.doc-status.is-go   { color: var(--alert-go-text); }
+.doc-status.is-warn { color: var(--alert-warn-text); }
+.doc-status.is-stop { color: var(--alert-stop-text); }
+.doc-status.is-info { color: var(--alert-info-text); }
+
+/* ---------- CALLOUT --------------------------------------------- */
+
+.doc-callout {
+  margin: 16px 0 0;
+  padding: 16px 20px;
+  background: var(--bg-surface);
+  border-top: 2px solid var(--fg-accent);
 }
+.doc-callout p { margin: 0; }
 
-.doc-stats .stat-kicker { margin: 0 0 var(--space-1); font-weight: var(--weight-semibold); }
-.doc-stats .stat-value  { color: var(--fg-accent); }
-.doc-stats .stat-unit   { margin: var(--space-1) 0 0; max-width: var(--measure-caption); text-wrap: pretty; }
+/* ---------- ACTIONS --------------------------------------------- */
 
+.doc-actions { list-style: none; margin: 0; padding: 0; }
+.doc-actions-item {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  margin: 0;
+  padding: 8px 0;
+  border-top: 1px solid var(--border-1);
+}
+.doc-actions-item:last-child { border-bottom: 1px solid var(--border-1); }
+.doc-actions-n { font-weight: var(--weight-semibold, 600); color: var(--fg-accent); font-variant-numeric: tabular-nums lining-nums; }
 
-/* ---------- FOOTER ------------------------------------------------
-   .bk-measure-none on both spans. .bk-caption carries --measure-caption
-   40ch, which is 26.48em at weight 400. The brand string below runs
-   23.13em with .bk-caption tracking, so 3.35em separates it from
-   wrapping to a second row inside a flex row aligned on the baseline,
-   which would drop the Rev. value out of alignment.
-   Examples/apex-one-pager.html runs 26.76em against the same 26.48em,
-   so there the class is what holds the footer on one row.
-   The footer rail is bounded by the page, not by a measure.
+/* ---------- SIGN-OFF -------------------------------------------- */
 
-   Tracking is not set here. .bk-caption supplies --tr-caption.
-   Restating the value by hand freezes the footer the day the token
-   moves. */
+.doc-sign { margin: 32px 0 0; }
+.doc-sign p { margin: 0; }
+.doc-sign-name { font-weight: var(--weight-semibold, 600); max-width: 54ch; text-wrap: pretty; }
+.doc-sign-contact { color: var(--fg-3); max-width: 54ch; text-wrap: pretty; }
+
+/* ---------- FOOTER ----------------------------------------------
+   Inside the margins. The last line sits on the bottom margin. */
 
 .doc-footer {
-  margin: var(--space-7) 0.5in 0;
-  padding-top: var(--space-2);
+  flex: none;
+  margin: 16px var(--page-margin) var(--page-margin);
+  padding: 12px 0 0;
   border-top: 1px solid var(--border-1);
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  gap: var(--space-5);
+  align-items: flex-end;
+  gap: 24px;
+}
+.doc-footer p { margin: 0; }
+
+/* ---------- LOCKUP ----------------------------------------------
+   Powered by Collective Edge. Once per document, operating
+   companies only. Small and quiet: the words at caption size, then
+   the Collective Edge logo at its 120px minimum, on one line.
+   cobrand.css draws the 204px site lockup. These rules set the
+   document lockup over it. */
+
+.ce-powered { display: flex; align-items: center; gap: 8px; }
+.ce-powered span { font-weight: var(--weight-regular, 400); letter-spacing: var(--tr-caption, 0.01em); text-transform: none; }
+.ce-powered img { width: 120px; }
+.doc-footer .ce-powered { margin: 0; padding: 0; border: 0; }
+.doc-lockup { margin: 24px 0 0; padding: 12px 0 0; }
+
+/* ---------- NARROW SCREEN ---------------------------------------
+   Under 880px the sheet is fluid. Print never takes this block. */
+
+@media screen and (max-width: 879px) {
+  :root {
+    --page-margin: 24px;
+    --fs-h1: clamp(28px, 3.2vw, 40px);
+    --fs-h2: clamp(24px, 2.4vw, 32px);
+  }
+  .sheet { width: auto; min-height: 0; margin: 0; box-shadow: none; }
+  .doc-band { height: auto; flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px var(--page-margin); }
+  .doc-band-title { white-space: normal; }
+  .doc-band-logo { max-width: 100%; }
+  .doc-meta { grid-template-columns: 1fr; row-gap: 8px; }
+  .doc-table-wrap { overflow-x: auto; }
+  .doc-footer { flex-direction: column; align-items: flex-start; gap: 16px; }
 }
 
-.doc-footer .doc-rev {
-  font-weight: 700;
-  color: var(--fg-accent);
+/* ---------- PRINT -----------------------------------------------
+   A flowing document. The page carries the top and bottom margins,
+   .doc-body carries the side margins, so the band reaches both
+   edges on page 1. The footer is a margin box on every page:
+   signature left, page number right, 9pt, the last line on the
+   bottom margin. */
+
+@page {
+  size: letter;
+  margin: 0.75in 0 1.3in;
+  @bottom-left {
+    content: "Apex Paramedics · Coverage report";
+    font: 400 9pt/1.45 "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0.01em;
+    color: #6D6D77;
+    vertical-align: top;
+    margin: 0.24in 0 0 0.75in;
+    padding-top: 9pt;
+    border-top: 0.75pt solid #E4E4E9;
+  }
+  @bottom-right {
+    content: "Page " counter(page) " of " counter(pages);
+    font: 400 9pt/1.45 "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0.01em;
+    color: #6D6D77;
+    vertical-align: top;
+    margin: 0.24in 0.75in 0 0;
+    padding-top: 9pt;
+    border-top: 0.75pt solid #E4E4E9;
+  }
 }
-
-
-/* ---------- CO-BRAND ---------------------------------------------
-   Powered by Collective Edge. The CE lockup rides beside the Apex
-   brand, never inside it, so the hairline keeps the two marks
-   distinct and they read as two brands rather than one combined
-   mark. cobrand.css owns the geometry, the 204px width and the
-   label. This rule only puts it on the page rail. */
-
-.doc-cobrand {
-  margin-left: 0.5in;
-  margin-right: 0.5in;
-  margin-bottom: var(--space-7);
-}
-
-
-/* ---------- PRINT ------------------------------------------------
-   The print block from the shared type layer, repeated so this file
-   sets point sizes on paper on its own. Nothing a person reads at
-   length drops below 10.5pt. Nothing at all drops below 9pt. */
-
-@page { size: letter; margin: 0.5in; }
+@page :first { margin-top: 0; }
 
 @media print {
-  /* Without this the band ground drops out and the reversed type on it
-     disappears. Print engines discard background paint by default. */
-  *, *::before, *::after {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  html, body { background: var(--bg-canvas); font-size: 12pt; line-height: var(--lh-body); }
-
-  .doc-page { width: auto; margin: 0; padding: 0; border: 0; }
-
-  .bk-display-xl { font-size: 72pt; }
-  .bk-display-lg { font-size: 54pt; }
-  .bk-display-md { font-size: 42pt; }
-  .bk-h1         { font-size: 30pt; }
-  .bk-h2         { font-size: 24pt; }
-  .bk-h3         { font-size: 18pt; }
-  .bk-h4         { font-size: 15pt; }
-  .bk-body-lg    { font-size: 15pt; }
-  .bk-body       { font-size: 12pt; }
-  .bk-body-sm    { font-size: 10.5pt; }
-  .bk-caption,
-  .bk-eyebrow    { font-size: 9pt; }
-  .bk-stat       { font-size: 42pt; }
-  .doc-table td  { font-size: 10.5pt; }
-
-  p, li, dd, blockquote { orphans: 3; widows: 3; max-width: var(--measure-body); text-wrap: pretty; }
-  h1, h2, h3, h4 { break-after: avoid; page-break-after: avoid; text-wrap: balance; }
-  table, figure, .bk-keep { break-inside: avoid; page-break-inside: avoid; }
-  /* The co-brand lockup is a mark, not decoration. It does not split. */
-  .ce-powered { break-inside: avoid; page-break-inside: avoid; }
-  .ce-powered span { font-size: 9pt; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { background: #FFFFFF; }
+  .sheet { display: block; width: auto; min-height: 0; margin: 0; box-shadow: none; }
+  .doc-footer { display: none; }
+  p, li { orphans: 3; widows: 3; }
+  h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
+  table, .doc-table-wrap, .doc-callout, .doc-actions, .ce-powered { break-inside: avoid; page-break-inside: avoid; }
+  /* The lockup never sits alone on a page. */
+  .doc-lockup { break-before: avoid; page-break-before: avoid; }
 }
 </style>
 </head>
 <body>
+<article class="sheet">
 
-<article class="doc-page">
-
-  <!-- HEADER BAND -->
+  <!-- BAND · 8.5in by 1.11in · logo role horizontal-on-dark -->
   <header class="doc-band bk-on-dark">
-    <div class="bk-h1 bk-caps band-title">Interfacility transport brief</div>
-    <img class="band-logo"
-         src="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg"
-         alt="Apex Paramedics">
+    <p class="bk-h2 bk-caps doc-band-title">Coverage report</p>
+    <img class="doc-band-logo" src="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg" alt="Apex Paramedics">
   </header>
 
-  <!-- SUB-BANNER -->
-  <div class="doc-subbanner bk-on-dark">
-    <p class="bk-eyebrow">Ground transport · Alameda County</p>
-  </div>
-
-  <!-- BODY -->
   <main class="doc-body">
 
-    <p class="bk-eyebrow doc-eyebrow">Operations brief</p>
+    <!-- TITLE BLOCK -->
+    <h1 class="bk-h1 doc-headline">Two added night units remove crew overtime.</h1>
+    <p class="bk-body-lg doc-lead">Night call volume at Station 4 has run above plan for six weeks. Apex adds two ALS units between 19:00 and 07:00 from 1 December.</p>
 
-    <h1 class="bk-h2 doc-h1">Interfacility performance, August 2026</h1>
+    <!-- META ROW -->
+    <div class="doc-meta">
+      <div><p class="bk-caption">For</p><p class="bk-body-sm doc-meta-value">Field supervisors</p></div>
+      <div><p class="bk-caption">From</p><p class="bk-body-sm doc-meta-value">Apex Operations</p></div>
+      <div><p class="bk-caption">Period</p><p class="bk-body-sm doc-meta-value">1 Oct to 11 Nov 2026</p></div>
+    </div>
 
-    <p class="bk-body">Apex ran 1,486 interfacility transports in August across 22 origin
-      facilities. Two thirds moved a patient from an acute floor to a skilled nursing bed.
-      The rest split between dialysis rounds, imaging appointments off campus, and hospital
-      to hospital transfers that required a critical care team.</p>
+    <!-- SECTION -->
+    <h2 class="bk-h2 doc-h2">Summary.</h2>
+    <p class="bk-body doc-p">Night calls in the Station 4 area rose through October. Median response held inside the contracted window, and the crews paid for it in overtime: two crews worked past the end of shift on 11 of the last 14 nights.</p>
+    <p class="bk-body doc-p">Two added ALS units at Station 4 take the extra calls. No day crew moves and no day unit covers a night post.</p>
 
-    <p class="bk-body">Activation time is the number partners feel. It runs from bed offer
-      accepted to wheels rolling at the origin door. Median activation held at 38&nbsp;minutes
-      countywide. The slowest quartile sat at 71&nbsp;minutes, and every case in it traced to
-      one of three causes: paperwork not ready on the floor, no gurney unit inside the county,
-      or a receiving bed that was never confirmed.</p>
+    <!-- SECTION -->
+    <h2 class="bk-h2 doc-h2">Night volume.</h2>
+    <p class="bk-body doc-p">The table shows night calls per week against plan, and the nights on which a crew logged overtime.</p>
+    <div class="doc-table-wrap doc-table-gap">
+      <p class="bk-caption doc-caption">Night calls, 19:00 to 07:00, Station 4 area</p>
+      <table class="doc-table">
+        <thead>
+          <tr><th>Week of</th><th class="num">Plan</th><th class="num">Actual</th><th class="num">Over plan</th><th class="num">Overtime nights</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>12 October</td><td class="num">84</td><td class="num">97</td><td class="num">13</td><td class="num">4</td></tr>
+          <tr><td>19 October</td><td class="num">84</td><td class="num">101</td><td class="num">17</td><td class="num">5</td></tr>
+          <tr><td>26 October</td><td class="num">84</td><td class="num">99</td><td class="num">15</td><td class="num">5</td></tr>
+          <tr><td>2 November</td><td class="num">84</td><td class="num">104</td><td class="num">20</td><td class="num">6</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="bk-h3 doc-h3">Where the calls come from.</h3>
+    <p class="bk-body doc-p">Most of the added calls start within two miles of Station 4. Posting both units there keeps drive time short and leaves Station 2 coverage as it is.</p>
 
-    <h2 class="bk-h3 doc-h2">Where the time goes</h2>
+    <!-- SECTION -->
+    <h2 class="bk-h2 doc-h2">Risks.</h2>
+    <p class="bk-body doc-p">Medic 42 is pending its inspection, booked for 26 November. Until it clears, Medic 17 covers the second night post from Station 2.</p>
+    <aside class="doc-callout"><p class="bk-body">If the inspection date moves, Fleet calls the night supervisor the same day and Medic 17 stays at Station 4.</p></aside>
 
-    <table class="bk-table doc-table">
-      <thead>
-        <tr class="bk-on-dark">
-          <th>Contract</th>
-          <th>Origin</th>
-          <th>Service level</th>
-          <th class="num">Activation</th>
-          <th class="num">Runs</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="bk-code">IFT-114</span></td>
-          <td>Regional medical center</td>
-          <td>BLS gurney</td>
-          <td class="num">34&nbsp;min</td>
-          <td class="num">412</td>
-        </tr>
-        <tr>
-          <td><span class="bk-code">IFT-207</span></td>
-          <td>County hospital campus</td>
-          <td>ALS</td>
-          <td class="num">41&nbsp;min</td>
-          <td class="num">268</td>
-        </tr>
-        <tr>
-          <td><span class="bk-code">IFT-355</span></td>
-          <td>Skilled nursing campus</td>
-          <td>BLS gurney</td>
-          <td class="num">36&nbsp;min</td>
-          <td class="num">511</td>
-        </tr>
-        <tr>
-          <td><span class="bk-code">IFT-402</span></td>
-          <td>Dialysis network</td>
-          <td>Wheelchair van</td>
-          <td class="num">29&nbsp;min</td>
-          <td class="num">295</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- SECTION -->
+    <h2 class="bk-h2 doc-h2">Next steps.</h2>
+    <ol class="doc-actions">
+      <li class="bk-body doc-actions-item"><span class="doc-actions-n">1</span><span>Supervisors confirm night crew assignments by 24 November.</span></li>
+      <li class="bk-body doc-actions-item"><span class="doc-actions-n">2</span><span>Fleet completes the Medic 42 inspection on 26 November.</span></li>
+      <li class="bk-body doc-actions-item"><span class="doc-actions-n">3</span><span>Medic 41 and Medic 42 post at Station 4 from the night of 1 December.</span></li>
+      <li class="bk-body doc-actions-item"><span class="doc-actions-n">4</span><span>Operations reviews night overtime again on 15 January 2027.</span></li>
+    </ol>
 
-    <!-- STAT CALLOUT -->
-    <div class="doc-stats">
-      <div>
-        <p class="bk-body-sm bk-caps stat-kicker">Median activation</p>
-        <div class="bk-stat stat-value">38</div>
-        <p class="bk-body-sm stat-unit">minutes to wheels rolling</p>
-      </div>
-      <div>
-        <p class="bk-body-sm bk-caps stat-kicker">Transports</p>
-        <div class="bk-stat stat-value">1,486</div>
-        <p class="bk-body-sm stat-unit">August, all levels</p>
-      </div>
-      <div>
-        <p class="bk-body-sm bk-caps stat-kicker">Inside window</p>
-        <div class="bk-stat stat-value">94.2%</div>
-        <p class="bk-body-sm stat-unit">arrived inside the hour</p>
-      </div>
+    <!-- SECTION -->
+    <h2 class="bk-h2 doc-h2">Method.</h2>
+    <p class="bk-body doc-p">A night call is any call dispatched between 19:00 and 07:00 to an address in the Station 4 area. Plan is the weekly figure in the 2026 staffing model. An overtime night is a night on which a crew clocked out more than 30&nbsp;minutes after the end of shift.</p>
+    <p class="bk-body doc-p">Counts come from dispatch records and the payroll export for the same weeks. Calls handed to a mutual aid partner are counted once, under the unit first assigned.</p>
+    <h3 class="bk-h3 doc-h3">Limits.</h3>
+    <p class="bk-body doc-p">Six weeks does not show a season. The January review covers the holiday period and the first full month with both units posted.</p>
+
+    <!-- LOCKUP · the last line of the body, once, small -->
+    <div class="ce-powered ce-powered-light doc-lockup">
+      <span>Powered by</span>
+      <img src="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/assets/logos/horizontal-black.svg" alt="Collective Edge" width="120" height="20">
     </div>
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER · screen only. In print the page margin boxes carry it on every page. -->
   <footer class="doc-footer">
-    <span class="bk-caption bk-measure-none">Apex Paramedics · Interfacility transport brief</span>
-    <span class="bk-caption bk-measure-none doc-rev">Rev.&nbsp;<span class="bk-code">08.26</span></span>
+    <p class="bk-caption">Apex Paramedics · Coverage report</p>
+    <p class="bk-caption">Page 1 of 2</p>
   </footer>
-
-  <!-- CO-BRAND · light ground, so the black lockup and the --border-1
-       hairline. Label is --fg-3 #64748B on #FFFFFF, 4.76:1. -->
-  <div class="ce-powered ce-powered-light doc-cobrand">
-    <span>Powered by</span>
-    <img src="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/assets/logos/horizontal-black.svg"
-         alt="CE · Collective Edge" width="204" height="34">
-  </div>
 
 </article>
 

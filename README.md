@@ -1,184 +1,149 @@
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="for-humans/logos/png/Apex-Paramedics-horizontal-white-1200w.png"><img src="for-humans/logos/png/Apex-Paramedics-horizontal-blue-1200w.png" width="240" alt="Apex Paramedics"></picture></p>
+
 # Apex Paramedics brand kit
 
-<p><img src="for-humans/previews/horizontal-blue.png" width="400" alt="Apex Paramedics logo on white"> <img src="for-humans/previews/horizontal-white.png" width="400" alt="Apex Paramedics logo on dark blue"></p>
+Apex Paramedics is an operating company under Collective Edge, in navy blue and gold drawn from its own mark. This repository is the public source for the brand: logos, color, type and document layouts, with the rules for using them.
 
-The public source for the Apex Paramedics brand. Logos, colors, type and the rules for using them. Pick your door.
+**[Read the brand guidelines](https://collective-edge.github.io/apex-brand-kit/)** · the whole standard on one page.
 
-| | **[For humans →](for-humans/)** | **[For agents →](for-agents/)** |
+## Start here
+
+| | For people | For agents |
 |---|---|---|
-| Who | Designers, agencies, printers, teammates | AI agents, and developers generating branded output |
-| What you get | Logos in SVG and PNG, the fonts, the colors, the rules. No install, no account, no git | CDN URLs, logo roles, color tokens, the full standard, validators |
-| Start with | [Download the pack](https://github.com/collective-edge/apex-brand-kit/archive/refs/heads/main.zip), then open `for-humans` | [`for-agents/README.md`](for-agents/README.md), then [`SKILL.md`](SKILL.md) |
+| Who | Designers, agencies, printers, staff | An agent or a script that makes branded documents |
+| Open | [`for-humans/`](for-humans/) | [`for-agents/README.md`](for-agents/README.md), then [`SKILL.md`](SKILL.md) |
+| Get | [Download the pack](https://github.com/collective-edge/apex-brand-kit/archive/refs/heads/main.zip). Logos, fonts and a plain guide in one zip | Asset URLs, logo roles, color tokens and layout rules in inches, points and hex |
 
 ## Grab a logo
 
-The file named for its ink goes on the opposite background. Full set, sizes and rules are in [`for-humans/`](for-humans/).
+Pick by the ground the logo sits on. The file named **blue** goes on light. The file named **white** goes on dark. Use the SVG wherever the software takes it. Sizes, clear space and the rules are in [`for-humans/`](for-humans/#sizes-and-spacing).
 
-| | For light backgrounds | For dark backgrounds |
+| Lockup | On a light ground | On a dark ground |
 |---|---|---|
-| Horizontal · the main logo | [SVG](for-humans/logos/svg/Apex-Paramedics-horizontal-blue.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-horizontal-blue-1200w.png) | [SVG](for-humans/logos/svg/Apex-Paramedics-horizontal-white.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-horizontal-white-1200w.png) |
-| A mark · small spaces | [SVG](for-humans/logos/svg/Apex-Paramedics-mark-blue.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-mark-blue-512w.png) | [SVG](for-humans/logos/svg/Apex-Paramedics-mark-white.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-mark-white-512w.png) |
-| App icon · favicons | [SVG](for-humans/logos/svg/Apex-Paramedics-app-icon.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-app-icon-512w.png) | same file |
+| Horizontal | [SVG](for-humans/logos/svg/Apex-Paramedics-horizontal-blue.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-horizontal-blue-1200w.png) | [SVG](for-humans/logos/svg/Apex-Paramedics-horizontal-white.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-horizontal-white-1200w.png) |
 | Compact | [SVG](for-humans/logos/svg/Apex-Paramedics-compact-blue.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-compact-blue-1200w.png) | [SVG](for-humans/logos/svg/Apex-Paramedics-compact-white.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-compact-white-1200w.png) |
+| A mark | [SVG](for-humans/logos/svg/Apex-Paramedics-mark-blue.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-mark-blue-512w.png) | [SVG](for-humans/logos/svg/Apex-Paramedics-mark-white.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-mark-white-512w.png) |
+| App icon | [SVG](for-humans/logos/svg/Apex-Paramedics-app-icon.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-app-icon-512w.png) | The same file |
+
+The gold arc never appears on its own. The small Apex mark is the A with the arc through it.
+
+## The system at a glance
+
+### Color
+
+Blue is the structure. Gold is the spark. Gold is one rule or one mark on a page, never a field.
+
+| | Name | Hex | Use |
+|---|---|---|---|
+| <img src="for-humans/previews/swatches/1D225E.png" width="18" alt=""> | Apex Blue Deep | `#1D225E` | The header band. Title, divider and closing slides |
+| <img src="for-humans/previews/swatches/2B338D.png" width="18" alt=""> | Apex Blue | `#2B338D` | The primary brand color. Headings, links, accent bars |
+| <img src="for-humans/previews/swatches/9699C7.png" width="18" alt=""> | Apex Blue Light | `#9699C7` | Thin rules and hover states only. Never text |
+| <img src="for-humans/previews/swatches/FDB61C.png" width="18" alt=""> | Apex Gold | `#FDB61C` | The accent, from the arc. The rule under a band. Never text on white |
+| <img src="for-humans/previews/swatches/B77808.png" width="18" alt=""> | Apex Gold Deep | `#B77808` | Gold text on white, at 18pt in print or 24px on screen and up |
+| <img src="for-humans/previews/swatches/E5EAFF.png" width="18" alt=""> | Surface 2 | `#E5EAFF` | The stronger tint. Never text |
+| <img src="for-humans/previews/swatches/f3f3fb.png" width="18" alt=""> | Surface | `#f3f3fb` | Callout fills. Never text |
+| <img src="for-humans/previews/swatches/FFFFFF.png" width="18" alt=""> | White | `#FFFFFF` | The page. The default surface |
+
+Text, rules and borders come from one neutral family, the same in all three brands. Ink is `#23232A`. Green means good and nothing else. A brand color is never a status color. Chart colors come from the house data set.
+
+Every value: [`tokens.json`](tokens.json). Every rule: [`reference/brand.md`](reference/brand.md). Charts: [`reference/data-color.md`](reference/data-color.md).
+
+### Type
+
+Montserrat at 400, 600, 700 and 800. No italic. The scale is the same in all three brands.
+
+| Role | Print | Screen |
+|---|---|---|
+| Headline | 30pt | 40px |
+| Section heading | 24pt | 32px |
+| Subhead | 18pt | 24px |
+| Lead | 15pt | 20px |
+| Body | 12pt | 16px |
+| Table text | 10.5pt | 14px |
+| Caption and footer | 9pt | 12px |
+
+Every rule: [`reference/type-system.md`](reference/type-system.md). Every value: [`snippets/type-tokens.json`](snippets/type-tokens.json).
+
+### Documents
+
+Six types. Most requests change a file that already exists: keep its layout, styles and wording, and change only what was asked.
+
+| Type | For | Page | Body | Template |
+|---|---|---|---|---|
+| Working document | The default. Anything people keep editing in Google Docs or Word: agendas, plans, status reports, notes | US Letter, portrait, 0.75in margins | 10.5pt | [`templates/working-doc.html`](templates/working-doc.html) |
+| Sheet | Trackers and lists in Google Sheets or Excel | One table per tab, from A1 | 10pt | None |
+| Deck | Anything on a screen | 13.333 x 7.5in. 0.67in top, 0.83in left and right, 0.42in bottom | 15pt | [`templates/deck.html`](templates/deck.html) |
+| One-pager | A designed single page for an outside reader, as a PDF | US Letter, portrait, 0.6in margins, exactly one page | 12pt | [`templates/one-pager.html`](templates/one-pager.html) |
+| Report | A designed document of three pages or more, as a PDF | US Letter, portrait, 0.75in margins | 12pt | [`templates/document.html`](templates/document.html) |
+| Memo | Only when asked for by name | US Letter, portrait, 0.75in margins | 12pt | [`templates/memo.html`](templates/memo.html) |
+
+A working document is plain: the logo at top left, a title, no band. The band opens a one-pager, a report and a memo, which are made for PDF and print. Content slides are white. The dark ground is for the title, divider and closing slides. “Powered by Collective Edge” appears once, small, on every Apex Paramedics and Royal Ambulance PDF, deck and image. A working document and a sheet never carry it.
+
+Every rule: [`reference/layout.md`](reference/layout.md). The same values as data: [`documents.json`](documents.json).
 
 ## The house
 
-Three brands, one type system, the same layout in every kit.
+Three brands, one standard. The kits differ in color, logo and brand facts.
 
-| Brand | Kit | People | Agents |
-|---|---|---|---|
-| Collective Edge · the parent | [`collective-edge-brand-kit`](https://github.com/collective-edge/collective-edge-brand-kit) | [for-humans](https://github.com/collective-edge/collective-edge-brand-kit/tree/main/for-humans) | [for-agents](https://github.com/collective-edge/collective-edge-brand-kit/tree/main/for-agents) |
-| **Apex Paramedics** | this kit | [for-humans](for-humans/) | [for-agents](for-agents/) |
-| Royal Ambulance | [`royal-brand-kit`](https://github.com/collective-edge/royal-brand-kit) | [for-humans](https://github.com/collective-edge/royal-brand-kit/tree/main/for-humans) | [for-agents](https://github.com/collective-edge/royal-brand-kit/tree/main/for-agents) |
-
-## About this kit
-
-House type system v1.0. Cloud-hosted brand assets, the `apex-brand-guidelines` skill, and print-ready templates for Apex Paramedics. Written for agents and humans: an agent loads `SKILL.md` and applies the brand on its own, and a person reads the same file start to finish and gets the same standard.
-
-Apex Paramedics is an operating company under Collective Edge. Across the house exactly two things vary between brands: palette and logo. Type is shared and identical, and it is what makes Apex, Royal and Collective Edge read as one house. Never fork the type layer.
-
-Everything is served from jsDelivr, so any session on any machine can produce on-brand material with no local setup.
+| Brand | Guidelines | Repository |
+|---|---|---|
+| Collective Edge · the parent | [collective-edge.github.io/collective-edge-brand-kit](https://collective-edge.github.io/collective-edge-brand-kit/) | [`collective-edge-brand-kit`](https://github.com/collective-edge/collective-edge-brand-kit) |
+| Apex Paramedics | [collective-edge.github.io/apex-brand-kit](https://collective-edge.github.io/apex-brand-kit/) | [`apex-brand-kit`](https://github.com/collective-edge/apex-brand-kit) |
+| Royal Ambulance | [collective-edge.github.io/royal-brand-kit](https://collective-edge.github.io/royal-brand-kit/) | [`royal-brand-kit`](https://github.com/collective-edge/royal-brand-kit) |
 
 ## What is in here
 
 ```
 apex-brand-kit/
-├── for-humans/                     Start here if you are a person. Logos, fonts, colors, rules. No install.
-├── for-agents/                     Start here if you are an agent. URLs, roles, tokens, rules, on one page.
-├── AGENTS.md                       Entry point an agent finds on its own. Points at the two files below it.
-├── SKILL.md                        The skill an agent loads. Brand identity, then pointers.
-├── brands.json                     Registry of every brand in the house. Shared, identical everywhere.
-├── tokens.json                     Apex colors, machine-readable, for generators that cannot parse CSS.
-├── NEW-BRAND.md                    How to add a brand. Shared, identical everywhere.
-├── CONTRIBUTING.md                 How to change this kit without breaking live work.
-├── reference/
-│   ├── brand.md                    Palette, measured contrast, logo rules, voice.
-│   ├── layout.md                   Header band, sub-banner, flowchart, stats, tables, footer.
-│   ├── data-color.md         # Chart and reporting color. Shared
-│   └── type-system.md              The type standard. Shared, identical everywhere.
-├── snippets/
-│   ├── data-color.css        # The data color layer. Shared
-│   ├── type-system.css             The type layer. Shared, identical everywhere.
-│   ├── palette.css                 The only stylesheet that differs between brands.
-│   ├── type-tokens.json            Type values for non-CSS generators. Shared.
-│   ├── header-band.html            Drop-in header band.
-│   └── brand-base.css              DEPRECATED shim. Kept for live pages. Replaced by the two above.
-├── templates/
-│   ├── document.html               Letter one-pager and report letterhead, print-ready.
-│   └── deck.html                   Five slides at 16:9, one landscape page each.
-├── Examples/
-│   ├── apex-one-pager.html         Shipping specimen.
-│   └── apex-one-pager.before.html  The same page before v1.0, for comparison.
-├── scripts/
-│   ├── build-handoff.py            Renders the PNG logos, previews and color chips in for-humans/.
-│   ├── validate.py                 Mechanical check of rules 1, 2, 5, 9, 10, 13 and 14. Shared.
-│   └── check-sync.py               Asserts the shared files have not drifted. Shared.
-└── assets/
-    ├── colors.json                 DEPRECATED. Replaced by tokens.json.
-    ├── fonts/Montserrat-VariableFont_wght.ttf
-    └── logos/                      horizontal, compact and the A mark, color and white, the app icon, plus the source EPS.
+├── index.html        The guidelines page. Built by guidelines/build.py
+├── guidelines/       The page builder, its stylesheet, the brand copy and the preview image
+├── for-humans/       Logos, fonts, color chips and a plain guide. For people
+├── for-agents/       The shortest correct path for an agent
+├── AGENTS.md         Agent entry point
+├── SKILL.md          The standard in brief
+├── reference/        The full standard: brand, layout, type, data color, controls
+├── brands.json       Every brand in the house: CDN roots, logo roles, the co-brand lockup
+├── documents.json    The document types as data
+├── tokens.json       This brand's colors as hex and RGB
+├── snippets/         Stylesheets, type tokens and the header band
+├── templates/        Working document, deck, one-pager, report and memo
+├── Examples/         Filled references
+├── assets/           Logo masters and fonts. Live CDN paths
+├── scripts/          The checks and the builders
+├── CONTRIBUTING.md   How to change this repository
+├── NEW-BRAND.md      How to stand up a kit for a new brand
+└── TRADEMARKS.md     What others may do with the names and logos
 ```
 
-Sixteen files are byte-identical in every kit, covering the type layer, the UI layer, the data color layer and the tooling. `scripts/check-sync.py` carries the list and fails if any of them drifts. Never edit a shared file in this repo alone.
+## Use it
 
-## Loading the brand in HTML
+### Load
 
-Two stylesheets, in this order. The type layer is served from the parent brand because type belongs to Collective Edge.
+Every file is public on jsDelivr. No auth, no install.
 
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/type-system.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/palette.css">
+```
+https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/
 ```
 
-Anything with a chart, a dashboard tile or a reported number loads the data color layer as well:
+Colors are in `tokens.json`. Type is in `snippets/type-tokens.json`. Layouts are in `documents.json` and `reference/layout.md`. Logos resolve by role in `brands.json`. The stylesheet link tags for an HTML page are in [`for-agents/README.md`](for-agents/README.md).
 
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/data-color.css">
-```
-
-Chart color never comes from the brand palette. The standard is in [`reference/data-color.md`](reference/data-color.md).
-
-Style through the `.bk-*` classes and the semantic `--fg-*` / `--bg-*` / `--border-*` variables. Reach for a raw `--apex-*` value only where the brand color is the point: a logo band or an accent rule. Never a chart series. Chart color comes from [`reference/data-color.md`](reference/data-color.md).
-
-For a PDF pipeline (weasyprint, wkhtmltopdf, Chrome print) embed the font. `templates/document.html` carries the block:
-
-```css
-@font-face {
-  font-family: 'Montserrat';
-  src: url('https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
-  font-weight: 400 800;
-  font-style: normal;
-}
-```
-
-`400 800` is the permitted range. `reference/type-system.md` section 3 bans 100, 200, 300 and 900 at document sizes.
-
-## Logo roles
-
-Ask for a role, never a filename. `-on-light` is the file you place on a light background.
-
-| Role | File |
-|---|---|
-| `horizontal-on-light` | `assets/logos/horizontal-color.svg` |
-| `horizontal-on-dark` | `assets/logos/horizontal-white.svg` |
-| `compact-on-light` | `assets/logos/compact-on-light.svg` |
-| `compact-on-dark` | `assets/logos/compact-on-dark.svg` |
-| `mark-on-light` | `assets/logos/mark-on-light.svg` |
-| `mark-on-dark` | `assets/logos/mark-on-dark.svg` |
-| `app-icon` | `assets/logos/app-icon.svg` · the mark on a navy square, for favicons and app tiles |
-| `stacked-on-dark` | Apex has none. Use `horizontal-on-dark`. |
-
-The horizontal lockup is the main logo, `APEX PARAMEDICS`, at 110px and up. The compact lockup is `APEX` alone, for smaller places, decks, or a corner, at 80px and up.
-
-The mark is the A with the gold arc running through it. Use it for a favicon, an avatar, or any space too small for the compact lockup. `app-icon.svg` is the same mark on a navy square.
-
-**The gold arc never appears on its own.** `mark-color.svg` and `mark-white.svg` held the arc alone. They are deleted, and `scripts/validate.py` fails on any reference to them.
-
-Reference the CDN URL directly with `<img src="...">`. The repository is public and jsDelivr needs no auth. `assets/logos/source/apex-paramedics-PMS123-PMS072.eps` is the authoritative master for any re-export.
-
-## Color
-
-| Name | Variable | Hex | Usage |
-|---|---|---|---|
-| Apex Blue | `--apex-blue` | `#2B338D` | Headers, links, buttons, accent bars, chart primary |
-| Apex Blue Deep | `--apex-blue-deep` | `#1D225E` | Header bands, hero grounds, footers, table header rows |
-| Apex Blue Light | `--apex-blue-light` | `#9699C7` | Tertiary accents and hover. 2.74:1 on white, never text |
-| Apex Gold | `--apex-gold` | `#FDB61C` | Band rules, accent marks, stat numerals on dark. 1.77:1 on white, never text |
-| Apex Gold Deep | `--apex-gold-deep` | `#B77808` | Gold text on white at 3.68:1. 18pt print or 24px web and up, the `.bk-h3` step and above |
-| Surface Tint | `--apex-surface` | `#f3f3fb` | Alternating rows, callout fills |
-
-Blue is the structure. Gold is the spark. Pantone Blue 072 C is the wordmark, Pantone 1235 C is the arc.
-
-The full measured contrast table, including the frozen diagram fills, is in `reference/brand.md`.
-
-## Install the skill
-
-Clone the kit into the skills directory your agent reads. The directory name differs by tool, so substitute your own.
+### Verify
 
 ```bash
-git clone https://github.com/collective-edge/apex-brand-kit ~/skills/apex-brand-guidelines
-```
-
-The agent picks up `SKILL.md` and applies the brand from then on. Working without one, open `SKILL.md` and follow it in order. To update:
-
-```bash
-cd ~/skills/apex-brand-guidelines && git pull
-```
-
-## Before shipping anything
-
-```bash
-python3 scripts/validate.py path/to/output.html
 python3 scripts/check-sync.py
+python3 scripts/validate.py path/to/output.html
 python3 scripts/validate-palette.py --series
+python3 scripts/ui-audit.py path/to/output.html
 ```
 
-`validate.py` exits non-zero on a violation of rules 1, 2, 5, 9, 10, 13 or 14, and on any use of the retired arc-only mark. It cannot see pixels, so render the file and look at it as well. The rest of the checklist is in `SKILL.md`.
+`check-sync.py` proves the shared files match the other two kits. `validate.py` checks type rules 1, 2, 5, 9, 10, 13 and 14 and check L1, retired logo artwork. `validate-palette.py` checks the chart colors. `ui-audit.py` measures a rendered page. No script reads a page the way a person does. Open the file and look.
 
-## Versioning
+### Versions
 
-`@main` serves the latest. Pin to a tag for stability: replace `@main` with `@v1.1`. Bump the tag on a breaking brand change: a logo redesign or a color shift. The type system versions separately, per `reference/type-system.md` section 13.
+`main` is live. The CDN serves it and the agent reads it on every request, so a change lands whole. Production material pins a tag in place of `@main`. [`CONTRIBUTING.md`](CONTRIBUTING.md) covers changes.
 
-## License
+### License and trademarks
 
-Brand assets are property of Apex Paramedics. Use only for Apex Paramedics and partner-related material.
+The names, logos and brand colors in this repository belong to Apex Paramedics. [`TRADEMARKS.md`](TRADEMARKS.md) says what others may do with them. Permission is by request.
+
+Montserrat is licensed under the SIL Open Font License, Version 1.1. The license text is in [`assets/fonts/OFL.txt`](assets/fonts/OFL.txt) and [`for-humans/fonts/OFL.txt`](for-humans/fonts/OFL.txt).

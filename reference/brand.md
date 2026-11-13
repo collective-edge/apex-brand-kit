@@ -1,240 +1,404 @@
 # Apex Paramedics · brand reference
 
-Everything about this brand that does not belong in `SKILL.md`. Read on demand.
+The full tables behind `SKILL.md`: color, logo, co-brand and voice. Type is in `reference/type-system.md`. Layout is in `reference/layout.md`. Chart color is in `reference/data-color.md`.
 
-Apex Paramedics is an operating company under Collective Edge. Palette and logo are the only things that vary between brands in the house. Type is shared and lives in `reference/type-system.md`.
+Apex Paramedics is an operating company under Collective Edge. Its colors are navy and gold, drawn from its own mark.
+
+Collective Edge, Apex Paramedics and Royal Ambulance share one standard. The sections, the order and the rules in this file are the same in all three kits. Color, logo and brand facts differ.
+
+`snippets/palette.css` is authoritative for color and `tokens.json` mirrors it. If this file disagrees with either, this file is stale.
 
 ---
 
-## 1. Palette
+## 1. Color
 
-The palette is drawn straight from the mark. The wordmark is Pantone Blue 072 C. The arc is Pantone 1235 C. Blue is the foundation, gold is the signature accent. Never introduce a hue that is not on this page.
+### 1.1 Palette
 
-### Brand
+Blue is the structure. Gold is the spark. Blue carries bands and headings. Gold is one rule or one mark on a surface, never a field. Text and rules come from the shared neutrals in 1.3.
 
-| Name | Variable | Hex | RGB | Usage |
+| Name | Token | Hex | RGB | Use |
 |---|---|---|---|---|
-| Apex Blue | `--apex-blue` | `#2B338D` | 43, 51, 141 | Primary brand color. Logo wordmark, headers, links, buttons, column headers, accent bars, chart primary series |
-| Apex Blue Deep | `--apex-blue-deep` | `#1D225E` | 29, 34, 94 | Large dark areas. Header bands, hero grounds, full-width strips, section dividers, footers, table header rows |
-| Apex Blue Light | `--apex-blue-light` | `#9699C7` | 150, 153, 199 | Tertiary accents, hover states, lighter highlights |
-| Apex Gold | `--apex-gold` | `#FDB61C` | 253, 182, 28 | Signature accent, echoing the arc. Band rules, kicker marks, highlight underlines, stat numerals on dark |
-| Apex Gold Deep | `--apex-gold-deep` | `#B77808` | 183, 120, 8 | Gold text on white at 3.68:1. 18pt print or 24px web and up, the `.bk-h3` step and above, and icons. Never small text |
-| Black | `--apex-black` | `#000000` | 0, 0, 0 | High-contrast headings on light grounds |
-| White | `--apex-white` | `#FFFFFF` | 255, 255, 255 | Text on dark grounds, page background |
+| Apex Blue Deep | `--apex-blue-deep` | `#1D225E` | 29, 34, 94 | The band, as `--bg-band` and `--bg-inverse`. Hero grounds, footers, table header rows |
+| Apex Blue | `--apex-blue` | `#2B338D` | 43, 51, 141 | Primary. Headings, links, buttons, accent bars. Accent text, as `--fg-accent`. A filled block, as `--bg-mid`. Pantone Blue 072 C |
+| Apex Blue Light | `--apex-blue-light` | `#9699C7` | 150, 153, 199 | Thin rules and hover states. Never text. Never a large background |
+| Apex Gold | `--apex-gold` | `#FDB61C` | 253, 182, 28 | The 2.25pt (3px) rule under the band, as `--border-band-rule`. Kicker marks. Numerals and caps labels on a dark ground. Pantone 1235 C. Never text on white |
+| Apex Gold Deep | `--apex-gold-deep` | `#B77808` | 183, 120, 8 | Gold text on white, at 18pt in print or 24px on screen and up |
+| Surface Tint | `--apex-surface` | `#f3f3fb` | 243, 243, 251 | Callout fill, as `--bg-surface` |
+| White | `--apex-white` | `#FFFFFF` | 255, 255, 255 | The page. Text on a dark ground |
 
-### Neutrals
+The palette is drawn from the mark. The wordmark is Pantone Blue 072 C and the arc is Pantone 1235 C. Three more `--apex-*` names resolve to the shared neutrals in 1.3: `--apex-charcoal` `#23232A`, `--apex-muted` `#6D6D77` and `--apex-hairline` `#E4E4E9`. `--apex-black` is `#000000`.
 
-| Name | Variable | Hex | RGB | Usage |
-|---|---|---|---|---|
-| Charcoal | `--apex-charcoal` | `#1E293B` | 30, 41, 59 | Primary body text on light |
-| Muted | `--apex-muted` | `#64748B` | 100, 116, 139 | Secondary text, metadata, footer text |
-| Dimmed | `--fg-4` | `#94A3B8` | 148, 163, 184 | Dimmed labels only. Never body text |
-| Hairline | `--apex-hairline` | `#E2E8F0` | 226, 232, 240 | Table borders, rules, footer top border |
-| Border 2 | `--border-2` | `#CBD5E1` | 203, 213, 225 | Heavier dividers, input borders |
-| Surface Tint | `--apex-surface` | `#f3f3fb` | 243, 243, 251 | Alternating rows, callout fills, subtle panels |
+### 1.2 Grounds
 
-### Semantic layer
+Every brand has the same six grounds, from lightest to darkest. White is the page. The last column lists the only text that sits on each ground.
 
-Style through these. The names are identical in every brand kit, so a component written for Apex renders correctly for Royal with only `palette.css` swapped.
+| Ground | Token | Hex | RGB | Against white | Text on it |
+|---|---|---|---|---|---|
+| Canvas | `--bg-canvas` | `#FFFFFF` | 255, 255, 255 | | `--fg-1`, `--fg-2`, `--fg-3`, `--fg-accent` |
+| Surface | `--bg-surface` | `#f3f3fb` | 243, 243, 251 | 1.10:1 | `--fg-1`, `--fg-2`, `--fg-3`, `--fg-accent` |
+| Surface 2 | `--bg-surface-2` | `#E5EAFF` | 229, 234, 255 | 1.20:1 | `--fg-1`, `--fg-2`, `--fg-accent`. Never `--fg-3` |
+| Mid | `--bg-mid` | `#2B338D` | 43, 51, 141 | | `--fg-on-dark-1`, `--fg-on-dark-2`. Never `--fg-on-dark-3` |
+| Band | `--bg-band` | `#1D225E` | 29, 34, 94 | | `--fg-on-dark-1`, `--fg-on-dark-2`, `--fg-on-dark-3` |
+| Hero | `--bg-inverse` | `#1D225E` | 29, 34, 94 | | `--fg-on-dark-1`, `--fg-on-dark-2`, `--fg-on-dark-3` |
 
-| Variable | Resolves to | Use |
+Apex runs Hero and Band on one ground, `#1D225E`. Mid is Apex Blue. Surface 2 `#E5EAFF` is step 100 of the blue ramp.
+
+### 1.3 Neutrals
+
+One neutral family sets text and rules in all three brands. It leans neither blue nor purple, so it sits beside every brand color. Ratios are on `#FFFFFF`.
+
+| Name | Token | Hex | RGB | On white | Use |
+|---|---|---|---|---|---|
+| Ink | `--neutral-ink` | `#23232A` | 35, 35, 42 | 15.61:1 | Body text and headings on light |
+| Secondary | `--neutral-secondary` | `#565860` | 86, 88, 96 | 7.09:1 | Secondary text |
+| Tertiary | `--neutral-tertiary` | `#6D6D77` | 109, 109, 119 | 5.12:1 | Captions and metadata. The dimmest text |
+| Dimmed | `--neutral-dimmed` | `#8A8B93` | 138, 139, 147 | 3.39:1 | Marks only. Never text |
+| Border | `--neutral-border` | `#D0D0D6` | 208, 208, 214 | 1.54:1 | Borders and table rules. Never text |
+| Hairline | `--neutral-hairline` | `#E4E4E9` | 228, 228, 233 | 1.27:1 | Hairlines and dividers. Never text |
+| Tint 2 | `--neutral-tint-2` | `#E5E6EA` | 229, 230, 234 | 1.25:1 | Stronger neutral tint |
+| Tint | `--neutral-tint` | `#F0F1F4` | 240, 241, 244 | 1.13:1 | Neutral surface tint |
+| Mid | `--neutral-mid` | `#4E4F58` | 78, 79, 88 | 8.13:1 | Mid tone fill. Diagram process nodes and connectors |
+| On-dark body | `--neutral-on-dark-body` | `#DDDDE3` | 221, 221, 227 | | Body text on a dark ground |
+| On-dark caption | `--neutral-on-dark-caption` | `#A3A4AC` | 163, 164, 172 | | Captions on a dark ground |
+
+### 1.4 Semantic layer
+
+Style through these names. They are identical in every brand, so a component built for one brand renders correctly in another with only `palette.css` swapped. `tokens.json` carries the same names under `foreground`, `background` and `border`.
+
+| Token | Hex | Use |
 |---|---|---|
-| `--fg-1` | `#1E293B` | Primary text on light |
-| `--fg-2` | `#64748B` | Secondary text |
-| `--fg-3` | `#64748B` | Tertiary, metadata, eyebrows |
-| `--fg-4` | `#94A3B8` | Dimmed labels |
-| `--fg-accent` | `#2B338D` | Brand-colored text |
-| `--fg-on-dark-1` | `#FFFFFF` | Primary text on dark |
-| `--fg-on-dark-2` | `#D6DAEC` | Body text on dark |
-| `--fg-on-dark-3` | `#9EA5C4` | Captions and eyebrows on dark |
-| `--bg-canvas` | `#FFFFFF` | Page ground |
-| `--bg-surface` | `#f3f3fb` | Panels, alternating rows |
-| `--bg-elevated` | `#FFFFFF` | Cards |
-| `--bg-inverse` | `#1D225E` | Inverted panels |
+| `--fg-1` | `#23232A` | Primary text on light |
+| `--fg-2` | `#565860` | Secondary text |
+| `--fg-3` | `#6D6D77` | Tertiary text, metadata, captions. The dimmest text |
+| `--fg-4` | `#8A8B93` | Dimmed marks. Never text |
+| `--fg-accent` | `#2B338D` | Brand-colored text. Apex Blue. 10.71:1 on white |
+| `--fg-on-dark-1` | `#FFFFFF` | Headings and primary text on a dark ground |
+| `--fg-on-dark-2` | `#DDDDE3` | Body text on a dark ground |
+| `--fg-on-dark-3` | `#A3A4AC` | Captions and labels on a dark ground |
+| `--bg-canvas` | `#FFFFFF` | The page |
+| `--bg-surface` | `#f3f3fb` | Callouts |
+| `--bg-surface-2` | `#E5EAFF` | The stronger tint |
+| `--bg-elevated` | `#FFFFFF` | Raised surface |
+| `--bg-mid` | `#2B338D` | Filled block |
 | `--bg-band` | `#1D225E` | Header band |
-| `--border-1` | `#E2E8F0` | Hairline |
-| `--border-2` | `#CBD5E1` | Heavier divider |
-| `--border-on-dark` | `rgba(255,255,255,0.12)` | Dividers on dark |
-| `--border-band-rule` | `#FDB61C` | The 3px gold rule under the header band |
+| `--bg-inverse` | `#1D225E` | Hero, title slide |
+| `--border-1` | `#E4E4E9` | Hairlines and dividers |
+| `--border-2` | `#D0D0D6` | Stronger rule |
+| `--border-on-dark` | `rgba(255,255,255,0.12)` | Rules on a dark ground |
+| `--border-band-rule` | `#FDB61C` | The 2.25pt (3px) gold rule under the band. 8.24:1 on the band |
 
-### Status
+The focus ring on a control is `#23232A` on light and `#FFFFFF` on dark, 2px wide at a 2px offset.
 
-Identical in every brand, so an operational signal never changes meaning between documents. A brand accent is never a status color.
+### 1.5 Alerts
 
-| Role | Variable | Hex | On `#FFFFFF` | As text |
-|---|---|---|---|---|
-| Go | `--status-go` | `#1E7A4D` | 5.32:1 | Any size |
-| Warn | `--status-warn` | `#B5821A` | 3.40:1 | 18pt or 24px and up. Never running copy |
-| Stop | `--status-stop` | `#B0322B` | 6.29:1 | Any size |
-| Info | `--status-info` | `#2A5A8C` | 7.14:1 | Any size |
+Four meanings, one family, identical in every brand, so a signal never changes meaning between documents. Green means good and nothing else. A brand color is never a status color. A word or an icon always travels with the color.
 
-### Diagram roles
+| Meaning | Base | Text | Tint | Text on tint | On dark |
+|---|---|---|---|---|---|
+| Go · cleared, on time, in service, favorable | `#1E7A4D` | `#1E7A4D` | `#DAF8DF` | `#1E7A4D` | `#56B580` |
+| Warn · at risk, pending, watch, caution | `#B5821A` | `#926603` | `#FFEFDD` | `#926603` | `#E9B457` |
+| Stop · failed, out of service, blocked, unfavorable | `#B0322B` | `#B0322B` | `#FDE9E6` | `#B0322B` | `#EB685C` |
+| Info · neutral notice | `#2A5A8C` | `#2A5A8C` | `#E3F0FF` | `#2A5A8C` | `#5796D9` |
 
-Identical in every brand, so a flowchart reads the same regardless of whose document it sits in. Never invent a new hue for these roles.
-
-| Role | Fill | Border | Use |
+| Step | CSS name | `tokens.json` | Use |
 |---|---|---|---|
-| Decision | `#4a8e3a` | `#3a7029` | Decision boxes, questions, branch points |
-| Warning | `#f57c00` | `#cc6600` | Warnings, advisories, watch-out pills |
-| Process | `#3e3e3e` | `#2a2a2a` | Neutral process steps, context boxes |
-| Connector | `#3e3e3e` stroke | 1.8pt | Lines between nodes, with arrow markers |
+| Base | `--alert-<name>` | `alert.<name>.base` | A fill, a rule or a dot on a light ground |
+| Text | `--alert-<name>-text` | `alert.<name>.text` | Text on white and on Surface |
+| Tint | `--alert-<name>-tint` | `alert.<name>.tint` | A pill or a callout fill |
+| Text on tint | `--alert-<name>-on-tint` | `alert.<name>.onTint` | Text on the matching tint |
+| On dark | `--alert-<name>-on-dark` | `alert.<name>.onDark` | Text, dots and rules on a dark ground |
 
-All diagram shapes are rectangles at 6px radius. Role is communicated by fill, never by shape.
+Worst measured ratio across white, the three brand surfaces and the three brand bands:
 
-White node text on `#f57c00` measures 2.70:1 and on `#4a8e3a` measures 4.02:1. Both fail 4.5:1. The two fills and their white text are inherited from the pre-v1.0 kits and are frozen pending a decision from the brand owner. Do not recolor them. Until that decision lands, a Decision or Warning node carries a short label only, and every fact it signals also appears in the running text or the table beside the diagram.
+| Step | Go | Warn | Stop | Info |
+|---|---|---|---|---|
+| Text on white and on Surface | 4.71:1 | 4.51:1 | 5.57:1 | 6.33:1 |
+| Text on tint | 4.68:1 | 4.52:1 | 5.39:1 | 6.18:1 |
+| On dark, on the bands | 5.76:1 | 7.72:1 | 4.62:1 | 4.69:1 |
 
----
+**Canonical names and aliases.** `--alert-*` is canonical. It holds one value on every ground. Pick the step for the ground. Three sets are aliases of it and resolve to the same values:
 
-## 2. Color rules
+| Alias | Resolves to | Note |
+|---|---|---|
+| `--status-go`, `--status-warn`, `--status-stop`, `--status-info` | The alert base | Under `.bk-on-dark` they move to the on-dark step |
+| `--dir-favorable`, `--dir-unfavorable`, `--dir-caution` | Go text, stop text, warn text | The data layer. `--dir-neutral` is Tertiary `#6D6D77` |
+| `--diagram-decision`, `--diagram-warning` | Go base, warn base | Section 1.6 |
 
-### What each color must never do
+**Status on a dark ground.** Status works on a band. Use the on-dark step: `#56B580`, `#E9B457`, `#EB685C`, `#5796D9`. The worst case is stop on the Apex band, 4.62:1.
 
-| Color | Never |
-|---|---|
-| Apex Gold `#FDB61C` | Never text on white. Never a background for a large area. Never a status color. Never the fill of a body-text panel |
-| Apex Gold Deep `#B77808` | Never below 18pt print or 24px web, the `.bk-h3` step. Never an eyebrow, a caption or a table cell. Never long-form running text |
-| Apex Blue Light `#9699C7` | Never text on white. Never a large-area background. Never a table header fill |
-| Apex Blue `#2B338D` | Never a body-text color for long-form. Never carries `--fg-on-dark-3` `#9EA5C4`, which measures 4.40:1 on it |
-| Surface Tint `#f3f3fb` | Never carries white text. Never a header band |
-| Dimmed `#94A3B8` | Never body text on white |
-| Muted `#64748B` | Never text on `#1D225E` |
+**Warn.** The base `#B5821A` measures 3.40:1 on white. It is a fill, a rule or a dot, never text. Warn text is `#926603`, 5.09:1 on white. Text on an amber fill is `#23232A`, 4.59:1. White on amber measures 3.40:1 and fails.
 
-### Contrast traps
+**Surface 2.** On Surface 2, go text measures 4.45:1 and warn text 4.25:1. Neither sits bare on that ground. Carry them in a tint pill there. Stop and info hold.
 
-1. **Bright gold on white.** `#FDB61C` on `#FFFFFF` measures 1.77:1. `#B77808` measures 3.68:1, which clears the 3:1 large-text threshold and nothing below it. Gold text on white runs at 18pt print or 24px web and up, which is the `.bk-h3` step and above. Body copy, `.bk-body-sm`, `.bk-caption` and `.bk-eyebrow` are `--fg-1`, `--fg-2` or `--fg-accent`, never gold.
-2. **Gold as a status signal.** Gold reads as the Apex accent, so a gold warning pill is indistinguishable from a brand highlight. `--status-warn` `#B5821A` measures 3.40:1 on white, so it marks a warning as a rule, a chip border or a label at 18pt or 24px and up. The warning sentence itself is `--fg-1`. Inside a flowchart node the warning fill is `#f57c00`, which is frozen and fails as a ground for text.
-3. **Blue Light as text.** `#9699C7` on white measures 2.74:1. It is an accent hue, not an ink. Confine it to hover states, thin rules and tertiary marks.
-4. **Muted on the band.** `#64748B` on `#1D225E` is nearly invisible. Text on the band uses `--fg-on-dark-1`, `--fg-on-dark-2` or `--fg-on-dark-3`.
-5. **Gold over blue.** `#FDB61C` on `#1D225E` measures 8.24:1 and on `#2B338D` measures 6.06:1. Both clear 4.5:1 at any size, so gold on either blue is correct for a stat numeral, an accent rule or a caps label on a dark band.
-6. **Secondary gray as the data.** `#64748B` measures 4.76:1 on `#FFFFFF` but 4.31:1 on the `#f3f3fb` alternating row, which fails. `.bk-body-sm` and `.bk-caption` default to that gray, so any table cell carrying primary data sets `color: var(--fg-1)` `#1E293B`, which measures 13.25:1 on `#f3f3fb`.
+### 1.6 Diagram roles
 
-### Measured contrast
+Identical in every brand, so a diagram reads the same in any document. Every node is a rectangle with a 6px radius. Fill carries the role, never shape. Each role names the one text color that clears contrast on its fill.
 
-Computed against WCAG 2.x relative luminance. Use these figures. Do not restate a different one.
+| Role | Fill | Border | Text | Contrast | Use |
+|---|---|---|---|---|---|
+| Decision | `#1E7A4D` | `#036139` | `#FFFFFF` | 5.32:1 | Decision boxes, questions, branch points |
+| Warning | `#B5821A` | `#926603` | `#23232A` | 4.59:1 | Warnings, advisories. Ink, never white |
+| Process | `#4E4F58` | `#23232A` | `#FFFFFF` | 8.13:1 | Neutral process steps, context boxes |
+| Connector | `#4E4F58` stroke | | | | Lines between nodes, 1.8pt, with arrow markers |
+| Brand role | None | | | | This kit adds no role |
+
+A node carries its own ground, so these values do not change on a band.
+
+### 1.7 Charts
+
+Chart colors come from the house data set, never from the brand palette. A brand color is never a chart series. The standard is [data-color.md](data-color.md). The one chart value that follows the brand is the sequential ramp:
+
+| Step | 100 | 200 | 300 | 400 | 500 | 600 | 700 |
+|---|---|---|---|---|---|---|---|
+| On light | `#E5EAFF` | `#C2CFFE` | `#A0B1F1` | `#8193DE` | `#6374C9` | `#4452B1` | `#2B338D` |
+| On dark | `#20285A` | `#313C7A` | `#45539F` | `#5A6BC7` | `#7286EA` | `#95A8FA` | `#C2CFFF` |
+
+The Apex ramp is blue and step 700 is `--fg-accent` `#2B338D`. Steps 100 and 200 are for continuous scales only. On a dark ground the lightest step is the largest value.
+
+### 1.8 Contrast
+
+WCAG 2 relative luminance. Body-size text needs 4.5:1. Large text needs 3:1 and starts at 18pt regular or 14pt bold. Use these figures. Do not restate a different one.
 
 | Pair | Ratio | Verdict |
 |---|---|---|
-| `#1E293B` on `#FFFFFF` | 14.63:1 | Any size |
+| `#23232A` on `#FFFFFF` | 15.61:1 | Any size |
+| `#23232A` on `#f3f3fb` | 14.14:1 | Any size |
+| `#23232A` on `#E5EAFF` | 13.04:1 | Any size |
+| `#565860` on `#FFFFFF` | 7.09:1 | Any size |
+| `#565860` on `#f3f3fb` | 6.43:1 | Any size |
+| `#565860` on `#E5EAFF` | 5.93:1 | Any size |
+| `#6D6D77` on `#FFFFFF` | 5.12:1 | Any size. The dimmest text |
+| `#6D6D77` on `#f3f3fb` | 4.64:1 | Any size |
+| `#6D6D77` on `#E5EAFF` | 4.27:1 | Fails. Never on Surface 2 |
+| `#8A8B93` on `#FFFFFF` | 3.39:1 | Never text |
 | `#2B338D` on `#FFFFFF` | 10.71:1 | Any size |
-| `#1E293B` on `#f3f3fb` | 13.25:1 | Any size |
-| `#64748B` on `#FFFFFF` | 4.76:1 | Any size |
-| `#64748B` on `#f3f3fb` | 4.31:1 | Fails. Never on the alternating row |
-| `#B77808` on `#FFFFFF` | 3.68:1 | Large or bold only. Never small text |
-| `#B5821A` on `#FFFFFF` | 3.40:1 | Large or bold only. Never running copy |
-| `#9699C7` on `#FFFFFF` | 2.74:1 | Fails. Never text |
-| `#FDB61C` on `#FFFFFF` | 1.77:1 | Fails. Never text |
+| `#2B338D` on `#f3f3fb` | 9.70:1 | Any size |
+| `#2B338D` on `#E5EAFF` | 8.95:1 | Any size |
+| `#B77808` on `#FFFFFF` | 3.68:1 | 18pt and up only |
+| `#B77808` on `#f3f3fb` | 3.34:1 | 18pt and up only |
+| `#9699C7` on `#FFFFFF` | 2.74:1 | Never text |
+| `#FDB61C` on `#FFFFFF` | 1.77:1 | Never text |
 | `#FDB61C` on `#1D225E` | 8.24:1 | Any size |
 | `#FDB61C` on `#2B338D` | 6.06:1 | Any size |
 | `#FFFFFF` on `#1D225E` | 14.56:1 | Any size |
+| `#DDDDE3` on `#1D225E` | 10.76:1 | Any size |
+| `#A3A4AC` on `#1D225E` | 5.87:1 | Any size |
 | `#FFFFFF` on `#2B338D` | 10.71:1 | Any size |
-| `#9EA5C4` on `#2B338D` | 4.40:1 | Fails 4.5:1. Never a caption or an eyebrow on this ground |
-| `#FFFFFF` on `#3e3e3e` | 10.70:1 | Any size |
-| `#FFFFFF` on `#4a8e3a` | 4.02:1 | Fails 4.5:1. Frozen diagram fill |
-| `#FFFFFF` on `#f57c00` | 2.70:1 | Fails. Frozen diagram fill |
+| `#DDDDE3` on `#2B338D` | 7.92:1 | Any size |
+| `#A3A4AC` on `#2B338D` | 4.32:1 | Fails. Never on Mid |
 
-Large text starts at 18pt or 24px regular, 14pt or 18.66px bold. The `.bk-h4` step is 15pt at weight 600, which is neither, so the weight-independent floor for a 3:1 color is the `.bk-h3` step: 18pt print, 24px web. The body step is 12pt print and 16px web, which is normal text and needs 4.5:1.
+### 1.9 Never
 
-### Backgrounds
-
-White is the primary ground. The only other permitted subtle ground is `#f3f3fb`. Never anything stronger for an alternating row, a callout or a panel. Dark grounds are `#1D225E` only.
-
-### Data and functional color
-
-**Chart series do not come from this palette.** They come from the house data layer in [data-color.md](data-color.md). The former rule here said to extend along the blue ramp rather than introduce a new hue. Measured, `#1D225E` against `#2B338D` is ΔE 9.6 under normal vision against a floor of 15, and `#9699C7` falls below the chroma floor entirely, so it reads as gray and cannot carry identity. The rule produced charts nobody could read and it is withdrawn.
-
-Status indicators stay in the status set. Decorative off-brand color is still never permitted: the data layer is not decoration, it is the functional color for data, and nothing outside it is sanctioned.
+- `#8A8B93`, `#D0D0D6` and `#E4E4E9` are never text.
+- A brand color is never a status color and never a chart series.
+- A status color is never a theme, a background or a decoration.
+- The band is never the reading surface of a document.
+- No color enters a document that is not in `tokens.json`.
+- `#FDB61C` is never text on white, never a large background and never the fill of a panel that carries body text.
+- `#B77808` is never below 18pt in print or 24px on screen. Never an eyebrow, a caption, a table cell or running text.
+- `#9699C7` is never text, never a large background and never a table header fill.
+- `#2B338D` is never the color of long-form body text.
+- `#f3f3fb` never carries white text.
+- Dark grounds are `#1D225E` and `#2B338D` only.
 
 ---
 
-## 3. Logo
+## 2. Logo
 
-### Lockups
+### 2.1 Roles and files
 
-| Lockup | What it is | When |
-|---|---|---|
-| Horizontal | The blue `APEX PARAMEDICS` wordmark under the gold arc | The main logo. Default for any context with horizontal room |
-| Compact | `APEX` alone under the gold arc | Smaller places, decks, or a corner |
-| Mark | The A with the gold arc running through it | Avatars, badges, table corners, and any space too small for the compact lockup |
-| App icon | The white mark on an Apex Blue Deep `#1D225E` square | Favicons and app tiles. `assets/logos/app-icon.svg` |
+Ask for a role, never a filename. Filenames differ between brands. `-on-light` is the file placed on a light background. `-on-dark` is the file placed on a dark one. SVG files are in `assets/logos/`. PNG files are in `for-humans/logos/png/`, each at two widths.
 
-The gold arc never appears on its own, at any size. The arc-only files `mark-color.svg` and `mark-white.svg` are deleted, and `scripts/validate.py` fails on any reference to them.
+| Role | SVG | PNG | The artwork |
+|---|---|---|---|
+| `horizontal-on-light` | `horizontal-color.svg` | `Apex-Paramedics-horizontal-blue-1200w.png`, `-2400w.png` | `#2B338D` APEX PARAMEDICS under the `#FDB61C` arc |
+| `horizontal-on-dark` | `horizontal-white.svg` | `Apex-Paramedics-horizontal-white-1200w.png`, `-2400w.png` | White APEX PARAMEDICS under the `#FDB61C` arc |
+| `compact-on-light` | `compact-on-light.svg` | `Apex-Paramedics-compact-blue-1200w.png`, `-2400w.png` | `#2B338D` APEX under the `#FDB61C` arc |
+| `compact-on-dark` | `compact-on-dark.svg` | `Apex-Paramedics-compact-white-1200w.png`, `-2400w.png` | White APEX under the `#FDB61C` arc |
+| `mark-on-light` | `mark-on-light.svg` | `Apex-Paramedics-mark-blue-512w.png`, `-1024w.png` | The `#2B338D` A with the `#FDB61C` arc through it |
+| `mark-on-dark` | `mark-on-dark.svg` | `Apex-Paramedics-mark-white-512w.png`, `-1024w.png` | The white A with the `#FDB61C` arc through it |
+| `stacked-on-light` | None | None | Apex ships no stacked lockup |
+| `stacked-on-dark` | None | None | Apex ships no stacked lockup |
+| `app-icon` | `app-icon.svg` | `Apex-Paramedics-app-icon-512w.png`, `-1024w.png` | The white A and the `#FDB61C` arc on a `#1D225E` square |
 
-In the mark the arc is cut square at the left and right edges of the box. That is the drawing, not a cropping error. The delivered files carried `#000F9F` and `#FFB71B`, normalised here to `#2B338D` and `#FDB61C` like the compact lockup.
+The horizontal lockup is the primary logo. The compact lockup is for small places, decks and corners. The mark is for avatars, badges and any space too small for the compact lockup. The app icon is for favicons and app tiles. The gold arc never appears on its own, at any size. `horizontal-on-light.svg` and `horizontal-on-dark.svg` in `assets/logos/` are byte-identical copies of `horizontal-color.svg` and `horizontal-white.svg`.
 
-Apex has no stacked lockup. Where a vertical lockup is needed, use the horizontal one at reduced width.
-
-### Specifications
+### 2.2 Specifications
 
 | Property | Value |
 |---|---|
-| Horizontal viewBox | `0 0 687.72 289.25` |
-| Horizontal aspect | 2.378 : 1 |
-| Compact viewBox | `0 0 682.3 240.66` |
-| Compact aspect | 2.835 : 1 |
+| Horizontal viewBox | `0 0 687.72 289.25`, 2.378:1 |
+| Compact viewBox | `0 0 682.3 240.66`, 2.835:1 |
 | Mark viewBox | `0 0 300 299.36` |
+| Stacked viewBox | None |
 | App icon viewBox | `0 0 300 300` |
-| Wordmark color | Apex Blue `#2B338D`, or `#FFFFFF` on dark |
-| Arc color | Apex Gold `#FDB61C`, on both light and dark |
-| Minimum clear space | Padding on all four sides equal to at least the height of the gold arc |
-| Minimum size, horizontal | 110px on screen, 1 inch in print |
-| Minimum size, compact | 80px on screen, 0.75 inch in print |
-| Minimum size, mark and app icon | 16px |
-| Vector master | `assets/logos/source/apex-paramedics-PMS123-PMS072.eps` |
+| Fill on light | `#2B338D` letters. `#FDB61C` arc |
+| Fill on dark | `#FFFFFF` letters. `#FDB61C` arc |
+| Minimum, horizontal | 110px on screen, 1in in print |
+| Minimum, compact | 80px on screen, 0.75in in print |
+| Minimum, mark | 16px on screen. No print value is stated |
+| Minimum, app icon | 16px on screen. No print value is stated |
+| Clear space | The height of the gold arc, on all four sides |
+| Vector master | `assets/logos/source/apex-paramedics-PMS123-PMS072.eps`. The SVG files are converted from it |
+| Embedding | Place the PNG in an office document. Reference the CDN URL with `<img>` in HTML. Never inline a copied SVG path |
 
-The shipping SVGs are converted from the EPS, which remains the authoritative master for any future re-export.
+### 2.3 Do not
 
-The horizontal files are tight to their ink. The superseded `0 0 894.53333 430.01334` box carried 12.5 percent empty height below the mark, so at the same pinned width the logo renders at the same size and the box around it is shorter. Rendered at 800px wide the box is 384.57px tall in the old file and 336.47px in the new one, and the ink is 336.47px tall in both. No pinned width in this kit changes.
-
-The compact minimum holds the `APEX` cap at or above the size the horizontal lockup shows at its own 110px floor. Rendered at 1000px wide the cap measures 165.50px in the horizontal file and 230.14px in the compact file, so 110px horizontal matches 79.10px compact.
-
-The delivered compact files carried `#000F9F` and `#FFB71B`. Both fills are normalised to the primary lockup, `#2B338D` and `#FDB61C`, so the house ships one blue and one gold. The delivered originals are in the git history, at the commit that adopted the set.
-
-### Raster fallback
-
-The `-on-dark` SVG is the correct file for the `#1D225E` band. Where only the color raster exists and no SVG is reachable, place that raster on a white chip inside the band rather than knocking the logo out or filtering it: `#FFFFFF` fill, `--radius-sm` 2px, clear space held on all four sides. A white chip is also the fix for a busy photographic ground.
-
-### Do not
-
-- Do not stretch, skew or rotate the logo.
-- Do not place the logo on a busy photographic background without a solid backing chip.
-- Do not recolor the logo to anything other than Apex Blue plus Apex Gold, or white plus gold on dark.
-- Do not apply a CSS filter to invert or recolor a variant. Load the correct file for the ground.
-- Do not add a drop shadow, glow, outline or gradient.
-- Do not separate the wordmark from the arc, in either lockup, or the A from the arc in the mark. The arc alone is not an Apex logo.
-- Do not use the compact lockup where the horizontal one fits. `APEX PARAMEDICS` is the main logo.
+- Do not stretch, skew or rotate a logo.
+- Do not recolor a logo, and do not invert one with a filter. Pick the file for the ground.
+- Do not add a shadow, a glow, an outline or a gradient.
+- Do not place a logo on a photograph without a solid backing.
+- Do not set a logo below its minimum size.
+- Do not crop the clear space. Shrink the logo instead, down to the minimum.
+- Do not put one brand’s logo twice on a page or slide.
+- Do not show the gold arc on its own. The arc alone is not an Apex logo.
+- Do not separate the wordmark from the arc, or the A from the arc in the mark.
 - Do not render the arc in blue or the wordmark in gold.
-- Do not reproduce the logo below its minimum size.
-- Do not crop the clear space to fit a tight layout. Shrink the logo instead, down to the minimum.
-
-### Embedding
-
-Reference the CDN URL directly with `<img src="...">`. The repository is public and jsDelivr needs no auth. Do not inline a copied SVG path, because it will drift from the master.
+- Do not use the compact lockup where the horizontal one fits.
 
 ---
 
-## 4. Voice and content
+## 3. Co-brand
 
-Apex speaks the way a field crew speaks: short, specific, and about the work.
+Apex Paramedics and Royal Ambulance are operating companies under Collective Edge, and the reader should be able to see it. The rules in this section are identical in all three kits.
 
-- Period sentences, active verbs. No throat-clearing, no hedging, no filler.
-- Never an em dash. Use a period, a comma, or a middot separator.
-- A label, a value, and nothing between them. No helper text under a field, no caption restating the number above it, no parenthetical after a heading.
-- Exact values only. Write `#1D225E`, never “the dark navy”. Write the real number, never a rounded one.
-- Clinical and operational terms stay precise. Never soften a protocol term for readability.
-- The mono face is a whitelist of four: color values, paths and filenames, code shown as code, and record identifiers a person dictates. Use `.bk-code`. Measurements, ratios, counts, ordinals, weight numbers, verdict words and labels are Montserrat.
-- Write a caption only when it carries information the thing above it does not.
-- No off-brand decoration. If information can be carried by structure, position or a rendered example, carry it that way.
+### 3.1 The lockup
 
----
+“Powered by Collective Edge” is one lockup in two sizes. On a site or a dashboard it is the label `POWERED BY` over the Collective Edge horizontal lockup, under a hairline. In a PDF, a deck or an image it is small and quiet: the words `Powered by`, then the logo on the same line at its minimum width. The table gives the site lockup, then the document lockup. `cobrand` in `brands.json` carries every value below, and `snippets/cobrand.css` is the HTML implementation.
 
-## 5. Legacy asset URLs
-
-Still served, still valid, retained for anything already pointing at them.
-
-| Asset | URL |
+| Part | Value |
 |---|---|
-| Brand colors, raw JSON | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/colors.json` |
-| Legacy base CSS | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/brand-base.css` |
-| Montserrat, this kit’s copy | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.ttf` |
+| Label | `POWERED BY`. Weight 600, uppercase, 12px, tracking 0.080em |
+| Label color | `#6D6D77` on white, 5.12:1. `#A3A4AC` on a dark ground |
+| Lockup on white | The Collective Edge `horizontal-on-light` file, `assets/logos/horizontal-black.svg` in the Collective Edge kit |
+| Lockup on a dark ground | The Collective Edge `horizontal-on-dark` file, `assets/logos/horizontal-white.svg` in the Collective Edge kit |
+| Width | 204px wide, 34px tall. The artwork is 6:1 |
+| Floor | 120px. On a site, a floor and not a target |
+| Hairline | 0.75pt (1px) above the label. `#E4E4E9` on white. White at 12 percent on a dark ground |
+| Spacing | On a site: 18pt (24px) above the hairline, 18pt (24px) between hairline and label, 9pt (12px) between label and lockup |
+| Document lockup | In a PDF, a deck or an image. One line: the words `Powered by`, weight 400, 9pt, `#6D6D77`, then 6pt to the right the Collective Edge horizontal logo, 1.25in (120px) wide, 0.208in (20px) tall. No hairline of its own. On a closing slide the words are 12pt, `#A3A4AC`. Never larger. `reference/layout.md` section 3.12 |
+| Figure line | On a chart or data graphic made on its own. No logo. The words `Powered by Collective Edge`, bottom right, weight 400, 9pt, `#6D6D77` |
+| Ground | The light lockup sits on white, not on a tint |
+| CSS classes | `.ce-powered` on a dark ground. `.ce-powered ce-powered-light` on white. `.ce-powered-text` where no mark fits |
 
-New work loads `type-system.css` plus `palette.css` and reads colors from `tokens.json`. The house font is served from the Collective Edge kit so there is one font file and one place to update it.
+The label measures 5.87:1 on this brand’s band.
+
+### 3.2 Where it goes
+
+1. “Powered by Collective Edge” appears once on everything Apex Paramedics and Royal Ambulance deliver as a PDF, a deck or an image: memo, one-pager, report, proposal, deck, and a chart or data graphic made on its own. A working-doc and a sheet never carry it, as a lockup or as words. The rule follows the type, not the file format: a working-doc exported to PDF stays as it is.
+2. A Collective Edge document carries the Collective Edge logo in its band and no lockup.
+3. Where the Collective Edge mark shares a surface with another brand, the lockup is on that surface, once.
+
+| Surface | Place |
+|---|---|
+| Memo, one-pager | The footer row of page 1, at left |
+| Report | The last line of the body on the last page |
+| Deck | The footer row of the closing slide, at left |
+| Chart or data graphic made on its own | One line of words, bottom right. No logo |
+| Working-doc, sheet | None |
+| Site | The footer |
+| Dashboard | The sidebar header |
+| Data page or methodology page | Anywhere a number was computed and not typed |
+
+### 3.3 Never
+
+- Never put the lockup on the partner’s own mark or inside its lockup.
+- Never merge, nest or recolor either mark to match the other.
+- Never use it twice in one document or on one surface.
+- Never set the phrase as type where the mark fits. A chart or data graphic made on its own is the one place the words stand alone.
+- Never design the lockup down to the 120px floor on a site or a dashboard.
+- Never set it larger than 1.25in in a PDF, a deck or an image.
+- Never put it on a working-doc or a sheet.
+- Never put it on a clinical instruction.
+- Never put it on a patient-facing consent or safety document.
+
+The last two, the working-doc and the sheet are the only documents that carry no lockup.
+
+### 3.4 Who leads
+
+Ask whose name is on the door.
+
+| | Partner led | Collective Edge led |
+|---|---|---|
+| When | The surface belongs to Apex Paramedics, Royal Ambulance or another partner. The default | A Collective Edge product delivered to a partner or its customer |
+| Logo | The partner’s logo heads the surface | The Collective Edge logo heads the surface |
+| Palette | The partner’s palette runs the band and the accents | White canvas and the Collective Edge tiers |
+| Collective Edge adds | Type, hairlines and whitespace. No hue. The lockup, once | The partner’s color as the one hue, on live and active states only. Never a chart series |
+
+When in doubt, the partner leads. Hold one mode on a surface. Never stack more than three marks in one lockup. Take a partner’s hex from `brands.json` or from that partner’s kit, never from a copy. `unreconciled` in `brands.json` lists placeholder colors for brands with no kit. Confirm those with the owner before use.
+
+### 3.5 The wedge
+
+The Edge wedge is the one part of the Collective Edge block mark that takes color, and that color is the partner’s. Every combination ships as a file in the Collective Edge kit, under `assets/logos/`. Never recolor a mark by hand.
+
+| Wedge | Hex | On light | On dark |
+|---|---|---|---|
+| Alone | `#C8C8C8` | `mark-black.svg` | `mark-white.svg` |
+| With Royal Ambulance | `#572E72` | `mark-black-royal.svg` | `mark-white-royal.svg` |
+| With Apex Paramedics | `#FDB61C` | `mark-black-apex.svg` | `mark-white-apex.svg` |
+
+The wedge color never leaves the wedge. The block and the letters stay black or white on every surface. On an Apex surface the wedge is Apex Gold `#FDB61C`.
+
+---
+
+## 4. Voice
+
+### 4.1 Character
+
+Short. Specific. About the work. Apex speaks the way a field crew speaks.
+
+### 4.2 Rules
+
+- Short declarative sentences. Active verbs. No filler and no throat-clearing.
+- No em dashes. Use a period, a comma or `·`. An en dash only in a date or number range, per rule 14 of the type system.
+- Exact values. The real number, never a rounded one. The hex, never a description of the color.
+- A label, a value, and nothing between them. No helper text under a field, no caption restating the thing above it, no parenthetical after a heading.
+- Write a caption only when it carries information the thing above it does not.
+- Sentence case for every heading. Uppercase for the band title, the title slide title and the site lockup label only. Always tracked, never past four words.
+- No emoji, no exclamation points, no rhetorical questions.
+- Clinical and operational terms stay precise. Never soften a protocol term.
+- Name people, partners and facilities exactly as they write themselves.
+- When you hand work back, state the brand, the document type, the logo role and how the font embedded.
+- Write about the work. If structure, position or a rendered example can carry the information, carry it that way.
+
+---
+
+## 5. Only in this kit
+
+### 5.1 The gold rule
+
+The Apex band carries a 2.25pt (3px) `#FDB61C` rule along its lower edge. It is `--border-band-rule`. Gold on `#1D225E` measures 8.24:1.
+
+### 5.2 The delivered artwork
+
+The delivered files carried `#000F9F` and `#FFB71B`. Both are normalised to `#2B338D` and `#FDB61C`, so the house ships one blue and one gold. The delivered originals are in the git history. In the mark the arc is cut square at the left and right edges of the box. That is the drawing, not a cropping error. The arc-only files `mark-color.svg` and `mark-white.svg` are deleted, and `scripts/validate.py` fails on any reference to them as check L1.
+
+### 5.3 Raster fallback
+
+Where only the color raster is reachable on a `#1D225E` ground, place it on a white chip: `#FFFFFF` fill, 2px radius, clear space held on all four sides. Never knock the logo out and never filter it. The same chip is the fix for a photographic ground.
+
+---
+
+## 6. Files and versions
+
+| What | Path |
+|---|---|
+| CDN root | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/` |
+| Repository | `collective-edge/apex-brand-kit` |
+| Palette, authoritative | `snippets/palette.css` |
+| Colors as data | `tokens.json`, version 2.0 |
+| Type as data | `snippets/type-tokens.json` |
+| Registry of every brand | `brands.json` |
+| Logos | `assets/logos/` as SVG, `for-humans/logos/png/` as PNG |
+| Fonts | `for-humans/fonts/static/` as static files. The variable font is served from the Collective Edge kit |
+| Templates | `templates/` |
+
+`@main` serves the latest. Production pins a tag in place of `@main`. Bump the minor version for an additive change. Bump the major version when a palette value or a mark changes.
+
+These files predate the house type system. They stay on the CDN because documents already point at them. New work never loads them.
+
+| Deprecated | Replaced by |
+|---|---|
+| `snippets/brand-base.css` | `snippets/type-system.css` and `snippets/palette.css` |
+| `assets/colors.json` | `tokens.json` |
+| `assets/fonts/Montserrat-VariableFont_wght.ttf` in this kit | The Collective Edge copy, woff2 first, TTF second |
