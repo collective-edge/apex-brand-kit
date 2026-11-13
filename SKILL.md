@@ -46,8 +46,8 @@ Ask for a role, never a filename. `-on-light` is the file you place **on** a lig
 | `horizontal-on-dark` | `horizontal-white.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/horizontal-white.svg` |
 | `compact-on-light` | `compact-on-light.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/compact-on-light.svg` |
 | `compact-on-dark` | `compact-on-dark.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/compact-on-dark.svg` |
-| `mark-on-light` | `mark-color.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/mark-color.svg` |
-| `mark-on-dark` | `mark-white.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/mark-white.svg` |
+| `mark-on-light`, `mark-on-dark` | none | The gold arc never appears without the letters. Use `compact-on-light` or `compact-on-dark`, or `app-icon` under 80px |
+| `app-icon` | `app-icon.svg` | `https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/assets/logos/app-icon.svg` |
 | `stacked-on-dark` | none | Apex has no stacked lockup. Use `horizontal-on-dark`. |
 
 The horizontal lockup is the main logo, `APEX PARAMEDICS`. The compact lockup is `APEX` alone, for smaller places, decks, or a corner.
@@ -168,7 +168,7 @@ It checks rules 1, 2, 5, 9, 10, 13 and 14 mechanically and exits non-zero on a v
 - [ ] Montserrat actually rendered, not a fallback. For PDF, actually embedded in the file.
 - [ ] No italic anywhere.
 - [ ] Correct logo role for the ground. White variant on `#1D225E`, never a CSS filter.
-- [ ] Clear space held. Horizontal logo at least 110px wide, compact at least 80px, mark at least 32px.
+- [ ] Clear space held. Horizontal logo at least 110px wide, compact at least 80px. The arc never appears without the letters.
 - [ ] “Powered by Collective Edge” on the footer, the sidebar or the closing slide. Once, beside the Apex mark and never inside it.
 - [ ] Bright gold `#FDB61C` nowhere near body text on white.
 - [ ] Dark bands one weight lighter than their light-surface equivalent, down to the 600 floor.

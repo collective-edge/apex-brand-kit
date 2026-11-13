@@ -71,6 +71,22 @@
         ],
         "logoWidth": 560
       }
+    },
+    {
+      "name": "app-icon",
+      "source": "assets/logos/app-icon.svg",
+      "ground": "light",
+      "png": [
+        512,
+        1024
+      ],
+      "preview": {
+        "plate": [
+          480,
+          480
+        ],
+        "logoWidth": 300
+      }
     }
   ],
   "swatches": [
