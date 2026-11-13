@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apex Paramedics · Logo sheet</title>
+
+<!-- Visual reference for an outside design partner. Every mark, every color,
+     on screen. The logo images are local relative paths, so this page still
+     shows the marks with no network. The stylesheets and the font come from
+     the public CDN and need a connection to render in brand type. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/snippets/type-system.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/collective-edge/apex-brand-kit@main/snippets/palette.css">
+
+<style>
+@font-face {
+  font-family: "Montserrat";
+  src: url("https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.woff2") format("woff2-variations"),
+       url("https://cdn.jsdelivr.net/gh/collective-edge/collective-edge-brand-kit@main/assets/fonts/Montserrat-VariableFont_wght.ttf")   format("truetype-variations");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg-surface);
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+}
+
+.sheet {
+  width: 8.5in;
+  margin: var(--space-6) auto;
+  background: var(--bg-canvas);
+  box-shadow: var(--shadow-2);
+  padding-bottom: var(--space-7);
+}
+
+header {
+  background: var(--bg-band);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding: var(--space-6) 0.5in;
+}
+
+.block { padding: var(--space-7) 0.5in 0; }
+
+.eyebrow {
+  color: var(--fg-3);
+  margin: 0 0 var(--space-2);
+}
+
+/* Logo plates. Light plate for the blue marks, dark plate for the white
+   ones, so each mark is shown on the ground it is actually for. */
+.plates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.plate {
+  border: 1px solid var(--border-1);
+  border-radius: 6px;
+  padding: var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.5in;
+}
+
+.plate.light { background: var(--bg-canvas); }
+.plate.dark  { background: var(--bg-inverse); border-color: var(--bg-inverse); }
+
+.plate img { display: block; max-width: 100%; height: auto; }
+.plate.horizontal img { width: 2.4in; }
+.plate.compact img { width: 2.1in; }
+
+.caption {
+  color: var(--fg-3);
+  margin: var(--space-2) 0 0;
+}
+
+/* Color chips */
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.swatch { border: 1px solid var(--border-1); border-radius: 6px; overflow: hidden; }
+.swatch .fill { height: 0.7in; }
+.swatch .meta { padding: var(--space-3) var(--space-4) var(--space-4); }
+.swatch .name { margin: 0 0 2px; }
+.swatch .hex  { color: var(--fg-3); margin: 0; }
+
+table { width: 100%; border-collapse: collapse; margin-top: var(--space-4); }
+th {
+  text-align: left;
+  background: var(--bg-band);
+  color: var(--fg-on-dark-1);
+  padding: var(--space-3) var(--space-4);
+}
+td { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--border-1); color: var(--fg-1); }
+tbody tr:nth-child(even) { background: var(--bg-surface); }
+
+ul { margin: var(--space-4) 0 0; padding-left: 1.1em; color: var(--fg-1); }
+li { margin-bottom: var(--space-2); }
+
+footer {
+  margin-top: var(--space-7);
+  padding: var(--space-5) 0.5in 0;
+  border-top: 1px solid var(--border-1);
+  color: var(--fg-3);
+}
+
+@media print {
+  body { background: #fff; }
+  .sheet { width: auto; margin: 0; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <header class="bk-on-dark">
+    <div class="bk-h2 bk-caps" style="margin:0;">Logo sheet</div>
+    <img src="logos/svg/Apex-Paramedics-horizontal-white.svg" alt="Apex Paramedics" style="width:1.6in; height:auto; display:block; flex:none;">
+  </header>
+
+  <div class="block">
+    <p class="bk-eyebrow eyebrow bk-caps">The marks</p>
+    <h1 class="bk-h1" style="margin:0;">Two lockups, two colors each</h1>
+    <p class="bk-body" style="color:var(--fg-2);">
+      Pick by the background. The file named <strong>blue</strong> goes on light. The file named <strong>white</strong> goes on dark. The name is the ink of the letters, not the ground. The arc is gold in every file.
+    </p>
+
+    <div class="plates">
+      <div>
+        <div class="plate light horizontal"><img src="logos/svg/Apex-Paramedics-horizontal-blue.svg" alt="Apex Paramedics horizontal logo in blue"></div>
+        <p class="bk-caption caption">Horizontal · blue · on light</p>
+      </div>
+      <div>
+        <div class="plate dark horizontal"><img src="logos/svg/Apex-Paramedics-horizontal-white.svg" alt="Apex Paramedics horizontal logo in white"></div>
+        <p class="bk-caption caption">Horizontal · white · on dark</p>
+      </div>
+      <div>
+        <div class="plate light compact"><img src="logos/svg/Apex-Paramedics-compact-blue.svg" alt="Apex compact logo in blue"></div>
+        <p class="bk-caption caption">Compact · blue · on light</p>
+      </div>
+      <div>
+        <div class="plate dark compact"><img src="logos/svg/Apex-Paramedics-compact-white.svg" alt="Apex compact logo in white"></div>
+        <p class="bk-caption caption">Compact · white · on dark</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2 class="bk-h2" style="margin:0;">Sizes and spacing</h2>
+    <table>
+      <thead>
+        <tr><th class="bk-table-head bk-caps">Rule</th><th class="bk-table-head bk-caps">Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="bk-body">Clear space on all four sides</td><td class="bk-body">Height of the gold arc</td></tr>
+        <tr><td class="bk-body">Horizontal lockup, minimum</td><td class="bk-body">110 px on screen · 1 inch in print</td></tr>
+        <tr><td class="bk-body">Compact lockup, minimum</td><td class="bk-body">80 px on screen · 0.75 inch in print</td></tr>
+        <tr><td class="bk-body">Logo width in a header band</td><td class="bk-body">1.4in to 1.8in</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block">
+    <h2 class="bk-h2" style="margin:0;">Color</h2>
+    <p class="bk-body" style="color:var(--fg-2);">Hex and RGB are authoritative. Everything else converts from these.</p>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="fill" style="background:#2B338D;"></div>
+        <div class="meta"><p class="bk-label name">Apex Blue</p><p class="bk-caption hex bk-code">#2B338D</p></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#1D225E;"></div>
+        <div class="meta"><p class="bk-label name">Apex Blue Deep</p><p class="bk-caption hex bk-code">#1D225E</p></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#9699C7;"></div>
+        <div class="meta"><p class="bk-label name">Apex Blue Light</p><p class="bk-caption hex bk-code">#9699C7</p></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#FDB61C;"></div>
+        <div class="meta"><p class="bk-label name">Apex Gold</p><p class="bk-caption hex bk-code">#FDB61C</p></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#B77808;"></div>
+        <div class="meta"><p class="bk-label name">Apex Gold Deep</p><p class="bk-caption hex bk-code">#B77808</p></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#1E293B;"></div>
+        <div class="meta"><p class="bk-label name">Charcoal</p><p class="bk-caption hex bk-code">#1E293B</p></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#64748B;"></div>
+        <div class="meta"><p class="bk-label name">Muted gray</p><p class="bk-caption hex bk-code">#64748B</p></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#E2E8F0;"></div>
+        <div class="meta"><p class="bk-label name">Hairline</p><p class="bk-caption hex bk-code">#E2E8F0</p></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#f3f3fb;"></div>
+        <div class="meta"><p class="bk-label name">Surface</p><p class="bk-caption hex bk-code">#f3f3fb</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2 class="bk-h2" style="margin:0;">Three traps, all measured</h2>
+    <ul>
+      <li class="bk-body">Apex Gold <span class="bk-code">#FDB61C</span> is never text on white. It measures 1.77:1. It is a rule, an accent mark, or a numeral on a dark blue band.</li>
+      <li class="bk-body">Gold text on white is Apex Gold Deep <span class="bk-code">#B77808</span>, and only at 18pt in print or 24px on screen and larger.</li>
+      <li class="bk-body">Apex Blue Light <span class="bk-code">#9699C7</span> is never text and never a large background. On a dark blue band use <span class="bk-code">#D6DAEC</span> for body text and <span class="bk-code">#9EA5C4</span> for captions.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2 class="bk-h2" style="margin:0;">Type</h2>
+    <p class="bk-body" style="color:var(--fg-2);">
+      Montserrat throughout. There is no secondary typeface and no italic. The four weights are in
+      <span class="bk-code">fonts/static/</span>, and the variable file is in <span class="bk-code">fonts/</span>.
+    </p>
+    <p class="bk-display-md bk-caps" style="margin:var(--space-5) 0 0;">Display caps</p>
+    <h3 class="bk-h3" style="margin:var(--space-4) 0 0;">Heading in sentence case</h3>
+    <p class="bk-body" style="margin:var(--space-2) 0 0;">Body copy sits at this size and weight. Short declarative sentences, active verbs, nothing before the point.</p>
+    <p class="bk-caption" style="margin:var(--space-2) 0 0;">Caption and metadata sit here.</p>
+  </div>
+
+  <div class="block">
+    <h2 class="bk-h2" style="margin:0;">Do not</h2>
+    <ul>
+      <li class="bk-body">Stretch, squash, skew or rotate the logo.</li>
+      <li class="bk-body">Recolor it. Pick the file that matches the background.</li>
+      <li class="bk-body">Render the arc in blue or the letters in gold.</li>
+      <li class="bk-body">Add a drop shadow, glow, outline or gradient.</li>
+      <li class="bk-body">Separate the letters from the arc.</li>
+      <li class="bk-body">Use the compact lockup where the horizontal one fits.</li>
+      <li class="bk-body">Place it on a busy photograph without a solid backing panel.</li>
+      <li class="bk-body">Render it below the minimum sizes above.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p class="bk-caption" style="margin:0;">Apex Paramedics · brand assets are property of Apex Paramedics and are for Apex Paramedics and partner work only.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

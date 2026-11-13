@@ -1,5 +1,36 @@
 # Apex Paramedics brand kit
 
+<p><img src="for-humans/previews/horizontal-blue.png" width="400" alt="Apex Paramedics logo on white"> <img src="for-humans/previews/horizontal-white.png" width="400" alt="Apex Paramedics logo on dark blue"></p>
+
+The public source for the Apex Paramedics brand. Logos, colors, type and the rules for using them. Pick your door.
+
+| | **[For humans →](for-humans/)** | **[For agents →](for-agents/)** |
+|---|---|---|
+| Who | Designers, agencies, printers, teammates | AI agents, and developers generating branded output |
+| What you get | Logos in SVG and PNG, the fonts, the colors, the rules. No install, no account, no git | CDN URLs, logo roles, color tokens, the full standard, validators |
+| Start with | [Download the pack](https://github.com/collective-edge/apex-brand-kit/archive/refs/heads/main.zip), then open `for-humans` | [`for-agents/README.md`](for-agents/README.md), then [`SKILL.md`](SKILL.md) |
+
+## Grab a logo
+
+The file named for its ink goes on the opposite background. Full set, sizes and rules are in [`for-humans/`](for-humans/).
+
+| | For light backgrounds | For dark backgrounds |
+|---|---|---|
+| Horizontal · the main logo | [SVG](for-humans/logos/svg/Apex-Paramedics-horizontal-blue.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-horizontal-blue-1200w.png) | [SVG](for-humans/logos/svg/Apex-Paramedics-horizontal-white.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-horizontal-white-1200w.png) |
+| Compact | [SVG](for-humans/logos/svg/Apex-Paramedics-compact-blue.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-compact-blue-1200w.png) | [SVG](for-humans/logos/svg/Apex-Paramedics-compact-white.svg) · [PNG](for-humans/logos/png/Apex-Paramedics-compact-white-1200w.png) |
+
+## The house
+
+Three brands, one type system, the same layout in every kit.
+
+| Brand | Kit | People | Agents |
+|---|---|---|---|
+| Collective Edge · the parent | [`collective-edge-brand-kit`](https://github.com/collective-edge/collective-edge-brand-kit) | [for-humans](https://github.com/collective-edge/collective-edge-brand-kit/tree/main/for-humans) | [for-agents](https://github.com/collective-edge/collective-edge-brand-kit/tree/main/for-agents) |
+| **Apex Paramedics** | this kit | [for-humans](for-humans/) | [for-agents](for-agents/) |
+| Royal Ambulance | [`royal-brand-kit`](https://github.com/collective-edge/royal-brand-kit) | [for-humans](https://github.com/collective-edge/royal-brand-kit/tree/main/for-humans) | [for-agents](https://github.com/collective-edge/royal-brand-kit/tree/main/for-agents) |
+
+## About this kit
+
 House type system v1.0. Cloud-hosted brand assets, the `apex-brand-guidelines` skill, and print-ready templates for Apex Paramedics. Written for agents and humans: an agent loads `SKILL.md` and applies the brand on its own, and a person reads the same file start to finish and gets the same standard.
 
 Apex Paramedics is an operating company under Collective Edge. Across the house exactly two things vary between brands: palette and logo. Type is shared and identical, and it is what makes Apex, Royal and Collective Edge read as one house. Never fork the type layer.
@@ -10,6 +41,9 @@ Everything is served from jsDelivr, so any session on any machine can produce on
 
 ```
 apex-brand-kit/
+├── for-humans/                     Start here if you are a person. Logos, fonts, colors, rules. No install.
+├── for-agents/                     Start here if you are an agent. URLs, roles, tokens, rules, on one page.
+├── AGENTS.md                       Entry point an agent finds on its own. Points at the two files below it.
 ├── SKILL.md                        The skill an agent loads. Brand identity, then pointers.
 ├── brands.json                     Registry of every brand in the house. Shared, identical everywhere.
 ├── tokens.json                     Apex colors, machine-readable, for generators that cannot parse CSS.
@@ -33,6 +67,7 @@ apex-brand-kit/
 │   ├── apex-one-pager.html         Shipping specimen.
 │   └── apex-one-pager.before.html  The same page before v1.0, for comparison.
 ├── scripts/
+│   ├── build-handoff.py            Renders the PNG logos, previews and color chips in for-humans/.
 │   ├── validate.py                 Mechanical check of rules 1, 2, 5, 9, 10, 13 and 14. Shared.
 │   └── check-sync.py               Asserts the shared files have not drifted. Shared.
 └── assets/
